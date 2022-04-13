@@ -6,7 +6,7 @@ export const BannerContainer = styled.div`
   height: 350px;
 
   .swiper {
-    width: 60.25rem;
+    width: ${({ theme }) => theme.screen.main};
     height: 100%;
   }
 

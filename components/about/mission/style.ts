@@ -10,6 +10,6 @@ export const MissionContainer = styled.div`
 
   .text-section {
     margin: auto;
-    width: 60.25rem;
+    width: ${({ theme }) => theme.screen.main};
   }
 `

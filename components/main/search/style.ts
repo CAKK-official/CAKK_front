@@ -4,7 +4,7 @@ export const SeacrhContainer = styled.div`
   background-color: lightgray;
   margin: 2rem auto;
 
-  width: 60.25rem;
+  width: ${({ theme }) => theme.screen.main};
   height: 3.25rem;
   border-radius: 1rem;
   display: flex;

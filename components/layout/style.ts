@@ -13,7 +13,7 @@ export const Header = styled.header`
 
   section {
     display: flex;
-    width: 60.25rem;
+    width: ${({ theme }) => theme.screen.main};
     justify-content: space-between;
   }
 `

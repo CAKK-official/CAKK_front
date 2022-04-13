@@ -6,7 +6,7 @@ export const ItemSwiperContainer = styled.div`
   height: 300px;
 
   .swiper {
-    width: 60.25rem;
+    width: ${({ theme }) => theme.screen.main};
     height: 100%;
   }
 
