@@ -9,12 +9,18 @@ export const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: white;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
 
   section {
     display: flex;
     width: ${({ theme }) => theme.screen.main};
     justify-content: space-between;
+
+    a {
+      color: ${({ theme }) => theme.colors.primary};
+      text-decoration: none;
+    }
   }
 `
 

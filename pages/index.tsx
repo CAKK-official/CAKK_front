@@ -4,9 +4,10 @@ import Head from 'next/head'
 import BannerContainer from '../components/main/banner'
 import Layout from '../components/layout'
 import SeacrhContainer from '../components/main/search/SeacrhContainer'
-import BestContainer from '../components/main/best-section/BestContainer'
+import RankContainer from '../components/main/rank-section/RankContainer'
 import AreaContainer from '../components/main/area-section'
 import * as Styled from '../styles/home'
+import { CategoryProvider, LocationProvider } from '../context'
 
 const Home: NextPage = () => {
   const theme = useTheme()
@@ -23,10 +24,14 @@ const Home: NextPage = () => {
           width: ${theme.screen.main};
         `}
       >
-        <BannerContainer />
-        <SeacrhContainer />
-        <BestContainer />
-        <AreaContainer />
+        <LocationProvider>
+          <CategoryProvider>
+            <BannerContainer />
+            <SeacrhContainer />
+            <RankContainer />
+            <AreaContainer />
+          </CategoryProvider>
+        </LocationProvider>
       </Styled.Home>
     </Layout>
   )

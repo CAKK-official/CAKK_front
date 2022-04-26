@@ -1,9 +1,9 @@
 import * as Styled from './style'
 
-interface DescriptionContentInterface {
-  title: string
-  description: { subtitle: string; paragraph: string[] }[]
-}
+// interface DescriptionContentInterface {
+//   title: string
+//   description: { subtitle: string; paragraph: string[] }[]
+// }
 
 const DescriptionContainer: React.FC = () => {
   const text = [
