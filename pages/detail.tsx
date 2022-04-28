@@ -44,6 +44,10 @@ const Detail: NextPage = () => {
         title={DUMMYDATA.name}
         desc={DUMMYDATA.notice}
         categories={DUMMYDATA.storeCategory}
+        tel={DUMMYDATA.tel}
+        opened={DUMMYDATA.opened}
+        closed={DUMMYDATA.closed}
+        url={DUMMYDATA.url}
       />
     </Layout>
   )
