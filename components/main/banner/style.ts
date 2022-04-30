@@ -4,21 +4,22 @@ export const BannerContainer = styled.div`
   margin-top: 20px;
 
   height: 350px;
+  width: ${({ theme }) => theme.screen.main};
+
 
   .swiper {
-    width: ${({ theme }) => theme.screen.main};
     height: 100%;
   }
-
   .swiper-wrapper {
-    height: 100%;
   }
 
   .swiper-slide {
-    height: 100%;
 
-    .slide {
-      border-radius: 1rem;
-    }
+  .slide {
+    height: 100%;
+    background-color: #aaffdd;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
   }
 `

@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const DescriptionContainer = styled.div`
-  background-color: skyblue;
   padding: 4rem 0;
 
   .description-wrapper {

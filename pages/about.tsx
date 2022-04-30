@@ -1,4 +1,3 @@
-import { css } from '@emotion/react'
 import Head from 'next/head'
 import DescriptionContainer from '../components/about/description'
 import IntroductionContainer from '../components/about/introduction'
