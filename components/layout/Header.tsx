@@ -1,5 +1,7 @@
+import { css } from '@emotion/react'
 import Link from 'next/link'
 import React from 'react'
+import Icon from '../icon'
 import * as Styled from './style'
 
 const Header: React.FC = () => {
@@ -8,12 +10,17 @@ const Header: React.FC = () => {
       {/*TODO: Mobile view goes here */}
       <section>
         <div className="logo">
-          <Link href="/">케이크크</Link>
+          <Link href="/">
+            <div>
+              <Icon name="logo" width={100} height={41} />
+            </div>
+          </Link>
         </div>
-        {/* <div className="search-bar">Text area goes here</div> */}
         <div className="button-container">
           <Link href="/about">케이크크 스토리</Link>
-          <button className="toggle-button my-page">M</button>
+          <button className="toggle-button my-page">
+            <Icon name="icon_user_fill" width={20} height={20} />
+          </button>
         </div>
       </section>
     </Styled.Header>

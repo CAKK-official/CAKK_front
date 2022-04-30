@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from '../icon'
 import * as Styled from './style'
 
 interface ItemGridInterface {
@@ -43,7 +44,9 @@ const ItemGridContainer: React.FC<ItemGridInterface> = ({
                   <span>{item.address}</span>
                 </div>
                 <div className="button-container">
-                  <button>svg</button>
+                  <button>
+                    <Icon name="icon_fork_fill" width={24} height={24} />
+                  </button>
                 </div>
               </div>
               {ranking && <div className="ranking">{index}</div>}

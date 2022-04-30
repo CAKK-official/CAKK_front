@@ -82,8 +82,8 @@ export const ItemGridContainer = styled.div<{ rows: number }>`
           justify-content: center;
 
           button {
-            width: 2rem;
-            height: 2rem;
+            background: none;
+            border: none;
           }
         }
       }

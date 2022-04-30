@@ -8,7 +8,7 @@ export const Header = styled.header`
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 1rem;
   background-color: white;
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
 
@@ -20,6 +20,38 @@ export const Header = styled.header`
     a {
       color: ${({ theme }) => theme.colors.primary};
       text-decoration: none;
+    }
+
+    svg {
+    }
+  }
+
+  // LOGO
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  // 케이크크 + my page button
+  .button-container {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 1.25rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
+    }
+
+    button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
+      border: none;
+      background: none;
+      cursor: pointer;
     }
   }
 `
