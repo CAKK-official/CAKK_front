@@ -9,6 +9,7 @@ type LocationAction =
       type: 'SET_LOCATION'
       location: string
     }
+  | { type: 'DELETE_LOCATION'; location: string }
   | { type: 'RESET_LOCATION' }
 
 const initState = {
@@ -27,9 +28,15 @@ function LocationReducer(state: LocationState, action: LocationAction) {
     case 'SET_LOCATION':
       return {
         ...state,
-        location: [...state.location, action.location],
+        location: Array.from(new Set([...state.location, action.location])),
       }
-
+    case 'DELETE_LOCATION':
+      return {
+        ...state,
+        location: state.location.filter(
+          (loc: string) => loc !== action.location
+        ),
+      }
     case 'RESET_LOCATION':
       return { ...state, location: [] }
 

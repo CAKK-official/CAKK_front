@@ -6,4 +6,14 @@ export const AreaContainer = styled.div`
   h2 {
     margin: 0;
   }
+
+  .pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .pagination {
+      margin: 2rem;
+    }
+  }
 `

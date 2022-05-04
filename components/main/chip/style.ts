@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const Chip = styled.div<{ primary: boolean }>`
+export const Chip = styled.div<{ primary: boolean; onDelete?: boolean }>`
   cursor: pointer;
   margin: 8px 12px;
   padding: 4px;
@@ -10,6 +10,16 @@ export const Chip = styled.div<{ primary: boolean }>`
   border-radius: 19.5px;
   color: ${(props) => (props.primary ? '#e72d3f' : '#7d756d')};
   display: flex;
-  justify-content: center;
+  justify-content: ${(props) => (props.onDelete ? 'space-between' : 'center')};
   align-items: center;
+
+  span {
+    margin-left: ${(props) => (props.onDelete ? '0.4rem' : '0')};
+  }
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.4rem;
+  }
 `

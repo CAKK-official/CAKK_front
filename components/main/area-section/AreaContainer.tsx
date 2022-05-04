@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCategoryState } from '../../../context'
 import {
   CategoryInterface,
   categoryList,
 } from '../../../context/CategoryContext'
 import { ItemGridContainer } from '../../item-container'
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
 import * as Styled from './style'
 
 const AreaContainer: React.FC = () => {
@@ -47,6 +49,14 @@ const AreaContainer: React.FC = () => {
     },
   ]
   const state = useCategoryState()
+  const [page, setPage] = useState<number>(1)
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
+    setPage(value)
+  }
 
   return (
     <Styled.AreaContainer>
@@ -60,6 +70,18 @@ const AreaContainer: React.FC = () => {
         가게
       </h2>
       <ItemGridContainer row={3} items={toyData} />
+
+      <div className="pagination-container">
+        <Stack className="pagination" spacing={2}>
+          <Pagination
+            page={page}
+            onChange={handlePageChange}
+            //TODO: fetch the maximum data count
+            count={20}
+            color="primary"
+          />
+        </Stack>
+      </div>
     </Styled.AreaContainer>
   )
 }
