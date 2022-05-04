@@ -26,15 +26,7 @@ const ItemSwiperContainer: React.FC<ItemInterface> = ({ count, items }) => {
       >
         {items.map((item: string, index: number) => (
           <SwiperSlide key={index}>
-            <div
-              className="slide"
-              css={css`
-                background-color: greenyellow;
-                height: 100%;
-              `}
-            >
-              {item}
-            </div>
+            <div className="slide">{item}</div>
           </SwiperSlide>
         ))}
       </Swiper>

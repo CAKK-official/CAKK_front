@@ -29,11 +29,7 @@ const BannerContainer: React.FC = () => {
       >
         <SwiperSlide>
           <div className="slide">
-            <div
-              css={css`
-                margin: 2rem 4rem;
-              `}
-            >
+            <div className="slide-content">
               <span>레터링케이크, 주문제작 케이크, 찾기 어려우셨죠?</span>
               <h1>
                 이제 케이크크에서 <br /> 쉽게 찾아보세요!
@@ -42,20 +38,8 @@ const BannerContainer: React.FC = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div
-            className="slide"
-            css={css`
-              background-color: #aaffdd;
-              height: 100%;
-              display: flex;
-              align-items: center;
-            `}
-          >
-            <div
-              css={css`
-                margin: 2rem 4rem;
-              `}
-            >
+          <div className="slide">
+            <div className="slide-content">
               <span>레터링케이크, 주문제작 케이크, 찾기 어려우셨죠?</span>
               <h1>
                 이제 케이크크에서 <br /> 쉽게 찾아보세요!
@@ -64,20 +48,8 @@ const BannerContainer: React.FC = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div
-            className="slide"
-            css={css`
-              background-color: #aaffdd;
-              height: 100%;
-              display: flex;
-              align-items: center;
-            `}
-          >
-            <div
-              css={css`
-                margin: 2rem 4rem;
-              `}
-            >
+          <div className="slide">
+            <div className="slide-content">
               <span>레터링케이크, 주문제작 케이크, 찾기 어려우셨죠?</span>
               <h1>
                 이제 케이크크에서 <br /> 쉽게 찾아보세요!
@@ -86,20 +58,8 @@ const BannerContainer: React.FC = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div
-            className="slide"
-            css={css`
-              background-color: #aaffdd;
-              height: 100%;
-              display: flex;
-              align-items: center;
-            `}
-          >
-            <div
-              css={css`
-                margin: 2rem 4rem;
-              `}
-            >
+          <div className="slide">
+            <div className="slide-content">
               <span>레터링케이크, 주문제작 케이크, 찾기 어려우셨죠?</span>
               <h1>
                 이제 케이크크에서 <br /> 쉽게 찾아보세요!

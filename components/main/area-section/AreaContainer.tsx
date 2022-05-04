@@ -10,31 +10,37 @@ import * as Styled from './style'
 const AreaContainer: React.FC = () => {
   const toyData = [
     {
+      id: 1,
       name: '키키네하우스',
       address: '송파구 오금로 130',
       img: 'https://picsum.photos/200/300',
     },
     {
+      id: 2,
       name: '케키하우스',
       address: '백제 고분로 41길 35',
       img: 'https://picsum.photos/200/300',
     },
     {
+      id: 3,
       name: '희스케이크',
       address: '백제고분로27길 26',
       img: 'https://picsum.photos/200/300',
     },
     {
+      id: 4,
       name: '키키네하우스',
       address: '송파구 오금로 130',
       img: 'https://picsum.photos/200/300',
     },
     {
+      id: 5,
       name: '케키하우스',
       address: '백제 고분로 41길 35',
       img: 'https://picsum.photos/200/300',
     },
     {
+      id: 6,
       name: '희스케이크',
       address: '백제고분로27길 26',
       img: 'https://picsum.photos/200/300',

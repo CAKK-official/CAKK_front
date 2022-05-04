@@ -19,7 +19,9 @@ export const ItemSwiperContainer = styled.div`
     height: 200px; */
 
     .slide {
+      background-color: greenyellow;
       border-radius: 1rem;
+      height: 100%;
     }
   }
 `
@@ -84,6 +86,10 @@ export const ItemGridContainer = styled.div<{ rows: number }>`
           button {
             background: none;
             border: none;
+
+            * {
+              cursor: pointer;
+            }
           }
         }
       }
