@@ -37,6 +37,7 @@ function LocationReducer(state: LocationState, action: LocationAction) {
           (loc: string) => loc !== action.location
         ),
       }
+
     case 'RESET_LOCATION':
       return { ...state, location: [] }
 

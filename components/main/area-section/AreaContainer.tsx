@@ -70,7 +70,6 @@ const AreaContainer: React.FC = () => {
         가게
       </h2>
       <ItemGridContainer row={3} items={toyData} />
-
       <div className="pagination-container">
         <Stack className="pagination" spacing={2}>
           <Pagination
