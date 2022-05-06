@@ -15,7 +15,6 @@ export const DescriptionContainer = styled.div`
 
         // Big title
         h2 {
-          background-color: pink;
         }
       }
     }
