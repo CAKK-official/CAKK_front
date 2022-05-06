@@ -21,5 +21,9 @@ export const BannerContainer = styled.div`
     display: flex;
     align-items: center;
     border-radius: 1rem;
+
+    .slide-content {
+      margin: 2rem 4rem;
+    }
   }
 `

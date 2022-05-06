@@ -1,4 +1,5 @@
 import React from 'react'
+import Cross from './Cross'
 import IconForkFill from './IconForkFill'
 import IconUserFill from './IconUserFill'
 // IconCakeFill,
@@ -23,6 +24,7 @@ export interface IconInterface {
 
 const Icon: React.FC<{
   name:
+    | 'cross'
     | 'icon_cake_fill'
     | 'icon_clock_fill'
     | 'icon_copy_fill'
@@ -41,6 +43,8 @@ const Icon: React.FC<{
   color?: string
 }> = ({ name, width, height, color }) => {
   switch (name) {
+    case 'cross':
+      return <Cross width={width} height={height} color={color} />
     // case 'icon_cake_fill':
     //   return <IconCakeFill />
     // case 'icon_clock_fill':

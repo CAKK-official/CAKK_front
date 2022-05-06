@@ -1,5 +1,5 @@
 import React from 'react'
-// import Footer from './Footer'
+import Footer from './Footer'
 import Header from './Header'
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -7,7 +7,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <div>
       <Header />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
