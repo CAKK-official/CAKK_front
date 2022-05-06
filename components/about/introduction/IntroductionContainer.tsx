@@ -1,5 +1,4 @@
 import React from 'react'
-import { ItemSwiperContainer } from '../../item-container'
 import * as Styled from './style'
 import introductionItems from './introduction.json'
 import Image from 'next/image'

@@ -1,20 +1,47 @@
 import styled from '@emotion/styled'
 
-export const CategoryContainer = styled.div`
+export const CategoryContainer = styled.section`
   /* background-color: greenyellow; */
+  background-color: #fef6f4;
   position: relative;
   width: 100%;
-  height: 30rem;
+  min-height: 30rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  img {
-  }
+  .category-wrapper {
+    padding: 4rem 1rem;
+    width: 60.25rem;
 
-  .text-section {
-    z-index: 2;
-    margin: auto;
-    width: ${({ theme }) => theme.screen.main};
+    .category-button-wrapper {
+      margin: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+
+      .category-item {
+        width: calc(100% / 5);
+
+        .category-item-wrapper {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .category-image {
+            background-color: pink;
+            width: 6rem;
+            height: 6rem;
+            border-radius: 3rem;
+          }
+
+          .category-title {
+            margin: 1rem;
+          }
+        }
+      }
+    }
   }
 `
