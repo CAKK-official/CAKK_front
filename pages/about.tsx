@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import CategoryContainer from '../components/about/category'
 import DescriptionContainer from '../components/about/description'
 import IntroductionContainer from '../components/about/introduction'
 import MissionContainer from '../components/about/mission'
@@ -16,6 +17,7 @@ const about = () => {
       <Styled.About>
         <MissionContainer />
         <IntroductionContainer />
+        <CategoryContainer />
         <DescriptionContainer />
       </Styled.About>
     </Layout>
