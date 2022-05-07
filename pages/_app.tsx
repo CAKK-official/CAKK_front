@@ -5,6 +5,12 @@ import { global } from '../assets/theme/Global'
 import theme from '../assets/theme/theme'
 import MuiTheme from '../assets/theme/MuiTheme'
 
+declare global {
+  interface Window {
+    kakao: any
+  }
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MuiThemeProvider theme={MuiTheme}>
