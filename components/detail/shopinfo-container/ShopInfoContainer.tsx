@@ -45,7 +45,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         ))}
       </div>
 
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', gap: '17px', alignItems: 'center' }}>
         <InfoBox title="전화번호" sub={tel} />
         <InfoBox title="영업시간" sub={opened} />
         <InfoBox title="휴무일" sub={closed} />
