@@ -49,7 +49,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       </div>
       <MapContainer lat={latlng[0]} lng={latlng[1]} />
       <div style={{ display: 'flex' }}>
-        <InfoBox title="전화번호" sub={tel} />
+        <InfoBox title="전화번호" sub={tel} canCopy={true} />
         <InfoBox title="영업시간" sub={opened} />
         <InfoBox title="휴무일" sub={closed} />
         <InfoBox title="인스타" sub={url} />
