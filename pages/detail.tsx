@@ -48,6 +48,7 @@ const Detail: NextPage = () => {
         opened={DUMMYDATA.opened}
         closed={DUMMYDATA.closed}
         url={DUMMYDATA.url}
+        latlng={DUMMYDATA.latlng}
       />
     </Layout>
   )
