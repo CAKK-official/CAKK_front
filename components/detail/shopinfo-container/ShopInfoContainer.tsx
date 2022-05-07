@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { css, jsx } from '@emotion/react'
-import Category from '../category/Category'
+import Chip from '../../main/chip'
 import InfoBox from '../infoBox/InfoBox'
 import MapContainer from '../map/MapContainer'
 
@@ -36,7 +36,15 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       </h3>
       <div style={{ display: 'flex' }}>
         {categories.map((category: string) => (
-          <Category key={category} category={category} />
+          <Chip
+            primary
+            key={category}
+            onClick={() => {
+              console.log('HI')
+            }}
+          >
+            #{category}
+          </Chip>
         ))}
       </div>
       <MapContainer lat={latlng[0]} lng={latlng[1]} />
