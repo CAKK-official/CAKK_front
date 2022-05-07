@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { css, jsx } from '@emotion/react'
-import Category from '../category/Category'
+import Chip from '../../main/chip'
 import InfoBox from '../infoBox/InfoBox'
+import MapContainer from '../map/MapContainer'
 
 interface ShopInfoInterface {
   title: string
@@ -11,6 +12,7 @@ interface ShopInfoInterface {
   opened: string
   closed: string
   url: string
+  latlng: Array<number>
 }
 const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   title,
@@ -20,6 +22,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   opened,
   closed,
   url,
+  latlng,
 }) => {
   return (
     <div>
@@ -33,10 +36,18 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       </h3>
       <div style={{ display: 'flex' }}>
         {categories.map((category: string) => (
-          <Category key={category} category={category} />
+          <Chip
+            primary
+            key={category}
+            onClick={() => {
+              console.log('HI')
+            }}
+          >
+            #{category}
+          </Chip>
         ))}
       </div>
-
+      <MapContainer lat={latlng[0]} lng={latlng[1]} />
       <div style={{ display: 'flex' }}>
         <InfoBox title="전화번호" sub={tel} canCopy={true} />
         <InfoBox title="영업시간" sub={opened} />
