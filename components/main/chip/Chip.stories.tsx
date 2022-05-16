@@ -1,6 +1,7 @@
 import Chip from './Chip'
 import { action } from '@storybook/addon-actions'
-import { ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ExpandOutlined } from '@mui/icons-material'
 
 export default {
   // / => hierachy
@@ -13,82 +14,52 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Button Component for user interaction',
+        component:
+          'Material- UI와 비슷한 개념의 버튼이며, 주로 메인페이지에서 장소를 검색하거나 카테고리를 검색할 때 사용되는 버튼의 종류이다.',
       },
+    },
+  },
+  // argTypes
+  argTypes: {
+    primary: {
+      type: { name: 'boolean', required: true },
+      description: 'primary/secondary',
+    },
+    onClick: {
+      control: {
+        action: 'clicked',
+      },
+      description: 'Chip을 클릭할 때 실행되는 EventHandler',
+    },
+    onDelete: {
+      control: {
+        action: 'deleted',
+      },
+      description: 'Chip에 X마크를 생성하며, 클릭시 실행시키는 EventHandler',
     },
   },
 } as ComponentMeta<typeof Chip>
 
-// export const Primary = () => <Chip primary>Primary</Chip>;
-
-// ARGS !
-// Args point seems more appropriate for storybook purpose
-// reduces unique code
-// reuse args from another story
-
-export const Primary = () => (
-  <div style={{ width: '20%' }}>
-    <Chip primary onClick={action('onClick action')}>
-      Chip
-    </Chip>
+const Template1: ComponentStory<typeof Chip> = ({ primary, children }) => (
+  <div style={{ width: '10%' }}>
+    <Chip primary={primary}>{children}</Chip>
   </div>
 )
 
-export const Secondary = () => (
-  <div style={{ width: '20%' }}>
-    <Chip primary={false} onClick={action('onClick action')}>
-      Chip
-    </Chip>
+const Template2: ComponentStory<typeof Chip> = (args) => (
+  <div style={{ width: '10%' }}>
+    <Chip {...args}>{args.children}</Chip>
   </div>
 )
 
-export const DelatableChip = () => (
-  <div style={{ width: '40%', display: 'flex' }}>
-    <Chip
-      primary
-      onClick={action('onClick action')}
-      onDelete={action('onDelete action')}
-    >
-      Chip
-    </Chip>
-    <Chip
-      primary={false}
-      onClick={action('onClick action')}
-      onDelete={action('onDelete action')}
-    >
-      Chip
-    </Chip>
-  </div>
-)
+export const Basic = Template1.bind({})
+Basic.args = {
+  primary: true,
+  children: 'Chip',
+}
 
-// export const Primary = Template.bind({})
-// Primary.args = {
-//   primary: true,
-//   children: 'Chip',
-// }
-
-// export const Secondary = Template.bind({})
-// Secondary.args = {
-//   primary: false,
-//   children: 'Chip',
-// }
-
-// export const SecondaryA = Template.bind({});
-// SecondaryA.args = {
-//   variant: "secondary",
-//   children: "Secondary Args",
-// };
-
-// export const LongPrimaryA = Template.bind({});
-// LongPrimaryA.args = {
-//   ...PrimaryA.args,
-//   children: "Long Primary Args",
-//   label: "Long Primary A args",
-// };
-// LongPrimaryA.parameters = {
-//   docs: {
-//     description: {
-//       story: "Some story **markdown**",
-//     },
-//   },
-// };
+export const Clickable = Template2.bind({})
+Clickable.args = {
+  primary: true,
+  children: 'Chip',
+}

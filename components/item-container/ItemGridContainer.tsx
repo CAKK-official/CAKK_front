@@ -49,7 +49,7 @@ const ItemGridContainer: React.FC<ItemGridInterface> = ({
                   </button>
                 </div>
               </div>
-              {ranking && <div className="ranking">{index}</div>}
+              {ranking && <div className="ranking">{index + 1}</div>}
             </div>
           </div>
         )

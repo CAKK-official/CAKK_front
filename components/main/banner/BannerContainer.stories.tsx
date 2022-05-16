@@ -6,7 +6,7 @@ import theme from '../../../assets/theme/theme'
 
 export default {
   // / => hierachy
-  title: 'Components/BannerContainer',
+  title: 'Page/Banner Container',
   component: BannerContainer,
   // decorators (Center)
   // decorators: [(story) => <Center>{story()}</Center>],
@@ -15,7 +15,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Button Component for user interaction',
+        component: '메인 페이지에 있는 Swiper가 적용된 배너 컴포넌트',
       },
     },
   },
