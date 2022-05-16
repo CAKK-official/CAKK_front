@@ -16,7 +16,7 @@ const InfoBox: React.FC<InfoBoxInterface> = ({ title, sub, canCopy }) => {
         <div>{sub}</div>
         {canCopy ? <ClipBoard content={sub} /> : ''}
       </div>
-    </div>
+      {/* </div> */}
     </InfoBoxDiv>
   )
 }
