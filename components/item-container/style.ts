@@ -100,8 +100,8 @@ export const ItemGridContainer = styled.div<{ rows: number }>`
         left: 0;
         width: 2.5rem;
         height: 2.5rem;
-        background-color: ${({ theme }) => theme.colors.backgroundColor};
-        color: ${({ theme }) => theme.colors.primary};
+        background-color: ${({ theme }) => theme.colors.pink.A50};
+        color: ${({ theme }) => theme.colors.red};
         display: flex;
         justify-content: center;
         align-items: center;

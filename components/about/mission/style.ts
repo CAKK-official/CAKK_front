@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const MissionContainer = styled.div`
-  /* background-color: greenyellow; */
   position: relative;
   width: 100%;
   height: 30rem;
