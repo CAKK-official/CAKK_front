@@ -17,7 +17,7 @@ export const BannerContainer = styled.div`
 
   .slide {
     height: 100%;
-    background-color: #aaffdd;
+    background-color: ${({ theme }) => theme.colors.pink.A50};
     display: flex;
     align-items: center;
     border-radius: 1rem;

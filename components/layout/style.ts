@@ -10,7 +10,7 @@ export const Header = styled.header`
   justify-content: center;
   padding-top: 1rem;
   background-color: white;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.pink.A20};
 
   section {
     display: flex;
@@ -18,7 +18,7 @@ export const Header = styled.header`
     justify-content: space-between;
 
     a {
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.pink.A80};
       text-decoration: none;
     }
 
@@ -28,6 +28,7 @@ export const Header = styled.header`
 
   // LOGO
   .logo {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }
@@ -45,13 +46,13 @@ export const Header = styled.header`
     }
 
     button {
+      cursor: pointer;
       width: 48px;
       height: 48px;
       border-radius: 50%;
       box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
       border: none;
       background: none;
-      cursor: pointer;
     }
   }
 `
