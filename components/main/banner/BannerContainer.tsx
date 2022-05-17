@@ -9,7 +9,6 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 
 import * as Styled from './style'
-import { css } from '@emotion/react'
 
 const BannerContainer: React.FC = () => {
   // SwiperCore.use([Autoplay])
