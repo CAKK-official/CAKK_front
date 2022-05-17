@@ -1,6 +1,6 @@
 //DEPRECATED
 import React from 'react'
-
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -26,7 +26,9 @@ const ItemSwiperContainer: React.FC<ItemInterface> = ({ count, items }) => {
       >
         {items.map((item: string, index: number) => (
           <SwiperSlide key={index}>
-            <div className="slide">{item}</div>
+            <div className="slide">
+              <Image src={item} alt="img" layout="fill" objectFit="cover" />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
