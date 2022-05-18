@@ -2,6 +2,7 @@ import { styled as MuiStyled } from '@mui/material/styles'
 import InputBase from '@mui/material/InputBase'
 
 export const BootstrapInput = MuiStyled(InputBase)(({ theme }) => ({
+  color: '#707070',
   'label + &': {
     marginTop: theme.spacing(3),
   },
@@ -20,6 +21,7 @@ export const BootstrapInput = MuiStyled(InputBase)(({ theme }) => ({
     '&:focus': {
       borderRadius: 4,
       borderColor: theme.palette.primary.main,
+      color: '#707070',
       // boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
     },
   },
