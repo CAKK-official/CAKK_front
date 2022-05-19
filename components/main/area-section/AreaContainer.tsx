@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useCategoryState } from '../../../context'
 import {
   CategoryInterface,
@@ -8,46 +8,47 @@ import { ItemGridContainer } from '../../item-container'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import * as Styled from './style'
+import { fetchSearch } from '../../../src/api/api'
 
 const AreaContainer: React.FC = () => {
-  const toyData = [
-    {
-      id: 1,
-      name: '키키네하우스',
-      address: '송파구 오금로 130',
-      img: 'https://picsum.photos/200/300',
-    },
-    {
-      id: 2,
-      name: '케키하우스',
-      address: '백제 고분로 41길 35',
-      img: 'https://picsum.photos/200/300',
-    },
-    {
-      id: 3,
-      name: '희스케이크',
-      address: '백제고분로27길 26',
-      img: 'https://picsum.photos/200/300',
-    },
-    {
-      id: 4,
-      name: '키키네하우스',
-      address: '송파구 오금로 130',
-      img: 'https://picsum.photos/200/300',
-    },
-    {
-      id: 5,
-      name: '케키하우스',
-      address: '백제 고분로 41길 35',
-      img: 'https://picsum.photos/200/300',
-    },
-    {
-      id: 6,
-      name: '희스케이크',
-      address: '백제고분로27길 26',
-      img: 'https://picsum.photos/200/300',
-    },
-  ]
+  // const toyData = [
+  //   {
+  //     id: 1,
+  //     name: '키키네하우스',
+  //     address: '송파구 오금로 130',
+  //     img: 'https://picsum.photos/200/300',
+  //   },
+  //   {
+  //     id: 2,
+  //     name: '케키하우스',
+  //     address: '백제 고분로 41길 35',
+  //     img: 'https://picsum.photos/200/300',
+  //   },
+  //   {
+  //     id: 3,
+  //     name: '희스케이크',
+  //     address: '백제고분로27길 26',
+  //     img: 'https://picsum.photos/200/300',
+  //   },
+  //   {
+  //     id: 4,
+  //     name: '키키네하우스',
+  //     address: '송파구 오금로 130',
+  //     img: 'https://picsum.photos/200/300',
+  //   },
+  //   {
+  //     id: 5,
+  //     name: '케키하우스',
+  //     address: '백제 고분로 41길 35',
+  //     img: 'https://picsum.photos/200/300',
+  //   },
+  //   {
+  //     id: 6,
+  //     name: '희스케이크',
+  //     address: '백제고분로27길 26',
+  //     img: 'https://picsum.photos/200/300',
+  //   },
+  // ]
   const state = useCategoryState()
   const [page, setPage] = useState<number>(1)
 
@@ -57,6 +58,15 @@ const AreaContainer: React.FC = () => {
   ) => {
     setPage(value)
   }
+
+  useEffect(() => {
+    const response = fetchSearch(page, {
+      addresses: ['송파구', '광진구'],
+      category: '레터링케이크',
+    })
+
+    console.log(response)
+  }, [page])
 
   return (
     <Styled.AreaContainer>
@@ -69,7 +79,7 @@ const AreaContainer: React.FC = () => {
             )?.title}
         가게
       </h2>
-      <ItemGridContainer row={3} items={toyData} />
+      <ItemGridContainer row={3} items={[]} />
       <div className="pagination-container">
         <Stack className="pagination" spacing={2}>
           <Pagination

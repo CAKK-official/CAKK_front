@@ -1,5 +1,4 @@
-import { css, useTheme } from '@emotion/react'
-import type { NextPage } from 'next'
+import type { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import BannerContainer from '../components/main/banner'
 import Layout from '../components/layout'
@@ -9,7 +8,9 @@ import AreaContainer from '../components/main/area-section'
 import * as Styled from '../styles/home'
 import { CategoryProvider, LocationProvider } from '../context'
 
-const Home: NextPage = () => {
+import { fetchPopular, PopularResponse } from '../src/api/api'
+
+const Home = ({ data }: { data: PopularResponse[] }) => {
   return (
     <Layout>
       <Head>
@@ -22,13 +23,21 @@ const Home: NextPage = () => {
           <CategoryProvider>
             <BannerContainer />
             <SeacrhContainer />
-            <RankContainer />
+            <RankContainer data={data} />
             <AreaContainer />
           </CategoryProvider>
         </LocationProvider>
       </Styled.Home>
     </Layout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const data = await fetchPopular()
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
 }
 
 export default Home

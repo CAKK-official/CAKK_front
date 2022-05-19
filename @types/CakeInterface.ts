@@ -19,3 +19,11 @@ export interface CakeInterface {
   category: string[]
   views: number
 }
+
+export type PopularResponse = {
+  id: number
+  name: string
+  picture: string
+  address: string
+  score: string
+}[]
