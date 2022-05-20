@@ -112,7 +112,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         ))}
       </div>
       <MapContainer lat={latlng[0]} lng={latlng[1]} />
-      <div style={{ display: 'flex' }}>
+      <InfoBoxContainer>
         <InfoBox
           Icon={<Icon name="icon_phone_fill" width={24} height={24} />}
           title="전화번호"
@@ -134,7 +134,8 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           title="인스타"
           sub={url}
         />
-      </div>
+      </InfoBoxContainer>
+      <h2>가게 상세정보</h2>
       <MoreInfoContainer source={DUMMYTEXT} />
     </div>
   )
@@ -152,6 +153,12 @@ const IconDiv = styled.div`
   display: flex;
   gap: 1rem;
   cursor: pointer;
+`
+
+const InfoBoxContainer = styled.div`
+  display: flex;
+  margin-top: 32px;
+  margin-bottom: 123px;
 `
 
 export default ShopInfoContainer

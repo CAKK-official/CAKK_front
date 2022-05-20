@@ -14,7 +14,7 @@ const InfoBox: React.FC<InfoBoxInterface> = ({ Icon, title, sub, canCopy }) => {
   return (
     <InfoBoxDiv>
       <div>{Icon}</div>
-      <div>{title}</div>
+      <div style={{ fontWeight: '600', fontSize: '14px' }}>{title}</div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>{sub}</div>
         {canCopy ? <ClipBoard content={sub} /> : ''}
@@ -23,13 +23,18 @@ const InfoBox: React.FC<InfoBoxInterface> = ({ Icon, title, sub, canCopy }) => {
   )
 }
 const InfoBoxDiv = styled.div`
+  background: #ffffff;
+  border: 1px solid #000000;
   padding-top: 20px;
   padding-left: 24px;
   box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
   width: 287px;
   height: 148px;
   border-radius: 15px;
-  border: 1px solid gray;
   margin: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #707070;
 `
 export default InfoBox
