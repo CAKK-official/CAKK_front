@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useCategoryState } from '../../../context'
+import { useCategoryState, useLocationState } from '../../../context'
 import {
   CategoryInterface,
   categoryList,
@@ -8,7 +8,11 @@ import { ItemGridContainer } from '../../item-container'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import * as Styled from './style'
-import { fetchSearch } from '../../../src/api/api'
+import {
+  fetchSearch,
+  ItemResponseProps,
+  PopularResponse,
+} from '../../../src/api/api'
 
 const AreaContainer: React.FC = () => {
   // const toyData = [
@@ -49,8 +53,12 @@ const AreaContainer: React.FC = () => {
   //     img: 'https://picsum.photos/200/300',
   //   },
   // ]
-  const state = useCategoryState()
+  const categoryState = useCategoryState()
+  const locationState = useLocationState()
   const [page, setPage] = useState<number>(1)
+  const [totalPage, setTotalPage] = useState<number>(20)
+
+  const [items, setItems] = useState<ItemResponseProps[]>([]) // Item Grid Container
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -59,32 +67,43 @@ const AreaContainer: React.FC = () => {
     setPage(value)
   }
 
+  // Fetch API
   useEffect(() => {
+    const categoryTitle = categoryList.find(
+      (category: CategoryInterface) => category.name === categoryState.category
+    )?.title
+
     const response = fetchSearch(page, {
-      addresses: ['송파구', '광진구'],
-      category: '레터링케이크',
-    }).then((res) => console.log(res))
-  }, [page])
+      addresses: locationState.location,
+      category: categoryTitle ? categoryTitle : 'null',
+    }).then((res) => {
+      // console.log(res);
+      // setPage(res.page)
+      setTotalPage(res.totalpage)
+      setItems(res.data)
+    })
+  }, [page, categoryState, locationState])
 
   return (
     <Styled.AreaContainer>
       <h2>
         우리동네{' '}
-        {state.category === ''
+        {categoryState.category === ''
           ? '케이크'
           : categoryList.find(
-              (category: CategoryInterface) => category.name === state.category
+              (category: CategoryInterface) =>
+                category.name === categoryState.category
             )?.title}
         가게
       </h2>
-      <ItemGridContainer row={3} items={[]} />
+      <ItemGridContainer row={3} items={items} />
       <div className="pagination-container">
         <Stack className="pagination" spacing={2}>
           <Pagination
             page={page}
             onChange={handlePageChange}
             //TODO: fetch the maximum data count
-            count={20}
+            count={totalPage}
             color="primary"
           />
         </Stack>

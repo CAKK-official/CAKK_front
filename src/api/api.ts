@@ -1,11 +1,19 @@
 const API_ENDPOINT = 'http://15.165.196.34:8000'
 
+//TODO: picture => picurl
 export type PopularResponse = {
   id: number
   name: string
   picture: string
   address: string
   score: string
+}
+
+export type ItemResponseProps = {
+  id: number
+  name: string
+  picurl: string[]
+  address: string
 }
 
 export type SearchResponse = {
@@ -41,9 +49,12 @@ export const fetchSearch = async (
   }
 ): Promise<SearchResponse> => {
   const data = {
-    addresses: '["송파구","광진구"]',
-    category: 'null',
+    addresses:
+      body.addresses.length > 0 ? JSON.stringify(body.addresses) : '["null"]',
+    category: body.category,
   }
+
+  console.log(data)
 
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
   return fetch(`/cakestore/search?page=${page}`, {

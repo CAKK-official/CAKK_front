@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { PopularResponse } from '../../src/api/api'
 import Icon from '../icon'
 import * as Styled from './style'
-
 interface ItemGridInterface {
   //TODO: update props, fetched data
   row: number
