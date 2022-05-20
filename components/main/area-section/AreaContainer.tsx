@@ -63,9 +63,7 @@ const AreaContainer: React.FC = () => {
     const response = fetchSearch(page, {
       addresses: ['송파구', '광진구'],
       category: '레터링케이크',
-    })
-
-    console.log(response)
+    }).then((res) => console.log(res))
   }, [page])
 
   return (

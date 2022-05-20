@@ -40,31 +40,27 @@ export const fetchSearch = async (
     category: string
   }
 ): Promise<SearchResponse> => {
-  console.log({
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    mode: 'no-cors',
-    body: JSON.stringify({ ...body, addresses: body.addresses }),
-  })
+  const data = {
+    addresses: '["송파구","광진구"]',
+    category: 'null',
+  }
+
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
-  return fetch(`${API_ENDPOINT}/cakestore/search?page=${page}`, {
+  return fetch(`/cakestore/search?page=${page}`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    mode: 'no-cors',
-    // body: JSON.stringify({"addresses": JSON.stringify(body.addresses), "category": "null" }),
-    body: JSON.stringify({
-      addresses: '["송파구","광진구"]',
-      category: 'null',
-    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
   })
     .then((res) => {
       if (!res.ok) {
         throw new Error('Res.ok Error')
       }
-
       return res.json()
     })
     .catch((err) => {
+      console.log(err.message)
       throw new Error('Error', err.message)
     })
 }
