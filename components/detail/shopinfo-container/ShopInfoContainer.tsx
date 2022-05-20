@@ -6,6 +6,8 @@ import Chip from '../../main/chip'
 import InfoBox from '../infoBox/InfoBox'
 import MapContainer from '../map/MapContainer'
 import MoreInfoContainer from '../more/MoreInfoContainer'
+import { categoryList } from '../../../context/CategoryContext'
+import ItemGridContainerStories from '../../item-container/ItemGridContainer.stories'
 
 interface ShopInfoInterface {
   title: string
@@ -80,6 +82,10 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   판 문구 1000원 추가됩니다. 모양은 변경 불가능하시고 기본 반원형태에서 귀나 디테일만 추가 가능합니다! 
   질감은 복슬복슬 디자인과 터치감 있는 디자인 두가지 선택가능하세요!`
 
+  const getCategory = (category: string) => {
+    console.log(category)
+    return categoryList.filter((it) => it.name === category)[0].title
+  }
   return (
     <div>
       <TitleDiv>
@@ -107,7 +113,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
               console.log('HI')
             }}
           >
-            #{category}
+            #{getCategory(category)}
           </Chip>
         ))}
       </div>
@@ -127,7 +133,14 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           canCopy={true}
         />
         <InfoBox
-          Icon={<Icon name="icon_clock_fill" width={24} height={24} />}
+          Icon={
+            <Icon
+              name="icon_clock_fill"
+              width={24}
+              height={24}
+              color="#E72E40"
+            />
+          }
           title="영업시간"
           sub={opened}
         />
