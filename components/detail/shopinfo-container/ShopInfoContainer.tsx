@@ -114,7 +114,14 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       <MapContainer lat={latlng[0]} lng={latlng[1]} />
       <InfoBoxContainer>
         <InfoBox
-          Icon={<Icon name="icon_phone_fill" width={24} height={24} />}
+          Icon={
+            <Icon
+              name="icon_phone_fill"
+              width={24}
+              height={24}
+              color="#E72E40"
+            />
+          }
           title="전화번호"
           sub={tel}
           canCopy={true}
@@ -125,12 +132,26 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           sub={opened}
         />
         <InfoBox
-          Icon={<Icon name="icon_holiday_fill" width={24} height={24} />}
+          Icon={
+            <Icon
+              name="icon_holiday_fill"
+              width={24}
+              height={24}
+              color="#E72E40"
+            />
+          }
           title="휴무일"
           sub={closed}
         />
         <InfoBox
-          Icon={<Icon name="icon_insta_fill" width={24} height={24} />}
+          Icon={
+            <Icon
+              name="icon_insta_fill"
+              width={24}
+              height={24}
+              color="#E72E40"
+            />
+          }
           title="인스타"
           sub={url}
         />
