@@ -2,17 +2,19 @@ import React from 'react'
 import Cross from './Cross'
 import IconForkFill from './IconForkFill'
 import IconUserFill from './IconUserFill'
+import IconCopyFill from './IconCopyFill'
+import IconClockFill from './IconClockFill'
+import IconPhoneFill from './IconPhoneFill'
+import IconHolidayFill from './IconHolidayFill'
+import IconInstaFill from './IconInstaFill'
+import IconLocationFill from './IconLocationFill'
 // IconCakeFill,
-// IconClockFill,
-// IconCopyFill,
 // IconDirectionLeft,
 // IconDirectionRight,
 // IconFlagFill,
 // IconForkFill,
 // IconHolidayFill,
 // IconInstaFill,
-// IconLocationFill,
-// IconPhoneFill,
 // IconUserFill,
 import Logo from './Logo'
 
@@ -47,10 +49,10 @@ const Icon: React.FC<{
       return <Cross width={width} height={height} color={color} />
     // case 'icon_cake_fill':
     //   return <IconCakeFill />
-    // case 'icon_clock_fill':
-    //   return <IconClockFill />
-    // case 'icon_copy_fill':
-    //   return <IconCopyFill />
+    case 'icon_clock_fill':
+      return <IconClockFill width={width} height={height} color={color} />
+    case 'icon_copy_fill':
+      return <IconCopyFill width={width} height={height} color={color} />
     // case 'icon_direction_left_fill':
     //   return <IconDirectionLeft />
     // case 'icon_direction_right_fill':
@@ -59,14 +61,14 @@ const Icon: React.FC<{
     //   return <IconFlagFill />
     case 'icon_fork_fill':
       return <IconForkFill width={width} height={height} color={color} />
-    // case 'icon_holiday_fill':
-    //   return <IconHolidayFill />
-    // case 'icon_insta_fill':
-    //   return <IconInstaFill />
-    // case 'icon_location_fill':
-    //   return <IconLocationFill />
-    // case 'icon_phone_fill':
-    //   return <IconPhoneFill />
+    case 'icon_holiday_fill':
+      return <IconHolidayFill width={width} height={height} color={color} />
+    case 'icon_insta_fill':
+      return <IconInstaFill width={width} height={height} color={color} />
+    case 'icon_location_fill':
+      return <IconLocationFill width={width} height={height} color={color} />
+    case 'icon_phone_fill':
+      return <IconPhoneFill width={width} height={height} color={color} />
     case 'icon_user_fill':
       return <IconUserFill width={width} height={height} color={color} />
     case 'logo':

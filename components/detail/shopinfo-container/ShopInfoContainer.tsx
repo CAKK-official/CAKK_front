@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
+import styled from '@emotion/styled'
 import { css, jsx } from '@emotion/react'
+import Icon from '../../icon'
 import Chip from '../../main/chip'
 import InfoBox from '../infoBox/InfoBox'
 import MapContainer from '../map/MapContainer'
@@ -80,7 +82,15 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
 
   return (
     <div>
-      <h2>{title}</h2>
+      <TitleDiv>
+        <div style={{ color: '#707070' }}>
+          <h2>{title}</h2>
+        </div>
+        <IconDiv>
+          <Icon name="icon_fork_fill" width={24} height={24} />
+          <Icon name="icon_user_fill" width={24} height={24} />
+        </IconDiv>
+      </TitleDiv>
       <h3
         css={css`
           color: #707070;
@@ -103,13 +113,45 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       </div>
       <MapContainer lat={latlng[0]} lng={latlng[1]} />
       <div style={{ display: 'flex' }}>
-        <InfoBox title="전화번호" sub={tel} canCopy={true} />
-        <InfoBox title="영업시간" sub={opened} />
-        <InfoBox title="휴무일" sub={closed} />
-        <InfoBox title="인스타" sub={url} />
+        <InfoBox
+          Icon={<Icon name="icon_phone_fill" width={24} height={24} />}
+          title="전화번호"
+          sub={tel}
+          canCopy={true}
+        />
+        <InfoBox
+          Icon={<Icon name="icon_clock_fill" width={24} height={24} />}
+          title="영업시간"
+          sub={opened}
+        />
+        <InfoBox
+          Icon={<Icon name="icon_holiday_fill" width={24} height={24} />}
+          title="휴무일"
+          sub={closed}
+        />
+        <InfoBox
+          Icon={<Icon name="icon_insta_fill" width={24} height={24} />}
+          title="인스타"
+          sub={url}
+        />
       </div>
       <MoreInfoContainer source={DUMMYTEXT} />
     </div>
   )
 }
+
+const TitleDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  align-items: center;
+  font-color: #707070;
+`
+
+const IconDiv = styled.div`
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+`
+
 export default ShopInfoContainer
