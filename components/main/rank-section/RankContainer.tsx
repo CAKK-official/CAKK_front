@@ -1,9 +1,9 @@
 import { ItemGridContainer } from '../../item-container'
-import { PopularResponse } from '../../../src/api/api'
+import { ItemResponseProps } from '../../../src/api/api'
 
 import * as Styled from './style'
 
-const RankContainer: React.FC<{ data: PopularResponse[] }> = ({ data }) => {
+const RankContainer: React.FC<{ data: ItemResponseProps[] }> = ({ data }) => {
   // const toyData = [
   //   {
   //     id: 1,

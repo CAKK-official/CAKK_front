@@ -8,9 +8,9 @@ import AreaContainer from '../components/main/area-section'
 import * as Styled from '../styles/home'
 import { CategoryProvider, LocationProvider } from '../context'
 
-import { fetchPopular, PopularResponse } from '../src/api/api'
+import { fetchPopular, ItemResponseProps } from '../src/api/api'
 
-const Home = ({ data }: { data: PopularResponse[] }) => {
+const Home = ({ data }: { data: ItemResponseProps[] }) => {
   return (
     <Layout>
       <Head>

@@ -8,11 +8,7 @@ import { ItemGridContainer } from '../../item-container'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import * as Styled from './style'
-import {
-  fetchSearch,
-  ItemResponseProps,
-  PopularResponse,
-} from '../../../src/api/api'
+import { fetchSearch, ItemResponseProps } from '../../../src/api/api'
 
 const AreaContainer: React.FC = () => {
   // const toyData = [
@@ -73,11 +69,14 @@ const AreaContainer: React.FC = () => {
       (category: CategoryInterface) => category.name === categoryState.category
     )?.title
 
-    const response = fetchSearch(page, {
+    console.log('????', categoryTitle)
+
+    fetchSearch(page, {
       addresses: locationState.location,
       category: categoryTitle ? categoryTitle : 'null',
     }).then((res) => {
-      // console.log(res);
+      console.log(res)
+
       // setPage(res.page)
       setTotalPage(res.totalpage)
       setItems(res.data)

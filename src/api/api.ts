@@ -1,14 +1,6 @@
 const API_ENDPOINT = 'http://15.165.196.34:8000'
 
 //TODO: picture => picurl
-export type PopularResponse = {
-  id: number
-  name: string
-  picture: string
-  address: string
-  score: string
-}
-
 export type ItemResponseProps = {
   id: number
   name: string
@@ -19,15 +11,10 @@ export type ItemResponseProps = {
 export type SearchResponse = {
   page: number
   totalpage: number
-  data: {
-    id: number
-    name: string
-    picurl: string[]
-    address: string
-  }[]
+  data: ItemResponseProps[]
 }
 
-export const fetchPopular = async (): Promise<PopularResponse[]> => {
+export const fetchPopular = async (): Promise<ItemResponseProps[]> => {
   return fetch(`${API_ENDPOINT}/cakestore/popular`)
     .then((res) => {
       if (!res.ok) {
