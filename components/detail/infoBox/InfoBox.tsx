@@ -3,7 +3,6 @@ import ClipBoard from '../clipBoard/ClipBoard'
 import styled from '@emotion/styled'
 import { IconInterface } from '../../icon/Icon'
 
-//TODO : 복사여부추가
 interface InfoBoxInterface {
   title: string
   sub: string

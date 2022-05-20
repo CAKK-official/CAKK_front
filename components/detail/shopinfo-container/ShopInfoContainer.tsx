@@ -83,7 +83,6 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   질감은 복슬복슬 디자인과 터치감 있는 디자인 두가지 선택가능하세요!`
 
   const getCategory = (category: string) => {
-    console.log(category)
     return categoryList.filter((it) => it.name === category)[0].title
   }
   return (
@@ -117,7 +116,22 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           </Chip>
         ))}
       </div>
-      <MapContainer lat={latlng[0]} lng={latlng[1]} />
+      <div style={{ display: 'flex' }}>
+        <InfoBox
+          Icon={
+            <Icon
+              name="icon_location_fill"
+              width={24}
+              height={24}
+              color="#E72E40"
+            />
+          }
+          title="주소"
+          sub={'임시주소'}
+          canCopy={true}
+        />
+        <MapContainer lat={latlng[0]} lng={latlng[1]} />
+      </div>
       <InfoBoxContainer>
         <InfoBox
           Icon={
