@@ -119,14 +119,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       </div>
       <div style={{ display: 'flex', margin: '3rem 0 ' }}>
         <InfoBox
-          Icon={
-            <Icon
-              name="icon_location_fill"
-              width={24}
-              height={24}
-              color="#E72E40"
-            />
-          }
+          iconName="icon_location_fill"
           title="주소"
           sub={'임시주소'}
           canCopy={true}
@@ -135,54 +128,14 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       </div>
       <InfoBoxContainer>
         <InfoBox
-          Icon={
-            <Icon
-              name="icon_phone_fill"
-              width={24}
-              height={24}
-              color="#E72E40"
-            />
-          }
+          iconName="icon_phone_fill"
           title="전화번호"
           sub={tel}
           canCopy={true}
         />
-        <InfoBox
-          Icon={
-            <Icon
-              name="icon_clock_fill"
-              width={24}
-              height={24}
-              color="#E72E40"
-            />
-          }
-          title="영업시간"
-          sub={opened}
-        />
-        <InfoBox
-          Icon={
-            <Icon
-              name="icon_holiday_fill"
-              width={24}
-              height={24}
-              color="#E72E40"
-            />
-          }
-          title="휴무일"
-          sub={closed}
-        />
-        <InfoBox
-          Icon={
-            <Icon
-              name="icon_insta_fill"
-              width={24}
-              height={24}
-              color="#E72E40"
-            />
-          }
-          title="인스타"
-          sub={url}
-        />
+        <InfoBox iconName="icon_clock_fill" title="영업시간" sub={opened} />
+        <InfoBox iconName="icon_holiday_fill" title="휴무일" sub={closed} />
+        <InfoBox iconName="icon_insta_fill" title="인스타" sub={url} />
       </InfoBoxContainer>
       <h2>가게 상세정보</h2>
       <MoreInfoContainer source={DUMMYTEXT} />

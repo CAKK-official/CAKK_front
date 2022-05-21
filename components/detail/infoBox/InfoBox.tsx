@@ -1,18 +1,26 @@
 import React from 'react'
 import ClipBoard from '../clipBoard/ClipBoard'
 import styled from '@emotion/styled'
-import { IconInterface } from '../../icon/Icon'
+import Icon from '../../icon'
+import { SVGIconType } from '../../icon/Icon'
 
 interface InfoBoxInterface {
   title: string
   sub: string
   canCopy?: boolean
-  Icon: React.FC
+  iconName: SVGIconType
 }
-const InfoBox: React.FC<InfoBoxInterface> = ({ Icon, title, sub, canCopy }) => {
+const InfoBox: React.FC<InfoBoxInterface> = ({
+  iconName,
+  title,
+  sub,
+  canCopy,
+}) => {
   return (
     <InfoBoxDiv>
-      <div>{Icon}</div>
+      <div>
+        <Icon name={iconName} width={24} height={24} color="#E72E40" />
+      </div>
       <div style={{ fontWeight: '600', fontSize: '14px' }}>{title}</div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>{sub}</div>

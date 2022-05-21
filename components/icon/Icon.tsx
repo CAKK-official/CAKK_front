@@ -25,23 +25,25 @@ export interface IconInterface {
   color?: string
 }
 
+export type SVGIconType =
+  | 'cross'
+  | 'icon_cake_fill'
+  | 'icon_clock_fill'
+  | 'icon_copy_fill'
+  | 'icon_direction_left_fill'
+  | 'icon_direction_right_fill'
+  | 'icon_flag_fill'
+  | 'icon_fork_fill'
+  | 'icon_holiday_fill'
+  | 'icon_insta_fill'
+  | 'icon_location_fill'
+  | 'icon_phone_fill'
+  | 'icon_user_fill'
+  | 'icon_share_fill'
+  | 'logo'
+
 const Icon: React.FC<{
-  name:
-    | 'cross'
-    | 'icon_cake_fill'
-    | 'icon_clock_fill'
-    | 'icon_copy_fill'
-    | 'icon_direction_left_fill'
-    | 'icon_direction_right_fill'
-    | 'icon_flag_fill'
-    | 'icon_fork_fill'
-    | 'icon_holiday_fill'
-    | 'icon_insta_fill'
-    | 'icon_location_fill'
-    | 'icon_phone_fill'
-    | 'icon_user_fill'
-    | 'icon_share_fill'
-    | 'logo'
+  name: SVGIconType
   width: number
   height: number
   color?: string
