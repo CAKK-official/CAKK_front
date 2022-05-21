@@ -116,7 +116,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           </Chip>
         ))}
       </div>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', margin: '3rem 0 ' }}>
         <InfoBox
           Icon={
             <Icon

@@ -25,6 +25,7 @@ const InfoBoxDiv = styled.div`
   background: #ffffff;
   padding-top: 20px;
   padding-left: 24px;
+  padding-right: 24px;
   box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
   width: 287px;
   height: 148px;
