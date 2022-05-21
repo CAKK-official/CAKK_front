@@ -9,6 +9,10 @@ type CategoryAction =
       type: 'SET_CATEGORY'
       category: string
     }
+  | {
+      type: 'TOGGLE_CATEGORY'
+      category: string
+    }
   | { type: 'RESET_CATEGORY' }
 
 const initState = {
@@ -21,6 +25,15 @@ function reducer(state: CategoryState, action: CategoryAction): CategoryState {
       return {
         ...state,
         category: action.category,
+      }
+    case 'TOGGLE_CATEGORY':
+      if (state.category === action.category) {
+        return { category: '' }
+      } else {
+        return {
+          ...state,
+          category: action.category,
+        }
       }
 
     case 'RESET_CATEGORY':
@@ -66,6 +79,7 @@ export interface CategoryInterface {
   name: string
   title: string
 }
+
 export const categoryList = [
   { name: 'lunch', title: '도시락케이크' },
   { name: 'tiara', title: '티아라케이크' },
