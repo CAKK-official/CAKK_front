@@ -1,10 +1,11 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import Layout from '../components/layout'
-import * as Styled from '../styles/home'
+import Layout from '../../components/layout'
+import * as Styled from '../../styles/home'
+import { useRouter } from 'next/router'
 import React from 'react'
-import { ShopInfoContainer } from '../components/detail/shopinfo-container'
-import { ItemSwiperContainer } from '../components/item-container'
+import { ShopInfoContainer } from '../../components/detail/shopinfo-container'
+import { ItemSwiperContainer } from '../../components/item-container'
 
 const DUMMYDATA = {
   id: 1,
@@ -34,6 +35,9 @@ const DUMMYDATA = {
 
 //TODO : itemSwiperContainer에 item src로 넘길 수 있는지 확인하기
 const Detail: NextPage = () => {
+  const Router = useRouter()
+  console.log('Routes', Router)
+  console.log('Routes', Router.query.pid)
   return (
     <Layout>
       <Head>
