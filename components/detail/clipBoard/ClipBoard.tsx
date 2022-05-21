@@ -1,3 +1,4 @@
+import Icon from '../../icon'
 interface ClipBoardInterface {
   content: string
 }
@@ -27,11 +28,12 @@ const ClipBoard: React.FC<ClipBoardInterface> = ({ content }) => {
 
   return (
     <div
+      style={{ cursor: 'pointer' }}
       onClick={() => {
         handleCopy(content)
       }}
     >
-      복사하기
+      <Icon name="icon_copy_fill" width={24} height={24} color="#E72E40" />
     </div>
   )
 }
