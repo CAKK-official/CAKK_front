@@ -23,7 +23,6 @@ const InfoBox: React.FC<InfoBoxInterface> = ({ Icon, title, sub, canCopy }) => {
 }
 const InfoBoxDiv = styled.div`
   background: #ffffff;
-  border: 1px solid #000000;
   padding-top: 20px;
   padding-left: 24px;
   box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
@@ -35,5 +34,8 @@ const InfoBoxDiv = styled.div`
   flex-direction: column;
   gap: 16px;
   color: #707070;
+  &:hover {
+    border: 1px solid #000000;
+  }
 `
 export default InfoBox
