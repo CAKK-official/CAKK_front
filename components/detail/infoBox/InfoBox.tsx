@@ -7,7 +7,7 @@ interface InfoBoxInterface {
   title: string
   sub: string
   canCopy?: boolean
-  Icon: React.FC<IconInterface>
+  Icon: React.FC
 }
 const InfoBox: React.FC<InfoBoxInterface> = ({ Icon, title, sub, canCopy }) => {
   return (

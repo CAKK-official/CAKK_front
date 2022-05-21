@@ -85,6 +85,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   const getCategory = (category: string) => {
     return categoryList.filter((it) => it.name === category)[0].title
   }
+
   return (
     <div>
       <TitleDiv>
@@ -93,7 +94,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         </div>
         <IconDiv>
           <Icon name="icon_fork_fill" width={24} height={24} />
-          <Icon name="icon_user_fill" width={24} height={24} />
+          <Icon name="icon_share_fill" width={24} height={24} />
         </IconDiv>
       </TitleDiv>
       <h3

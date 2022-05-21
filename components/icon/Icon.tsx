@@ -8,6 +8,7 @@ import IconPhoneFill from './IconPhoneFill'
 import IconHolidayFill from './IconHolidayFill'
 import IconInstaFill from './IconInstaFill'
 import IconLocationFill from './IconLocationFill'
+import IconShareFill from './IconShareFill'
 // IconCakeFill,
 // IconDirectionLeft,
 // IconDirectionRight,
@@ -39,6 +40,7 @@ const Icon: React.FC<{
     | 'icon_location_fill'
     | 'icon_phone_fill'
     | 'icon_user_fill'
+    | 'icon_share_fill'
     | 'logo'
   width: number
   height: number
@@ -59,6 +61,8 @@ const Icon: React.FC<{
     //   return <IconDirectionRight />
     // case 'icon_flag_fill':
     //   return <IconFlagFill />
+    case 'icon_share_fill':
+      return <IconShareFill width={width} height={height} color={color} />
     case 'icon_fork_fill':
       return <IconForkFill width={width} height={height} color={color} />
     case 'icon_holiday_fill':
