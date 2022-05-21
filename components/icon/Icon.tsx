@@ -53,7 +53,7 @@ const Icon: React.FC<{
     case 'cross':
       return <Cross width={width} height={height} color={color} />
     case 'icon_cake_fill':
-      return <IconCakeFill />
+      return <IconCakeFill width={width} height={height} color={color} />
     case 'icon_clock_fill':
       return <IconClockFill width={width} height={height} color={color} />
     case 'icon_copy_fill':
