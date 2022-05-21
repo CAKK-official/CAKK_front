@@ -9,6 +9,7 @@ import IconHolidayFill from './IconHolidayFill'
 import IconInstaFill from './IconInstaFill'
 import IconLocationFill from './IconLocationFill'
 import IconShareFill from './IconShareFill'
+import IconCakeFill from './IconCakeFill'
 // IconCakeFill,
 // IconDirectionLeft,
 // IconDirectionRight,
@@ -51,8 +52,8 @@ const Icon: React.FC<{
   switch (name) {
     case 'cross':
       return <Cross width={width} height={height} color={color} />
-    // case 'icon_cake_fill':
-    //   return <IconCakeFill />
+    case 'icon_cake_fill':
+      return <IconCakeFill />
     case 'icon_clock_fill':
       return <IconClockFill width={width} height={height} color={color} />
     case 'icon_copy_fill':
