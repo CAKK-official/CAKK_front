@@ -58,8 +58,9 @@ export const ItemGridContainer = styled.div<{ rows: number }>`
       .image-container {
         width: 100%;
         height: 14rem;
+        position: relative;
 
-        img {
+        .img {
           object-fit: cover;
           width: 100%;
           height: 100%;
@@ -76,6 +77,16 @@ export const ItemGridContainer = styled.div<{ rows: number }>`
             margin: 0;
             margin-bottom: 1rem;
           }
+
+          .info-address {
+            height: 3rem;
+            width: 10rem;
+            font-size: 0.9rem;
+          }
+          /* span {
+            height: 2rem;
+            font-size: 0.9rem;
+          } */
         }
 
         .button-container {

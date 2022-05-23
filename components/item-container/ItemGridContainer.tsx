@@ -1,18 +1,15 @@
 import React from 'react'
+import Image from 'next/image'
 import Icon from '../icon'
 import * as Styled from './style'
+import Link from 'next/link'
+import { ItemResponseProps } from '../../src/api/api'
 
 interface ItemGridInterface {
   //TODO: update props, fetched data
   row: number
   ranking?: boolean
-  items: {
-    id?: number
-    img: string
-    name: string
-    address: string
-    views?: number
-  }[]
+  items: ItemResponseProps[]
 }
 
 const ItemGridContainer: React.FC<ItemGridInterface> = ({
@@ -22,38 +19,41 @@ const ItemGridContainer: React.FC<ItemGridInterface> = ({
 }) => {
   return (
     <Styled.ItemGridContainer rows={row}>
-      {items.map(
-        (
-          item: {
-            id?: number
-            name: string
-            address: string
-            img: string
-            views?: number
-          },
-          index: number
-        ) => (
-          <div className="item-grid-item" key={index}>
+      {items.map((item: ItemResponseProps, index: number) => (
+        <div className="item-grid-item" key={index}>
+          <Link href={`/detail/${item.id}`} passHref prefetch={false}>
             <div className="item-container">
               <div className="image-container">
-                <img src={item.img} />
+                {/* <img src={item.picture} /> */}
+                <div className="img">
+                  <Image
+                    src={item.picurl[0]}
+                    alt="Image not found"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
               </div>
               <div className="information-container">
                 <div className="info-text-container">
                   <h4>{item.name}</h4>
-                  <span>{item.address}</span>
+                  <div className="info-address">{item.address}</div>
                 </div>
                 <div className="button-container">
-                  <button>
+                  <button
+                    onClick={() => {
+                      console.log('fork clicked')
+                    }}
+                  >
                     <Icon name="icon_fork_fill" width={24} height={24} />
                   </button>
                 </div>
               </div>
               {ranking && <div className="ranking">{index + 1}</div>}
             </div>
-          </div>
-        )
-      )}
+          </Link>
+        </div>
+      ))}
     </Styled.ItemGridContainer>
   )
 }

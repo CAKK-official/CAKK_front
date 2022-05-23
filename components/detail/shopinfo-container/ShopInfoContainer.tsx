@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react'
+import styled from '@emotion/styled'
 import { css, jsx } from '@emotion/react'
+import Icon from '../../icon'
 import Chip from '../../main/chip'
 import InfoBox from '../infoBox/InfoBox'
 import MapContainer from '../map/MapContainer'
 import MoreInfoContainer from '../more/MoreInfoContainer'
+import { categoryList } from '../../../context/CategoryContext'
+import ItemGridContainerStories from '../../item-container/ItemGridContainer.stories'
 
 interface ShopInfoInterface {
   title: string
@@ -78,9 +82,21 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   판 문구 1000원 추가됩니다. 모양은 변경 불가능하시고 기본 반원형태에서 귀나 디테일만 추가 가능합니다! 
   질감은 복슬복슬 디자인과 터치감 있는 디자인 두가지 선택가능하세요!`
 
+  const getCategory = (category: string) => {
+    return categoryList.filter((it) => it.name === category)[0].title
+  }
+
   return (
     <div>
-      <h2>{title}</h2>
+      <TitleDiv>
+        <div style={{ color: '#707070' }}>
+          <h2>{title}</h2>
+        </div>
+        <IconDiv>
+          <Icon name="icon_fork_fill" width={24} height={24} />
+          <Icon name="icon_share_fill" width={24} height={24} />
+        </IconDiv>
+      </TitleDiv>
       <h3
         css={css`
           color: #707070;
@@ -97,19 +113,54 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
               console.log('HI')
             }}
           >
-            #{category}
+            #{getCategory(category)}
           </Chip>
         ))}
       </div>
-      <MapContainer lat={latlng[0]} lng={latlng[1]} />
-      <div style={{ display: 'flex' }}>
-        <InfoBox title="전화번호" sub={tel} canCopy={true} />
-        <InfoBox title="영업시간" sub={opened} />
-        <InfoBox title="휴무일" sub={closed} />
-        <InfoBox title="인스타" sub={url} />
+      <div style={{ display: 'flex', margin: '3rem 0 ' }}>
+        <InfoBox
+          iconName="icon_location_fill"
+          title="주소"
+          sub={'임시주소'}
+          canCopy={true}
+        />
+        <MapContainer lat={latlng[0]} lng={latlng[1]} />
       </div>
+      <InfoBoxContainer>
+        <InfoBox
+          iconName="icon_phone_fill"
+          title="전화번호"
+          sub={tel}
+          canCopy={true}
+        />
+        <InfoBox iconName="icon_clock_fill" title="영업시간" sub={opened} />
+        <InfoBox iconName="icon_holiday_fill" title="휴무일" sub={closed} />
+        <InfoBox iconName="icon_insta_fill" title="인스타" sub={url} />
+      </InfoBoxContainer>
+      <h2>가게 상세정보</h2>
       <MoreInfoContainer source={DUMMYTEXT} />
     </div>
   )
 }
+
+const TitleDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  align-items: center;
+  font-color: #707070;
+`
+
+const IconDiv = styled.div`
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+`
+
+const InfoBoxContainer = styled.div`
+  display: flex;
+  margin-top: 32px;
+  margin-bottom: 123px;
+`
+
 export default ShopInfoContainer

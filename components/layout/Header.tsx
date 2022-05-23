@@ -10,7 +10,7 @@ const Header: React.FC = () => {
       {/*TODO: Mobile view goes here */}
       <section>
         <div className="logo">
-          <Link href="/">
+          <Link href="/" passHref>
             <div>
               <Icon name="logo" width={100} height={41} />
             </div>
