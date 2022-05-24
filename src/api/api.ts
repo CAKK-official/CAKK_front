@@ -101,3 +101,45 @@ export const fetchDetailInfo = async (
       throw new Error('Error', err.message)
     })
 }
+
+export const fetchKakaoShareCount = async (storeId: number) => {
+  return fetch(`/cakestore/share/${storeId}`, { method: 'POST' })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Res.ok Error')
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log(err.message)
+      throw new Error('Error', err.message)
+    })
+}
+
+export const fetchCategorySearch = async (
+  category: string
+): Promise<SearchResponse> => {
+  const data = {
+    addresses: 'null',
+    category: category,
+  }
+  console.log(data)
+  // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
+  return fetch(`/cakestore/search`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Res.ok Error')
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log(err.message)
+      throw new Error('Error', err.message)
+    })
+}
