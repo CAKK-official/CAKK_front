@@ -3,9 +3,10 @@ import Head from 'next/head'
 import Layout from '../../components/layout'
 import * as Styled from '../../styles/home'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ShopInfoContainer } from '../../components/detail/shopinfo-container'
 import { ItemSwiperContainer } from '../../components/item-container'
+import { fetchDetailInfo } from '../../src/api/api'
 
 const DUMMYDATA = {
   id: 1,
@@ -35,6 +36,11 @@ const DUMMYDATA = {
 
 //TODO : itemSwiperContainer에 item src로 넘길 수 있는지 확인하기
 const Detail: NextPage = () => {
+  //TODO : Dynamic Routing 되면 id 값 받아와서 id로 서버통신 구현
+  useEffect(() => {
+    fetchDetailInfo(2).then((res) => console.log(res))
+  }, [])
+
   const Router = useRouter()
   console.log('Routes', Router)
   console.log('Routes', Router.query.pid)

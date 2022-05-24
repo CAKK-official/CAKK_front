@@ -14,6 +14,27 @@ export type SearchResponse = {
   data: ItemResponseProps[]
 }
 
+export type DetailResponseProps = {
+  id: number
+  name: string
+  address: string
+  tel: string
+  notice: string
+  url: string
+  beforebuy: string
+  afterbuy: string
+  whenbuy: string
+  opened: string
+  closed: string
+  latlng: number[]
+  pictArray: number[]
+  storeCategory: number[]
+}
+
+export type SearchDetailRespons = {
+  data: DetailResponseProps[]
+}
+
 export const fetchPopular = async (): Promise<ItemResponseProps[]> => {
   return fetch(`${API_ENDPOINT}/cakestore/popular`)
     .then((res) => {
@@ -50,6 +71,24 @@ export const fetchSearch = async (
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Res.ok Error')
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log(err.message)
+      throw new Error('Error', err.message)
+    })
+}
+
+export const fetchDetailInfo = async (
+  storeId: number
+): Promise<DetailResponseProps> => {
+  return fetch(`/cakestore/${storeId}`, {
+    method: 'GET',
   })
     .then((res) => {
       if (!res.ok) {
