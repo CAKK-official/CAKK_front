@@ -23,6 +23,7 @@ const Detail: NextPage<{ data: DetailResponse[] }> = ({ data }) => {
       <Styled.Home>
         <ItemSwiperContainer count={3} items={data[0].pictArray} />
         <ShopInfoContainer
+          id={data[0].id}
           title={data[0].name}
           desc={data[0].notice}
           categories={data[0].storeCategory}

@@ -8,6 +8,7 @@ import MapContainer from '../map/MapContainer'
 import MoreInfoContainer from '../more/MoreInfoContainer'
 import { categoryList } from '../../../context/CategoryContext'
 import ItemGridContainerStories from '../../item-container/ItemGridContainer.stories'
+import { fetchKakaoShareCount } from '../../../src/api/api'
 
 interface ShopInfoInterface {
   title: string
@@ -18,6 +19,7 @@ interface ShopInfoInterface {
   closed: string
   url: string
   latlng: Array<number>
+  id: number
 }
 const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   title,
@@ -28,6 +30,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   closed,
   url,
   latlng,
+  id,
 }) => {
   const DUMMYTEXT = `### 레터링 케이크 
   - 사이즈 도시락 _ 12cm 1~2인용 19000원~ 
@@ -87,7 +90,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   }
 
   //TODO : imgUrl 어떻게 넘길지 고민
-  const kakaoShare = () => {
+  const kakaoShare = async () => {
     window.Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
@@ -110,6 +113,8 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         },
       ],
     })
+
+    await fetchKakaoShareCount(id).then((res) => console.log(res))
   }
 
   return (
