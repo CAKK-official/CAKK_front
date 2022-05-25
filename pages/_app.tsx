@@ -8,6 +8,7 @@ import MuiTheme from '../assets/theme/MuiTheme'
 declare global {
   interface Window {
     kakao: any
+    Kakao: any
   }
 }
 

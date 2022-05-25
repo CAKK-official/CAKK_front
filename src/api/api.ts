@@ -100,7 +100,7 @@ export const fetchDetail = async (
 }
 
 export const fetchKakaoShareCount = async (storeId: number) => {
-  return fetch(`/cakestore/share/${storeId}`, { method: 'POST' })
+  return fetch(`${API_ENDPOINT}/cakestore/share/${storeId}`, { method: 'POST' })
     .then((res) => {
       if (!res.ok) {
         throw new Error('Res.ok Error')
@@ -122,7 +122,7 @@ export const fetchCategorySearch = async (
   }
   console.log(data)
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
-  return fetch(`/cakestore/search`, {
+  return fetch(`${API_ENDPOINT}/cakestore/search`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
