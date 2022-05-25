@@ -23,7 +23,7 @@ const InfoBox: React.FC<InfoBoxInterface> = ({
       </div>
       <div style={{ fontWeight: '600', fontSize: '14px' }}>{title}</div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>{sub}</div>
+        <div>{sub ? sub : '정보가 없습니다'}</div>
         {canCopy ? <ClipBoard content={sub} /> : ''}
       </div>
     </InfoBoxDiv>
