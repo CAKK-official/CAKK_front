@@ -7,8 +7,8 @@ import NaturalImage from './NaturalImage'
 
 const ToyBanner = () => {
   return (
-    <Styled.ToyBanner>
-      <div style={{ position: 'sticky', top: '60px' }}>
+    <div>
+      <div style={{ position: 'sticky', top: '80px' }}>
         <div style={{ position: 'relative' }}>
           <NaturalImage src="/img/banner.png" alt="banner" />
           <h1
@@ -18,7 +18,7 @@ const ToyBanner = () => {
           />
         </div>
       </div>
-    </Styled.ToyBanner>
+    </div>
   )
 }
 

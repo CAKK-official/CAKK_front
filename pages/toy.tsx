@@ -21,7 +21,7 @@ export const getStaticProps: GetServerSideProps = async (context) => {
   // const data = await response.json()
   // console.log('data fetch', data)
 
-  const data = await fetchPopular()
+  const data = []
 
   return {
     props: { data }, // will be passed to the page component as props
