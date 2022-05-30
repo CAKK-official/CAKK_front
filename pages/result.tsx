@@ -3,11 +3,20 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { fetchSearch } from '../src/api/api'
 
 const Result: NextPage = () => {
   const router = useRouter()
-  console.log(router.query.category)
+  const { category } = router.query
 
+  useEffect(() => {
+    //TODO : 빈배열일 때 에러 해결되었는지 오빠에게 물어보고 코드 수정하기
+    if (typeof category === 'string') {
+      fetchSearch(0, { addresses: [], category: category }).then((res) =>
+        console.log(res)
+      )
+    }
+  }, [])
   return (
     <Layout>
       <Head>
@@ -19,7 +28,7 @@ const Result: NextPage = () => {
         ></script>
       </Head>
       <div>result페이지</div>
-      <div>{router.query.category}</div>
+      <div>{category}</div>
     </Layout>
   )
 }
