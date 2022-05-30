@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import { css, jsx } from '@emotion/react'
 import Icon from '../../icon'
@@ -9,6 +10,7 @@ import MoreInfoContainer from '../more/MoreInfoContainer'
 import { categoryList } from '../../../context/CategoryContext'
 import ItemGridContainerStories from '../../item-container/ItemGridContainer.stories'
 import { fetchKakaoShareCount } from '../../../src/api/api'
+import Link from 'next/link'
 
 interface ShopInfoInterface {
   title: string
@@ -32,6 +34,8 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   latlng,
   id,
 }) => {
+  const router = useRouter()
+
   const DUMMYTEXT = `### 레터링 케이크 
   - 사이즈 도시락 _ 12cm 1~2인용 19000원~ 
   - 미니 _ 12cm 1~2인용 30000원~ 
@@ -139,15 +143,18 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       </h3>
       <div style={{ display: 'flex' }}>
         {categories.map((category: string) => (
-          <Chip
-            primary
+          <Link
             key={category}
-            onClick={() => {
-              console.log('HI')
+            href={{
+              pathname: `/result`,
+              query: { category: getCategory(category) },
             }}
+            passHref
           >
-            #{getCategory(category)}
-          </Chip>
+            <Chip primary key={category}>
+              #{getCategory(category)}
+            </Chip>
+          </Link>
         ))}
       </div>
       <div style={{ display: 'flex', margin: '3rem 0 ' }}>
