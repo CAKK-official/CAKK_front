@@ -114,7 +114,11 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
       ],
     })
 
-    await fetchKakaoShareCount(id).then((res) => console.log(res))
+    await fetchKakaoShareCount(id).then((res) =>
+      res
+        ? console.log('공유 서버통신 성공')
+        : console.log('공유 서버통신 실패')
+    )
   }
 
   return (
