@@ -1,3 +1,2 @@
-import PlayGrid from './PlayGrid'
-import PlayBanner from './PlayBanner'
-export { PlayGrid, PlayBanner }
+import PlayBanner from './banner/PlayBanner'
+export { PlayBanner }

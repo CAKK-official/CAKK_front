@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
+export const PlayBanner = styled(motion.div)`
+  border: 1px solid #000;
+`
+
 export const DetailPlayItem = styled.div`
   padding: 1.2rem;
   border: 1px solid #000;
@@ -96,6 +100,16 @@ export const MainPlayItem = styled.div`
   justify-content: center;
   border: 1px solid #000;
   padding: 1.2rem;
+
+  h1 {
+    margin-bottom: 4rem;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.black};
+  }
 `
 
 export const PlayGrid = styled.div`

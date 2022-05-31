@@ -1,6 +1,6 @@
 import React from 'react'
-import NaturalImage from './NaturalImage'
-import * as Styled from './style'
+import NaturalImage from '../NaturalImage'
+import * as Styled from '../style'
 
 interface PlayProps {
   mainImage: string

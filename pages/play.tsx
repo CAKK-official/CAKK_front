@@ -2,30 +2,14 @@ import { motion } from 'framer-motion'
 import { GetServerSideProps } from 'next'
 import React from 'react'
 import Layout from '../components/layout'
-import AnimatePlayItem from '../components/play/AnimatePlayItem'
-import DetailPlayItem from '../components/play/DetailPlayItem'
-import MainPlayItem from '../components/play/MainPlayItem'
-import NaturalImage from '../components/play/NaturalImage'
-import ImagePlayItem from '../components/play/ImagePlayItem'
-import { fetchPopular, ItemResponseProps } from '../src/api/api'
-import Image from 'next/image'
+import AnimatePlayItem from '../components/play/item/AnimatePlayItem'
+import DetailPlayItem from '../components/play/item/DetailPlayItem'
+import MainPlayItem from '../components/play/item/MainPlayItem'
+import ImagePlayItem from '../components/play/item/ImagePlayItem'
+import { ItemResponseProps } from '../src/api/api'
+import { PlayBanner } from '../components/play'
 
-const variants = {
-  hidden: {
-    width: '100vw',
-    background: '#fffe99',
-  },
-  visible: {
-    width: '40vw',
-    background: '#93ff21',
-    transition: {
-      duration: 2,
-      delay: 1,
-    },
-  },
-}
-
-const columnVariants = {
+const columnVariants1 = {
   hidden: {
     width: '0vw',
     y: '100%',
@@ -69,44 +53,11 @@ const PlayPage = ({ data }: { data: ItemResponseProps[] }) => {
   return (
     <Layout>
       <div style={{ display: 'flex' }}>
+        <PlayBanner />
         <motion.div
-          variants={variants}
+          variants={columnVariants1}
           initial="hidden"
           animate="visible"
-          style={{ backgroundColor: 'greenyellow' }}
-        >
-          <div
-            style={{
-              position: 'sticky',
-              top: '80px',
-              backgroundColor: 'dodgerblue',
-            }}
-          >
-            <div
-              style={{ position: 'relative', backgroundColor: 'dodgerblue' }}
-            >
-              <NaturalImage src="/img/banner.png" alt="banner" />
-              <h1
-                dangerouslySetInnerHTML={{
-                  __html: '솔직히<br/>케이크크가<br/>제일 편하잖아요~',
-                }}
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 20,
-                  backgroundColor: 'white',
-                }}
-              />
-            </div>
-          </div>
-        </motion.div>
-        <motion.div
-          variants={columnVariants}
-          initial="hidden"
-          animate="visible"
-          style={{
-            backgroundColor: '#ddff00',
-          }}
         >
           <MainPlayItem />
           <ImagePlayItem
@@ -123,9 +74,6 @@ const PlayPage = ({ data }: { data: ItemResponseProps[] }) => {
           variants={columnVariants2}
           initial="hidden"
           animate="visible"
-          style={{
-            overflow: 'hidden',
-          }}
         >
           <DetailPlayItem
             mainImage="/img/Rectangle 614.png"
