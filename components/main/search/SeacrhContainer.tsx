@@ -27,7 +27,7 @@ const LocationContainer: React.FC = () => {
   ) => {
     locationDispatch({ type: 'DELETE_LOCATION', location })
   }
-
+  console.log(process.env.NEXT_PUBLIC_NAVER_API_KEY)
   return (
     <div className="location-group select-items">
       <div className="item-title">

@@ -2973,6 +2973,11 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
+"@types/navermaps@^3.0.16":
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/@types/navermaps/-/navermaps-3.0.16.tgz#7baa56aff014926be519b6fd4172ee337a055dd7"
+  integrity sha512-F650exi+4DzQ07aYazmzLCcfGwxy7ZLVLd0iC21W+IyKzZPaui/z34C0Wy0RWu2g7WSVx4+5pMfPhFualy+8nw==
+
 "@types/node-fetch@^2.5.7":
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.1.tgz#8f127c50481db65886800ef496f20bbf15518975"
