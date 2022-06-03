@@ -7,6 +7,11 @@ import {
   useCategoryDispatch,
   useCategoryState,
 } from './CategoryContext'
+import {
+  NaverMapProvider,
+  useNaverMapDispatch,
+  useNaverMapState,
+} from './NaverMapContext'
 
 export {
   CategoryProvider,
@@ -15,4 +20,7 @@ export {
   useCategoryDispatch,
   useLocationState,
   useCategoryState,
+  NaverMapProvider,
+  useNaverMapDispatch,
+  useNaverMapState,
 }
