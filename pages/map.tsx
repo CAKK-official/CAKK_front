@@ -1,12 +1,41 @@
 import { GetServerSideProps } from 'next'
 import Script from 'next/script'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Map, Marker } from '../components/naver-map'
 import { NaverMapProvider } from '../context'
 import { fetchSearch, ItemResponseProps } from '../src/api/api'
 
 const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
   console.log(data)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [lat, setLat] = useState<number>(37.4954178)
+  const [lng, setLng] = useState<number>(127.0388462)
+
+  // FETCH CURRENT LOCATION
+  useEffect(() => {
+    const { geolocation } = navigator
+
+    geolocation.getCurrentPosition(
+      (position) => {
+        // success.
+        setLat(position.coords.latitude)
+        setLng(position.coords.longitude)
+        setIsLoading(false)
+      },
+      (error) => {
+        console.warn('Fail to fetch current location', error)
+        setLat(37.4954178)
+        setLng(127.0388462)
+        setIsLoading(false)
+      },
+      {
+        enableHighAccuracy: false,
+        maximumAge: 0,
+        timeout: Infinity,
+      }
+    )
+  }, [])
+
   return (
     <>
       <Script
@@ -15,21 +44,22 @@ const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
         strategy="beforeInteractive"
       ></Script>
       <NaverMapProvider>
-        <Map lat={37.3595704} lng={127.105399}>
-          <Marker lat={37.3595704} lng={127.2}>
-            ellldji
-          </Marker>
-          <Marker lat={37.3595704} lng={127.3}>
-            ellldji
-          </Marker>
-          <Marker lat={37.3595704} lng={127.4}>
-            ellldji
-          </Marker>
-
-          <Marker lat={37.3595704} lng={127.105399}>
-            ellldji
-          </Marker>
-        </Map>
+        {!isLoading && (
+          <Map lat={lat} lng={lng}>
+            <Marker lat={37.3595704} lng={127.2}>
+              ellldji
+            </Marker>
+            <Marker lat={37.3595704} lng={127.3}>
+              ellldji
+            </Marker>
+            <Marker lat={37.3595704} lng={127.4}>
+              ellldji
+            </Marker>
+            <Marker lat={37.3595704} lng={127.105399}>
+              ellldji
+            </Marker>
+          </Map>
+        )}
       </NaverMapProvider>
     </>
   )

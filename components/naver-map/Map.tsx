@@ -1,9 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import {
-  NaverMapProvider,
-  useNaverMapDispatch,
-  useNaverMapState,
-} from '../../context'
+import React, { useEffect, useRef } from 'react'
+import { useNaverMapDispatch, useNaverMapState } from '../../context'
 
 interface MapProps {
   lat: number
@@ -13,7 +9,7 @@ interface MapProps {
 
 const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
   const mapRef = useRef<HTMLDivElement>(null)
-  // const [map, setMap] = useState<naver.maps.Map>()
+
   const state = useNaverMapState()
   const dispatch = useNaverMapDispatch()
 
@@ -30,12 +26,22 @@ const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
     }
     const mapOptions = {
       center: new window.naver.maps.LatLng(lat, lng),
-      zoom: 15,
+      zoom: 18,
     }
     const map = new window.naver.maps.Map('map', mapOptions)
 
     dispatch({ type: 'SET_MAP', NaverMap: map })
   }, [mapRef])
+
+  // useEffect(() => {
+  //   console.log('??????')
+  //   if (state.NaverMap !== undefined) {
+  //     state.NaverMap.panTo(new naver.maps.LatLng(lat, lng), {
+  //       duration: 2,
+  //       easing: 'easeOutCubic',
+  //     })
+  //   }
+  // }, [lat, lng])
 
   return (
     <>
