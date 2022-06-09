@@ -1,9 +1,9 @@
 import { GetServerSideProps } from 'next'
 import Script from 'next/script'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { Map, Marker } from '../components/naver-map'
 import { NaverMapProvider } from '../context'
-import { fetchPopular, ItemResponseProps } from '../src/api/api'
+import { fetchSearch, ItemResponseProps } from '../src/api/api'
 
 const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
   console.log(data)
@@ -41,7 +41,14 @@ export const getStaticProps: GetServerSideProps = async (context) => {
   // const data = await response.json()
   // console.log('data fetch', data)
 
-  const data = await fetchPopular()
+  // const data = await fetchCategorySearch(
+  //   `{addresses: '["광진구"]', category: 'null'}`
+  // )
+
+  const { data } = await fetchSearch(1, {
+    addresses: ['광진구'],
+    category: 'null',
+  })
 
   return {
     props: { data }, // will be passed to the page component as props

@@ -30,15 +30,11 @@ const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
     }
     const mapOptions = {
       center: new window.naver.maps.LatLng(lat, lng),
-      zoom: 10,
+      zoom: 15,
     }
     const map = new window.naver.maps.Map('map', mapOptions)
 
     dispatch({ type: 'SET_MAP', NaverMap: map })
-    // new window.naver.maps.Marker({
-    //   position: new window.naver.maps.LatLng(37.0, 127.105399),
-    //   map: mapRef.current,
-    // })
   }, [mapRef])
 
   return (

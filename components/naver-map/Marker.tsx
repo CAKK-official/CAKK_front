@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import {
   NaverMapProvider,
   useNaverMapDispatch,
   useNaverMapState,
 } from '../../context'
+import InfoWindow from './InfoWindow'
 
 interface MarkerProps {
   lat: number
@@ -12,18 +13,38 @@ interface MarkerProps {
 }
 
 const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
-  const { NaverMap } = useNaverMapState()
-  console.log('marker')
+  const [infoWindowOpen, setInfoWindowOpen] = useState<boolean>(false)
 
-  useEffect(() => {
-    console.log('Naver Map ==> ', NaverMap)
-    new window.naver.maps.Marker({
-      position: new window.naver.maps.LatLng(lat, lng),
+  const { NaverMap } = useNaverMapState()
+
+  const marker = useMemo(() => {
+    return new naver.maps.Marker({
+      position: new naver.maps.LatLng(lat, lng),
       map: NaverMap,
     })
-  }, [NaverMap])
+  }, [])
 
-  return <div>{children}</div>
+  useEffect(() => {
+    naver.maps.Event.addListener(marker, 'mouseover', () =>
+      setInfoWindowOpen(true)
+    )
+    naver.maps.Event.addListener(marker, 'mouseout', () =>
+      setInfoWindowOpen(false)
+    )
+
+    // return () => {
+    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(true))
+    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(false))
+    // }
+  }, [])
+
+  useEffect(() => {
+    console.log('infoWindowOpen', infoWindowOpen)
+  }, [infoWindowOpen])
+
+  return (
+    <>{children && <InfoWindow opened={infoWindowOpen} marker={marker} />}</>
+  )
 }
 
 export default Marker
