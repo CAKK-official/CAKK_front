@@ -60,8 +60,6 @@ export const fetchSearch = async (
     category: body.category,
   }
 
-  console.log(data)
-
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
   return fetch(`${API_ENDPOINT}/cakestore/search?page=${page}`, {
     method: 'POST',

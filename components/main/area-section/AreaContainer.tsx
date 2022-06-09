@@ -69,8 +69,6 @@ const AreaContainer: React.FC = () => {
       (category: CategoryInterface) => category.name === categoryState.category
     )?.title
 
-    console.log('????', categoryTitle)
-
     fetchSearch(page, {
       addresses: locationState.location,
       category: categoryTitle ? categoryTitle : 'null',

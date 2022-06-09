@@ -109,7 +109,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           <Chip
             primary
             key={category}
-            onClick={() => {
+            handleClick={() => {
               console.log('HI')
             }}
           >

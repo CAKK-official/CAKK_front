@@ -38,7 +38,10 @@ const LocationContainer: React.FC = () => {
         <Styled.ChipContainer>
           {state.location.map((location: string) => (
             <li className="chip-item" key={location}>
-              <Chip primary onDelete={(e) => handleDeleteLocation(e, location)}>
+              <Chip
+                primary
+                handleDelete={(e) => handleDeleteLocation(e, location)}
+              >
                 <span>{location}</span>
               </Chip>
             </li>
@@ -76,7 +79,7 @@ const CategoryContainer: React.FC = () => {
           <li className="chip-item" key={category.name}>
             <Chip
               primary={category.name === state.category}
-              onClick={() =>
+              handleClick={() =>
                 dispatch({ type: 'TOGGLE_CATEGORY', category: category.name })
               }
             >
