@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { fetchSearch } from '../src/api/api'
+import AreaContainer from '../components/main/area-section'
 
 const Result: NextPage = () => {
   const router = useRouter()
@@ -27,8 +28,8 @@ const Result: NextPage = () => {
           src="https://developers.kakao.com/sdk/js/kakao.min.js"
         ></script>
       </Head>
-      <div>result페이지</div>
       <div>{category}</div>
+      <AreaContainer />
     </Layout>
   )
 }
