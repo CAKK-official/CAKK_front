@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { fetchSearch } from '../src/api/api'
 import AreaContainer from '../components/main/area-section'
 
+
 const Result: NextPage = () => {
   const router = useRouter()
   const { category } = router.query

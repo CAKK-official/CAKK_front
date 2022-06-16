@@ -105,7 +105,7 @@ export const fetchKakaoShareCount = async (storeId: number) => {
       if (!res.ok) {
         throw new Error('Res.ok Error')
       }
-      return res.json()
+      return res.ok
     })
     .catch((err) => {
       console.log(err.message)
