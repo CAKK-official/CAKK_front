@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useNaverMapDispatch, useNaverMapState } from '../../context'
+import * as S from './style'
 
 interface MapProps {
   lat: number
@@ -12,11 +13,6 @@ const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
 
   const state = useNaverMapState()
   const dispatch = useNaverMapDispatch()
-
-  const mapStyle = {
-    width: '100vw',
-    height: '100vh',
-  }
 
   useEffect(() => {
     const MapContainer = mapRef.current
@@ -45,7 +41,7 @@ const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
 
   return (
     <>
-      <div id="map" ref={mapRef} style={mapStyle}></div>
+      <S.Map id="map" ref={mapRef}></S.Map>
       {state.NaverMap && <>{children}</>}
     </>
   )

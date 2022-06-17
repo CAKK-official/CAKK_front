@@ -42,6 +42,9 @@ export const global = css`
     --pink80: #ee8288;
     --pink50: #f9ccc9;
     --pink20: #fef6f4;
+
+    --header-height: 4.5rem;
+    --total-header-height: 5.5rem;
   }
 
   html,

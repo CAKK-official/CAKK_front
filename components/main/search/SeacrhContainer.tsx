@@ -10,7 +10,7 @@ import * as Styled from './style'
 import Select from '../select'
 import { categoryList } from '../../../context/CategoryContext'
 
-const LocationContainer: React.FC = () => {
+export const LocationContainer: React.FC = () => {
   const state = useLocationState()
   const locationDispatch = useLocationDispatch()
 
@@ -27,7 +27,7 @@ const LocationContainer: React.FC = () => {
   ) => {
     locationDispatch({ type: 'DELETE_LOCATION', location })
   }
-  console.log(process.env.NEXT_PUBLIC_NAVER_API_KEY)
+
   return (
     <div className="location-group select-items">
       <div className="item-title">
@@ -52,7 +52,7 @@ const LocationContainer: React.FC = () => {
   )
 }
 
-const CategoryContainer: React.FC = () => {
+export const CategoryContainer: React.FC = () => {
   // const categoryList = [
   //   { id: 0, name: 'lunch', title: '도시락케이크' },
   //   { id: 1, name: 'tiara', title: '티아라케이크' },

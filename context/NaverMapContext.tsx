@@ -2,15 +2,21 @@ import React, { createContext, Dispatch, useReducer, useContext } from 'react'
 
 type NaverMapState = {
   NaverMap: naver.maps.Map
+  menu: boolean
 }
 
-type NaverMapAction = {
-  type: 'SET_MAP'
-  NaverMap: naver.maps.Map
-}
+type NaverMapAction =
+  | {
+      type: 'SET_MAP'
+      NaverMap: naver.maps.Map
+    }
+  | {
+      type: 'TOGGLE_MENU'
+    }
 
 const initState = {
   NaverMap: undefined as unknown as naver.maps.Map,
+  menu: true,
 }
 
 function reducer(state: NaverMapState, action: NaverMapAction): NaverMapState {
@@ -20,7 +26,11 @@ function reducer(state: NaverMapState, action: NaverMapAction): NaverMapState {
         ...state,
         NaverMap: action.NaverMap,
       }
-
+    case 'TOGGLE_MENU':
+      return {
+        ...state,
+        menu: !state.menu,
+      }
     default:
       throw new Error('Unhandled action')
   }

@@ -2,8 +2,12 @@ import { GetServerSideProps } from 'next'
 import Script from 'next/script'
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
-import { Map, Marker } from '../components/naver-map'
-import { NaverMapProvider } from '../context'
+import MapView from '../components/naver-map'
+import {
+  CategoryProvider,
+  LocationProvider,
+  NaverMapProvider,
+} from '../context'
 import { fetchSearch, ItemResponseProps } from '../src/api/api'
 
 const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
@@ -45,24 +49,13 @@ const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
       ></Script>
 
       <NaverMapProvider>
-        <Layout>
-          {!isLoading && (
-            <Map lat={lat} lng={lng}>
-              <Marker lat={37.3595704} lng={127.2}>
-                ellldji
-              </Marker>
-              <Marker lat={37.3595704} lng={127.3}>
-                ellldji
-              </Marker>
-              <Marker lat={37.3595704} lng={127.4}>
-                ellldji
-              </Marker>
-              <Marker lat={37.3595704} lng={127.105399}>
-                ellldji
-              </Marker>
-            </Map>
-          )}
-        </Layout>
+        <LocationProvider>
+          <CategoryProvider>
+            <Layout>
+              <MapView isLoading={isLoading} lat={lat} lng={lng} />
+            </Layout>
+          </CategoryProvider>
+        </LocationProvider>
       </NaverMapProvider>
     </>
   )
