@@ -21,6 +21,14 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
     return new naver.maps.Marker({
       position: new naver.maps.LatLng(lat, lng),
       map: NaverMap,
+      // icon: {
+      //   content:
+      //     '<div'+
+      //     'style="background-color: pink; margin: 0px; padding: 0px; border: 0px solid transparent; display: block; max-width: none; max-height: none; ' +
+      //     '-webkit-user-select: none; position: absolute; width: 22px; height: 35px; left: 0px; top: 0px;">?</div>',
+      //   size: new naver.maps.Size(22, 35),
+      //   anchor: new naver.maps.Point(11, 35),
+      // },
     })
   }, [])
 

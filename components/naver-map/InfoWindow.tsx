@@ -42,6 +42,10 @@ const InfoWindow: React.FC<MarkerProps> = ({
   const infoWindow = useMemo(() => {
     return new window.naver.maps.InfoWindow({
       content: contentString,
+      backgroundColor: '#f00',
+      borderWidth: 0,
+      anchorSize: new naver.maps.Size(8, 4),
+      anchorColor: '#f00',
     })
   }, [])
 
