@@ -1,5 +1,5 @@
-// const API_ENDPOINT = 'http://15.165.196.34:8000'
-const API_ENDPOINT = 'http://localhost:3000/api'
+const API_ENDPOINT = 'http://15.165.196.34:8000'
+// const API_ENDPOINT = 'http://localhost:3000/api'
 
 //TODO: picture => picurl
 export type ItemResponseProps = {
@@ -77,7 +77,7 @@ export const fetchSearch = async (
       return res.json()
     })
     .catch((err) => {
-      console.log(err.message)
+      console.log('😒', err.message)
       throw new Error('Error', err.message)
     })
 }
