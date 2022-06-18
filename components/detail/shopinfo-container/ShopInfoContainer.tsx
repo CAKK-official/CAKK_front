@@ -139,9 +139,9 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         </IconDiv>
       </TitleDiv>
       <h3
-        css={css`
-          color: #707070;
-        `}
+      // css={css`
+      //   color: #707070;
+      // `}
       >
         {desc}
       </h3>

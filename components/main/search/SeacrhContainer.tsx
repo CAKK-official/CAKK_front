@@ -10,7 +10,7 @@ import * as Styled from './style'
 import Select from '../select'
 import { categoryList } from '../../../context/CategoryContext'
 
-const LocationContainer: React.FC = () => {
+export const LocationContainer: React.FC = () => {
   const state = useLocationState()
   const locationDispatch = useLocationDispatch()
 
@@ -38,7 +38,10 @@ const LocationContainer: React.FC = () => {
         <Styled.ChipContainer>
           {state.location.map((location: string) => (
             <li className="chip-item" key={location}>
-              <Chip primary onDelete={(e) => handleDeleteLocation(e, location)}>
+              <Chip
+                primary
+                handleDelete={(e) => handleDeleteLocation(e, location)}
+              >
                 <span>{location}</span>
               </Chip>
             </li>
@@ -76,7 +79,7 @@ export const CategoryContainer: React.FC = () => {
           <li className="chip-item" key={category.name}>
             <Chip
               primary={category.name === state.category}
-              onClick={() =>
+              handleClick={() =>
                 dispatch({ type: 'TOGGLE_CATEGORY', category: category.name })
               }
             >

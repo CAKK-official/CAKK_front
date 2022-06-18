@@ -1,5 +1,7 @@
+
 const API_ENDPOINT = 'http://15.165.196.34:8000'
 // const API_ENDPOINT = 'http://localhost:3000/api'
+
 
 //TODO: picture => picurl
 export type ItemResponseProps = {
@@ -33,6 +35,21 @@ export type DetailResponse = {
   whenbuy: string
 }
 
+export type MapResponse = {
+  id: number
+  name: string
+  address: string
+  tel: string
+  url: string
+  opened: string
+  closed: string
+  views: number
+  shares: number
+  latlng: [number, number]
+  pictArray: string[]
+  distance: number
+}
+
 export const fetchPopular = async (): Promise<ItemResponseProps[]> => {
   return fetch(`${API_ENDPOINT}/cakestore/popular`)
     .then((res) => {
@@ -59,8 +76,6 @@ export const fetchSearch = async (
       body.addresses.length > 0 ? JSON.stringify(body.addresses) : '["null"]',
     category: body.category,
   }
-
-  console.log(data)
 
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
   return fetch(`${API_ENDPOINT}/cakestore/search?page=${page}`, {
@@ -129,6 +144,37 @@ export const fetchCategorySearch = async (
     },
     body: JSON.stringify(data),
   })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Res.ok Error')
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log(err.message)
+      throw new Error('Error', err.message)
+    })
+}
+
+export const fetchMapSearch = async (
+  category: string,
+  lat: number,
+  lng: number
+): Promise<MapResponse> => {
+  const data = {
+    category,
+    latlng: [lat, lng],
+  }
+
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }
+
+  return fetch(`${API_ENDPOINT}/cakestore/nearby`, config)
     .then((res) => {
       if (!res.ok) {
         throw new Error('Res.ok Error')

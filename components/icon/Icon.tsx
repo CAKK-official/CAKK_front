@@ -19,6 +19,7 @@ import IconCakeFill from './IconCakeFill'
 // IconInstaFill,
 // IconUserFill,
 import Logo from './Logo'
+import IconDirectionRightFill from './IconDirectionRightFill'
 
 export interface IconInterface {
   width: number
@@ -60,8 +61,10 @@ const Icon: React.FC<{
       return <IconCopyFill width={width} height={height} color={color} />
     // case 'icon_direction_left_fill':
     //   return <IconDirectionLeft />
-    // case 'icon_direction_right_fill':
-    //   return <IconDirectionRight />
+    case 'icon_direction_right_fill':
+      return (
+        <IconDirectionRightFill width={width} height={height} color={color} />
+      )
     // case 'icon_flag_fill':
     //   return <IconFlagFill />
     case 'icon_share_fill':
