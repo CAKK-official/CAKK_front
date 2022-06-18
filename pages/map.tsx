@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next'
 import Script from 'next/script'
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
-import MapView from '../components/naver-map'
+import MapView from '../components/map'
 import {
   CategoryProvider,
   LocationProvider,
@@ -71,10 +71,12 @@ export const getStaticProps: GetServerSideProps = async (context) => {
   //   `{addresses: '["광진구"]', category: 'null'}`
   // )
 
-  const { data } = await fetchSearch(1, {
-    addresses: ['광진구'],
-    category: 'null',
-  })
+  // const { data } = await fetchSearch(1, {
+  //   addresses: ['광진구'],
+  //   category: 'null',
+  // })
+
+  const data = [] as ItemResponseProps[]
 
   return {
     props: { data }, // will be passed to the page component as props

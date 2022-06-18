@@ -1,13 +1,12 @@
 import React from 'react'
-import { useNaverMapDispatch } from '../../context'
-import {
-  CategoryContainer,
-  LocationContainer,
-} from '../main/search/SeacrhContainer'
+import { useCategoryState, useNaverMapDispatch } from '../../context'
+import { CategoryContainer, LocationContainer } from './search/Container'
 
 import Map from './Map'
 import MapSearchMenu from './MapSearchMenu'
 import Marker from './Marker'
+
+import * as S from './style'
 
 interface MapViewInterface {
   isLoading: boolean
@@ -16,17 +15,17 @@ interface MapViewInterface {
 }
 
 const MapView: React.FC<MapViewInterface> = ({ isLoading, lat, lng }) => {
-  const dispatch = useNaverMapDispatch()
+  const state = useCategoryState()
+  console.log('📊', state)
 
   return (
     <>
       {!isLoading && (
-        <div style={{ display: 'flex', position: 'relative' }}>
+        <S.MapView>
           <MapSearchMenu>
-            <CategoryContainer />
             <LocationContainer />
+            <CategoryContainer />
           </MapSearchMenu>
-
           <Map lat={lat} lng={lng}>
             <Marker lat={37.3595704} lng={127.2}>
               ellldji
@@ -41,7 +40,7 @@ const MapView: React.FC<MapViewInterface> = ({ isLoading, lat, lng }) => {
               ellldji
             </Marker>
           </Map>
-        </div>
+        </S.MapView>
       )}
     </>
   )
