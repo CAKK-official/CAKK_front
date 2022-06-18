@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 import { fetchSearch } from '../src/api/api'
 import AreaContainer from '../components/main/area-section'
 import { CategoryProvider, LocationProvider } from '../context'
+import { CategoryContainer } from '../components/main/search/SeacrhContainer'
+import * as Styled from '../styles/home'
 
 const Result: NextPage = () => {
   const router = useRouter()
@@ -33,13 +35,16 @@ const Result: NextPage = () => {
           src="https://developers.kakao.com/sdk/js/kakao.min.js"
         ></script>
       </Head>
-      <LocationProvider>
-        <CategoryProvider>
-          <div>hello?</div>
-          <div>{category}</div>
-          <AreaContainer />
-        </CategoryProvider>
-      </LocationProvider>
+      <Styled.Home>
+        <LocationProvider>
+          <CategoryProvider>
+            <CategoryContainer />
+            <h2>검색 결과</h2>
+            <div>{category}</div>
+            <AreaContainer />
+          </CategoryProvider>
+        </LocationProvider>
+      </Styled.Home>
     </Layout>
   )
 }
