@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 // const API_ENDPOINT = 'http://15.165.196.34:8000'
 const API_ENDPOINT = 'http://localhost:3000/api'
 
@@ -31,6 +33,21 @@ export type DetailResponse = {
   tel: string
   url: string
   whenbuy: string
+}
+
+export type MapResponse = {
+  id: number
+  name: string
+  address: string
+  tel: string
+  url: string
+  opened: string
+  closed: string
+  views: number
+  shares: number
+  latlng: [number, number]
+  pictArray: string[]
+  distance: number
 }
 
 export const fetchPopular = async (): Promise<ItemResponseProps[]> => {
@@ -127,6 +144,37 @@ export const fetchCategorySearch = async (
     },
     body: JSON.stringify(data),
   })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Res.ok Error')
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log(err.message)
+      throw new Error('Error', err.message)
+    })
+}
+
+export const fetchMapSearch = async (
+  category: string,
+  lat: number,
+  lng: number
+): Promise<MapResponse> => {
+  const data = {
+    category,
+    latlng: [lat, lng],
+  }
+
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }
+
+  return fetch(`${API_ENDPOINT}/cakestore/nearby`, config)
     .then((res) => {
       if (!res.ok) {
         throw new Error('Res.ok Error')

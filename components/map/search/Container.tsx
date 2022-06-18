@@ -2,24 +2,28 @@ import { useState } from 'react'
 import {
   useCategoryDispatch,
   useCategoryState,
-  useLocationDispatch,
-  useLocationState,
+  useMapLocationDispatch,
+  useMapLocationState,
 } from '../../../context'
 import { categoryList } from '../../../context/CategoryContext'
+import { LocationProps } from '../../../context/MapLocationContext'
 import Chip from '../../main/chip'
 import Select from '../../main/select'
 
 import * as S from './style'
 
 export const LocationContainer: React.FC = () => {
-  const state = useLocationState()
-  const locationDispatch = useLocationDispatch()
+  const state = useMapLocationState()
+  const dispatch = useMapLocationDispatch()
 
   const [loc, setLoc] = useState<string>('')
 
   const handleChange = (event: { target: { value: string } }) => {
     setLoc(event.target.value)
-    locationDispatch({ type: 'SET_LOCATION', location: event.target.value })
+    dispatch({
+      type: 'SET_LOCATION',
+      location: event.target.value as LocationProps,
+    })
   }
 
   return (

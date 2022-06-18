@@ -5,41 +5,12 @@ import Layout from '../components/layout'
 import MapView from '../components/map'
 import {
   CategoryProvider,
-  LocationProvider,
+  MapLocationProvider,
   NaverMapProvider,
 } from '../context'
 import { fetchSearch, ItemResponseProps } from '../src/api/api'
 
 const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [lat, setLat] = useState<number>(37.4954178)
-  const [lng, setLng] = useState<number>(127.0388462)
-
-  // FETCH CURRENT LOCATION
-  useEffect(() => {
-    const { geolocation } = navigator
-
-    geolocation.getCurrentPosition(
-      (position) => {
-        // success.
-        setLat(position.coords.latitude)
-        setLng(position.coords.longitude)
-        setIsLoading(false)
-      },
-      (error) => {
-        console.warn('Fail to fetch current location', error)
-        setLat(37.4954178)
-        setLng(127.0388462)
-        setIsLoading(false)
-      },
-      {
-        enableHighAccuracy: false,
-        maximumAge: 0,
-        timeout: Infinity,
-      }
-    )
-  }, [])
-
   return (
     <>
       <Script
@@ -49,13 +20,13 @@ const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
       ></Script>
 
       <NaverMapProvider>
-        <LocationProvider>
+        <MapLocationProvider>
           <CategoryProvider>
             <Layout>
-              <MapView isLoading={isLoading} lat={lat} lng={lng} />
+              <MapView />
             </Layout>
           </CategoryProvider>
-        </LocationProvider>
+        </MapLocationProvider>
       </NaverMapProvider>
     </>
   )

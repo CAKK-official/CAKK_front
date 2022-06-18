@@ -13,6 +13,11 @@ import {
   useNaverMapState,
 } from './NaverMapContext'
 
+import MapLocationProvider, {
+  useMapLocationDispatch,
+  useMapLocationState,
+} from './MapLocationContext'
+
 export {
   CategoryProvider,
   LocationProvider,
@@ -23,4 +28,7 @@ export {
   NaverMapProvider,
   useNaverMapDispatch,
   useNaverMapState,
+  MapLocationProvider,
+  useMapLocationDispatch,
+  useMapLocationState,
 }
