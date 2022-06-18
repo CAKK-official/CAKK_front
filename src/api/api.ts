@@ -1,7 +1,7 @@
-import axios from 'axios'
 
-// const API_ENDPOINT = 'http://15.165.196.34:8000'
-const API_ENDPOINT = 'http://localhost:3000/api'
+const API_ENDPOINT = 'http://15.165.196.34:8000'
+// const API_ENDPOINT = 'http://localhost:3000/api'
+
 
 //TODO: picture => picurl
 export type ItemResponseProps = {
@@ -92,7 +92,7 @@ export const fetchSearch = async (
       return res.json()
     })
     .catch((err) => {
-      console.log(err.message)
+      console.log('😒', err.message)
       throw new Error('Error', err.message)
     })
 }
@@ -115,12 +115,12 @@ export const fetchDetail = async (
 }
 
 export const fetchKakaoShareCount = async (storeId: number) => {
-  return fetch(`/cakestore/share/${storeId}`, { method: 'POST' })
+  return fetch(`${API_ENDPOINT}/cakestore/share/${storeId}`, { method: 'POST' })
     .then((res) => {
       if (!res.ok) {
         throw new Error('Res.ok Error')
       }
-      return res.json()
+      return res.ok
     })
     .catch((err) => {
       console.log(err.message)
@@ -137,7 +137,7 @@ export const fetchCategorySearch = async (
   }
   console.log(data)
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
-  return fetch(`/cakestore/search`, {
+  return fetch(`${API_ENDPOINT}/cakestore/search`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
