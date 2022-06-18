@@ -3,7 +3,7 @@ interface ClipBoardInterface {
   content: string
 }
 const ClipBoard: React.FC<ClipBoardInterface> = ({ content }) => {
-  const handleCopy = (text) => {
+  const handleCopy = (text: string) => {
     if (!document.queryCommandSupported('copy')) {
       return alert('복사하기가 지원되지 않는 브라우저입니다.')
     }

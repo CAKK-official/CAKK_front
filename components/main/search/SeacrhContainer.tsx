@@ -49,7 +49,7 @@ const LocationContainer: React.FC = () => {
   )
 }
 
-const CategoryContainer: React.FC = () => {
+export const CategoryContainer: React.FC = () => {
   // const categoryList = [
   //   { id: 0, name: 'lunch', title: '도시락케이크' },
   //   { id: 1, name: 'tiara', title: '티아라케이크' },
