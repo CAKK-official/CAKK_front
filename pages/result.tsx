@@ -26,7 +26,7 @@ const Result: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>케이크크 | 🎂카테고리페이지</title>
+        <title>케이크크 | 🎂{category}</title>
         <link rel="icon" href="/favicon.ico" />
         <script
           defer
