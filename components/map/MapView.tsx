@@ -4,6 +4,7 @@ import {
   useNaverMapDispatch,
   useMapLocationState,
   useMapLocationDispatch,
+  useNaverMapState,
 } from '../../context'
 import { CategoryContainer, LocationContainer } from './search/Container'
 
@@ -24,7 +25,7 @@ interface MapViewInterface {
 }
 
 const MapView: React.FC = () => {
-  const state = useCategoryState()
+  const categoryState = useCategoryState()
   const locationState = useMapLocationState()
 
   const dispatch = useMapLocationDispatch()
@@ -78,16 +79,18 @@ const MapView: React.FC = () => {
   useEffect(() => {
     if (locationState.lat !== 0 || locationState.lng !== 0) {
       const fetchData = async () => {
-        const data = await fetchMapSearch('letter', 127.1091949, 37.5112439)
-
+        const data = await fetchMapSearch(
+          categoryState.category,
+          locationState.lat,
+          locationState.lng
+        )
+        console.log(data)
         setMarkerData(data)
       }
 
       fetchData()
     }
-  }, [locationState])
-
-  console.log('📊', state, locationState, markerData)
+  }, [locationState, categoryState])
 
   return (
     <>

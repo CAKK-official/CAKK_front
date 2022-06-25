@@ -27,7 +27,6 @@ const InfoWindow: React.FC<MarkerProps> = ({
   children,
 }) => {
   const { NaverMap } = useNaverMapState()
-  console.log('marker')
 
   const contentString = [
     '<hello class="iw_inner">',

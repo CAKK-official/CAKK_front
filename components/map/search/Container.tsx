@@ -4,6 +4,7 @@ import {
   useCategoryState,
   useMapLocationDispatch,
   useMapLocationState,
+  useNaverMapDispatch,
 } from '../../../context'
 import { categoryList } from '../../../context/CategoryContext'
 import { LocationProps } from '../../../context/MapLocationContext'
@@ -15,13 +16,17 @@ import * as S from './style'
 export const LocationContainer: React.FC = () => {
   const state = useMapLocationState()
   const dispatch = useMapLocationDispatch()
+  const naverMapDispatch = useNaverMapDispatch()
 
   const [loc, setLoc] = useState<string>('')
 
   const handleChange = (event: { target: { value: string } }) => {
     setLoc(event.target.value)
+    naverMapDispatch({
+      type: 'RESET_MARKERS',
+    })
     dispatch({
-      type: 'SET_LOCATION',
+      type: 'SET_LAT_LNG_BY_LOCATION',
       location: event.target.value as LocationProps,
     })
   }
@@ -50,6 +55,14 @@ export const CategoryContainer: React.FC = () => {
 
   const state = useCategoryState()
   const dispatch = useCategoryDispatch()
+  const naverMapDispatch = useNaverMapDispatch()
+
+  const handleChange = (categoryName: string) => {
+    naverMapDispatch({
+      type: 'RESET_MARKERS',
+    })
+    dispatch({ type: 'TOGGLE_CATEGORY', category: categoryName })
+  }
 
   return (
     <S.ChipContainer>
@@ -57,9 +70,7 @@ export const CategoryContainer: React.FC = () => {
         <li className="chip-item" key={category.name}>
           <S.Button
             primary={category.name === state.category}
-            onClick={() =>
-              dispatch({ type: 'TOGGLE_CATEGORY', category: category.name })
-            }
+            onClick={() => handleChange(category.name)}
           >
             {/* <span>{category.title}</span> */}
           </S.Button>
