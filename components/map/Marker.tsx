@@ -14,8 +14,8 @@ interface MarkerProps {
 
 const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
   const [infoWindowOpen, setInfoWindowOpen] = useState<boolean>(false)
-
-  const { NaverMap } = useNaverMapState()
+  const { NaverMap, NaverMarkers } = useNaverMapState()
+  const dispatch = useNaverMapDispatch()
 
   const marker = useMemo(() => {
     return new naver.maps.Marker({
@@ -32,7 +32,10 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
     })
   }, [])
 
+  // dispatch({type: 'ADD_MARKER', NaverMarker: marker})
+
   useEffect(() => {
+    dispatch({ type: 'ADD_MARKER', NaverMarker: marker })
     naver.maps.Event.addListener(marker, 'mouseover', () =>
       setInfoWindowOpen(true)
     )
@@ -46,12 +49,12 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
     // }
   }, [])
 
-  useEffect(() => {
-    console.log('infoWindowOpen', infoWindowOpen)
-  }, [infoWindowOpen])
-
   return (
-    <>{children && <InfoWindow opened={infoWindowOpen} marker={marker} />}</>
+    <>
+      {children && !!marker && (
+        <InfoWindow opened={infoWindowOpen} marker={marker} />
+      )}
+    </>
   )
 }
 

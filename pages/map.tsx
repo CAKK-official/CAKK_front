@@ -18,7 +18,6 @@ const MapPage = ({ data }: { data: ItemResponseProps[] }) => {
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_API_KEY}`}
         strategy="beforeInteractive"
       />
-
       <NaverMapProvider>
         <MapLocationProvider>
           <CategoryProvider>

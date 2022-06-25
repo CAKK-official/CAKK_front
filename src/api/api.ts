@@ -1,7 +1,5 @@
-
-const API_ENDPOINT = 'http://15.165.196.34:8000'
-// const API_ENDPOINT = 'http://localhost:3000/api'
-
+// const API_ENDPOINT = 'http://15.165.196.34:8000'
+const API_ENDPOINT = 'http://localhost:3000/api'
 
 //TODO: picture => picurl
 export type ItemResponseProps = {
@@ -92,7 +90,6 @@ export const fetchSearch = async (
       return res.json()
     })
     .catch((err) => {
-      console.log('😒', err.message)
       throw new Error('Error', err.message)
     })
 }
@@ -160,10 +157,10 @@ export const fetchMapSearch = async (
   category: string,
   lat: number,
   lng: number
-): Promise<MapResponse> => {
+): Promise<MapResponse[]> => {
   const data = {
     category,
-    latlng: [lat, lng],
+    latlng: [lng, lat],
   }
 
   const config = {
@@ -179,10 +176,10 @@ export const fetchMapSearch = async (
       if (!res.ok) {
         throw new Error('Res.ok Error')
       }
+      // console.log('😰', res.json());
       return res.json()
     })
     .catch((err) => {
-      console.log(err.message)
       throw new Error('Error', err.message)
     })
 }
