@@ -1,5 +1,7 @@
 import React, { createContext, Dispatch, useReducer, useContext } from 'react'
 
+const naver = window.naver
+
 type NaverMapState = {
   NaverMap: naver.maps.Map
   menu: boolean
