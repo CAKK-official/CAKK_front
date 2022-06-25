@@ -79,7 +79,11 @@ export default {
 
 const Template: ComponentStory<typeof ItemGridContainer> = (args) => (
   <ThemeProvider theme={theme}>
-    <ItemGridContainer row={args.row} ranking={args.ranking} items={toyData} />
+    <ItemGridContainer
+      row={args.row}
+      ranking={args.ranking}
+      items={args.items}
+    />
   </ThemeProvider>
 )
 
