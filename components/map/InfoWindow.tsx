@@ -6,7 +6,7 @@ import {
   useNaverMapState,
 } from '../../context'
 
-const { naver } = window
+// const { naver } = window
 interface MarkerProps {
   marker: naver.maps.Marker
 
@@ -40,11 +40,11 @@ const InfoWindow: React.FC<MarkerProps> = ({
   ].join('')
 
   const infoWindow = useMemo(() => {
-    return new naver.maps.InfoWindow({
+    return new window.naver.maps.InfoWindow({
       content: contentString,
       backgroundColor: '#f00',
       borderWidth: 0,
-      anchorSize: new naver.maps.Size(8, 4),
+      anchorSize: new window.naver.maps.Size(8, 4),
       anchorColor: '#f00',
     })
   }, [])
