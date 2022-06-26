@@ -6,7 +6,10 @@ import {
   useNaverMapState,
 } from '../../context'
 
-// const { naver } = window
+
+if (typeof window !== 'undefined') {
+  const { naver } = window
+}
 interface MarkerProps {
   marker: naver.maps.Marker
 
