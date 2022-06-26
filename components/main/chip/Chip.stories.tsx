@@ -1,5 +1,4 @@
 import Chip from './Chip'
-import { action } from '@storybook/addon-actions'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 export default {

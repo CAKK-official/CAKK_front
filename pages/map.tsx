@@ -1,5 +1,5 @@
 import Script from 'next/script'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Layout from '../components/layout'
 import MapView from '../components/map'
 import {
@@ -7,7 +7,6 @@ import {
   MapLocationProvider,
   NaverMapProvider,
 } from '../context'
-import { fetchSearch, ItemResponseProps } from '../src/api/api'
 
 const MapPage = () => {
   return (
