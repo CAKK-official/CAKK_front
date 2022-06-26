@@ -1,4 +1,3 @@
-import { css } from '@emotion/react'
 import theme from '../../../assets/theme/theme'
 import Icon from '../../icon'
 import * as Styled from './style'

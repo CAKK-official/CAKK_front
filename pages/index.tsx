@@ -32,12 +32,7 @@ const Home = ({ data }: { data: ItemResponseProps[] }) => {
   )
 }
 
-export const getStaticProps: GetServerSideProps = async (context) => {
-  // const data = await fetchPopular()
-  // const response = await fetch('http://localhost:3000/api/cakestore/popular')
-  // const data = await response.json()
-  // console.log('data fetch', data)
-
+export const getServerSideProps: GetServerSideProps = async () => {
   const data = await fetchPopular()
 
   return {

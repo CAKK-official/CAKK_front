@@ -4,7 +4,6 @@ import { ThemeProvider, Global } from '@emotion/react'
 import { global } from '../assets/theme/Global'
 import theme from '../assets/theme/theme'
 import MuiTheme from '../assets/theme/MuiTheme'
-import Script from 'next/script'
 
 declare global {
   interface Window {

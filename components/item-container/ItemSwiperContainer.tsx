@@ -6,7 +6,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import { css } from '@emotion/react'
 import * as Styled from './style'
 
 export interface ItemInterface {
