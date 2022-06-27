@@ -1,4 +1,4 @@
-import type { GetServerSideProps } from 'next'
+import type { GetServerSideProps, GetStaticProps } from 'next'
 import Head from 'next/head'
 import BannerContainer from '../components/main/banner'
 import Layout from '../components/layout'
@@ -11,6 +11,7 @@ import { CategoryProvider, LocationProvider } from '../context'
 import { fetchPopular, ItemResponseProps } from '../src/api/api'
 
 const Home = ({ data }: { data: ItemResponseProps[] }) => {
+  console.log('👻', data)
   return (
     <Layout>
       <Head>
@@ -24,7 +25,7 @@ const Home = ({ data }: { data: ItemResponseProps[] }) => {
             <BannerContainer />
             <SeacrhContainer />
             <RankContainer data={data} />
-            <AreaContainer />
+            {/* <AreaContainer /> */}
           </CategoryProvider>
         </LocationProvider>
       </Styled.Home>
@@ -32,11 +33,15 @@ const Home = ({ data }: { data: ItemResponseProps[] }) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const data = await fetchPopular()
-
-  return {
-    props: { data }, // will be passed to the page component as props
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const data = await fetchPopular()
+    return {
+      props: { data }, // will be passed to the page component as props
+    }
+  } catch (err) {
+    console.error('Failed to fetch data in /', err)
+    return { props: { data: [] } }
   }
 }
 

@@ -1,4 +1,4 @@
-// const API_ENDPOINT = 'http://15.165.196.34:8000'
+const OUT_API_ENDPOINT = 'http://15.165.196.34:8000'
 const API_ENDPOINT = 'http://localhost:3000/api'
 
 //TODO: picture => picurl
@@ -49,7 +49,7 @@ export type MapResponse = {
 }
 
 export const fetchPopular = async (): Promise<ItemResponseProps[]> => {
-  return fetch(`${API_ENDPOINT}/cakestore/popular`)
+  return fetch(`${OUT_API_ENDPOINT}/cakestore/popular`)
     .then((res) => {
       if (!res.ok) {
         throw new Error('Res.ok Error')
