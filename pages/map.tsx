@@ -29,26 +29,4 @@ const MapPage = () => {
   )
 }
 
-// export const getStaticProps: GetServerSideProps = async (context) => {
-//   // const data = await fetchPopular()
-//   // const response = await fetch('http://localhost:3000/api/cakestore/popular')
-//   // const data = await response.json()
-//   // console.log('data fetch', data)
-
-//   // const data = await fetchCategorySearch(
-//   //   `{addresses: '["광진구"]', category: 'null'}`
-//   // )
-
-//   // const { data } = await fetchSearch(1, {
-//   //   addresses: ['광진구'],
-//   //   category: 'null',
-//   // })
-
-//   const data = [] as ItemResponseProps[]
-
-//   return {
-//     props: { data }, // will be passed to the page component as props
-//   }
-// }
-
 export default MapPage

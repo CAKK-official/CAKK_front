@@ -23,8 +23,8 @@ const BannerContainer: React.FC = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
           <div className="slide">

@@ -16,19 +16,17 @@ import * as S from './style'
 export const LocationContainer: React.FC = () => {
   const state = useMapLocationState()
   const dispatch = useMapLocationDispatch()
-  const naverMapDispatch = useNaverMapDispatch()
 
   const [loc, setLoc] = useState<string>('')
 
   const handleChange = (event: { target: { value: string } }) => {
     setLoc(event.target.value)
-    naverMapDispatch({
-      type: 'RESET_MARKERS',
-    })
     dispatch({
       type: 'SET_LAT_LNG_BY_LOCATION',
       location: event.target.value as LocationProps,
     })
+
+    console.log('hello world')
   }
 
   return (
@@ -55,12 +53,8 @@ export const CategoryContainer: React.FC = () => {
 
   const state = useCategoryState()
   const dispatch = useCategoryDispatch()
-  const naverMapDispatch = useNaverMapDispatch()
 
   const handleChange = (categoryName: string) => {
-    naverMapDispatch({
-      type: 'RESET_MARKERS',
-    })
     dispatch({ type: 'TOGGLE_CATEGORY', category: categoryName })
   }
 

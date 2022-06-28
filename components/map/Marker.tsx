@@ -1,9 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import {
-  NaverMapProvider,
-  useNaverMapDispatch,
-  useNaverMapState,
-} from '../../context'
+import { useNaverMapDispatch, useNaverMapState } from '../../context'
 import InfoWindow from './InfoWindow'
 
 interface MarkerProps {
@@ -14,7 +10,7 @@ interface MarkerProps {
 
 const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
   const [infoWindowOpen, setInfoWindowOpen] = useState<boolean>(false)
-  const { NaverMap, NaverMarkers } = useNaverMapState()
+  const { NaverMap } = useNaverMapState()
   const dispatch = useNaverMapDispatch()
 
   const marker = useMemo(() => {
@@ -32,8 +28,6 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
     })
   }, [])
 
-  // dispatch({type: 'ADD_MARKER', NaverMarker: marker})
-
   useEffect(() => {
     dispatch({ type: 'ADD_MARKER', NaverMarker: marker })
     naver.maps.Event.addListener(marker, 'mouseover', () =>
@@ -43,10 +37,14 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
       setInfoWindowOpen(false)
     )
 
-    // return () => {
-    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(true))
-    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(false))
-    // }
+    return () => {
+      // naver.maps.Event.removeListener({eventName: 'mouseover',  listener(event) {
+      //     setInfoWindowOpen(true);
+      // },})
+      // naver.maps.Event.removeListener(() => {
+      //   setInfoWindowOpen(false)
+      // })
+    }
   }, [])
 
   return (

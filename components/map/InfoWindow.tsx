@@ -6,10 +6,9 @@ import {
   useNaverMapState,
 } from '../../context'
 
-
-if (typeof window !== 'undefined') {
-  const { naver } = window
-}
+// if (typeof window !== 'undefined') {
+//   const { naver } = window
+// }
 interface MarkerProps {
   marker: naver.maps.Marker
 
@@ -18,10 +17,6 @@ interface MarkerProps {
   lng?: number
   children?: React.ReactNode
 }
-
-const hello = styled.div`
-  background-color: black;
-`
 
 const InfoWindow: React.FC<MarkerProps> = ({
   marker,
