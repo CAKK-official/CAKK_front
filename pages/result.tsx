@@ -18,7 +18,6 @@ const Result: NextPage = () => {
     //NOTE: 빈배열일때 아직도 ["null"]을 넣어야하고 (internal server error 500)
 
     if (category !== undefined) {
-      console.log('👻', category)
       fetchSearch(0, { addresses: ['null'], category: category }).then((res) =>
         console.log(res)
       )

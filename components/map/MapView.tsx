@@ -14,8 +14,6 @@ import Marker from './Marker'
 
 import * as S from './style'
 
-import axios from 'axios'
-
 import { fetchMapSearch, MapResponse } from '../../src/api/api'
 
 interface MapViewInterface {
@@ -84,7 +82,6 @@ const MapView: React.FC = () => {
           locationState.lat,
           locationState.lng
         )
-        console.log(data)
         setMarkerData(data)
       }
 

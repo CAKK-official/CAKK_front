@@ -8,8 +8,6 @@ import NaturalImage from './NaturalImage'
 import * as Styled from './style'
 
 const ToyGrid = ({ data }: { data: ItemResponseProps[] }) => {
-  console.log(data)
-
   return (
     <Styled.ToyGrid>
       <div className="grid-container">

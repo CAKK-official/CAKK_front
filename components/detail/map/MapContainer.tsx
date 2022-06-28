@@ -6,7 +6,6 @@ interface MapInterface {
 }
 const MapContainer: React.FC<MapInterface> = ({ lat, lng }) => {
   useEffect(() => {
-    console.log(lat, lng)
     const mapScript = document.createElement('script')
 
     mapScript.async = true

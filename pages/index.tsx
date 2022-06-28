@@ -11,7 +11,6 @@ import { CategoryProvider, LocationProvider } from '../context'
 import { fetchPopular, ItemResponseProps } from '../src/api/api'
 
 const Home = ({ data }: { data: ItemResponseProps[] }) => {
-  console.log('👻', data)
   return (
     <Layout>
       <Head>

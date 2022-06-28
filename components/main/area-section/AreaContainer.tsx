@@ -73,8 +73,6 @@ const AreaContainer: React.FC = () => {
       addresses: locationState.location,
       category: categoryTitle ? categoryTitle : 'null',
     }).then((res) => {
-      console.log(res)
-
       // setPage(res.page)
       setTotalPage(res.totalpage)
       setItems(res.data)
