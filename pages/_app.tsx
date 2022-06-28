@@ -8,17 +8,21 @@ import MuiTheme from '../assets/theme/MuiTheme'
 declare global {
   interface Window {
     kakao: any
+    Kakao: any
+    naver: any
   }
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <MuiThemeProvider theme={MuiTheme}>
-      <ThemeProvider theme={theme}>
-        <Global styles={global} />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </MuiThemeProvider>
+    <>
+      <MuiThemeProvider theme={MuiTheme}>
+        <ThemeProvider theme={theme}>
+          <Global styles={global} />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </MuiThemeProvider>
+    </>
   )
 }
 

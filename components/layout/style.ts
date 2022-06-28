@@ -4,7 +4,7 @@ export const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 99;
-  height: 4.5rem;
+  height: var(--header-height);
 
   display: flex;
   justify-content: center;
@@ -41,8 +41,8 @@ export const Header = styled.header`
     a {
       margin-right: 1.25rem;
       padding: 0.75rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
+      /* border-radius: 8px; */
+      /* box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08); */
     }
 
     button {
@@ -50,7 +50,7 @@ export const Header = styled.header`
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08);
+      /* box-shadow: 0px 3px 22px rgba(112, 0, 0, 0.08); */
       border: none;
       background: none;
     }

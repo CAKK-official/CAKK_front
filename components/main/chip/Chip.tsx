@@ -1,11 +1,10 @@
-import { css } from '@emotion/react'
 import theme from '../../../assets/theme/theme'
 import Icon from '../../icon'
 import * as Styled from './style'
 
 interface ChipInterface {
-  onClick?: React.MouseEventHandler<HTMLDivElement>
-  onDelete?: React.MouseEventHandler<HTMLDivElement>
+  handleClick?: React.MouseEventHandler<HTMLDivElement>
+  handleDelete?: React.MouseEventHandler<HTMLDivElement>
   children: React.ReactNode
   primary: boolean
 }
@@ -14,12 +13,12 @@ const Chip: React.FC<ChipInterface> = (props) => {
   return (
     <Styled.Chip
       primary={props.primary}
-      onDelete={props.onDelete !== undefined ? true : false}
-      onClick={props.onClick ? props.onClick : undefined}
+      handleDelete={props.handleDelete !== undefined ? true : false}
+      onClick={props.handleClick ? props.handleClick : undefined}
     >
       <span>{props.children}</span>
-      {props.onDelete && (
-        <div className="icon-wrapper" onClick={props.onDelete}>
+      {props.handleDelete && (
+        <div className="icon-wrapper" onClick={props.handleDelete}>
           <Icon
             name="cross"
             width={10}

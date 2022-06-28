@@ -34,9 +34,7 @@ const IntroductionItem: React.FC<IntroductionItemInterface> = ({
   title,
   subtitle,
 }) => {
-  console.log(subtitle)
   const stringData = subtitle.replace(/\\n/g, '<br />')
-  console.log(stringData)
   return (
     <Styled.IntroductionItem>
       <div className="item-container">

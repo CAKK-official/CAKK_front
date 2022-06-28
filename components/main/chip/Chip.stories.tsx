@@ -1,7 +1,5 @@
 import Chip from './Chip'
-import { action } from '@storybook/addon-actions'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { ExpandOutlined } from '@mui/icons-material'
 
 export default {
   // / => hierachy
@@ -25,13 +23,13 @@ export default {
       type: { name: 'boolean', required: true },
       description: 'primary/secondary',
     },
-    onClick: {
+    handleClick: {
       control: {
         action: 'clicked',
       },
       description: 'Chip을 클릭할 때 실행되는 EventHandler',
     },
-    onDelete: {
+    handleDelete: {
       control: {
         action: 'deleted',
       },

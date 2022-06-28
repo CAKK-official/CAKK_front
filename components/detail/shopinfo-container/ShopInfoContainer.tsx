@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import { css, jsx } from '@emotion/react'
 import Icon from '../../icon'
@@ -8,6 +9,8 @@ import MapContainer from '../map/MapContainer'
 import MoreInfoContainer from '../more/MoreInfoContainer'
 import { categoryList } from '../../../context/CategoryContext'
 import ItemGridContainerStories from '../../item-container/ItemGridContainer.stories'
+import { fetchKakaoShareCount } from '../../../src/api/api'
+import Link from 'next/link'
 
 interface ShopInfoInterface {
   title: string
@@ -18,6 +21,7 @@ interface ShopInfoInterface {
   closed: string
   url: string
   latlng: Array<number>
+  id: number
 }
 const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   title,
@@ -28,7 +32,10 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   closed,
   url,
   latlng,
+  id,
 }) => {
+  const router = useRouter()
+
   const DUMMYTEXT = `### 레터링 케이크 
   - 사이즈 도시락 _ 12cm 1~2인용 19000원~ 
   - 미니 _ 12cm 1~2인용 30000원~ 
@@ -86,6 +93,38 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
     return categoryList.filter((it) => it.name === category)[0].title
   }
 
+  //TODO : imgUrl 어떻게 넘길지 고민
+  const kakaoShare = async () => {
+    window.Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: `케이크크에서 ${title}정보를 알아보세요!`,
+        description: `${title}에 관련된 내용이 더 궁금하다면 아래 버튼을 눌러주세요!`,
+        imageUrl:
+          'https%3A%2F%2Fuser-images.githubusercontent.com%2F78674565%2F164955456-0f7d5187-403b-4dda-9854-49e40d90cbef.jpeg&w=3840&q=75',
+        link: {
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
+        },
+      },
+      buttons: [
+        {
+          title: '케이크크에서 확인하기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      ],
+    })
+
+    await fetchKakaoShareCount(id).then((res) =>
+      res
+        ? console.log('공유 서버통신 성공')
+        : console.log('공유 서버통신 실패')
+    )
+  }
+
   return (
     <div>
       <TitleDiv>
@@ -94,27 +133,32 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         </div>
         <IconDiv>
           <Icon name="icon_fork_fill" width={24} height={24} />
-          <Icon name="icon_share_fill" width={24} height={24} />
+          <div onClick={kakaoShare}>
+            <Icon name="icon_share_fill" width={24} height={24} />
+          </div>
         </IconDiv>
       </TitleDiv>
       <h3
-        css={css`
-          color: #707070;
-        `}
+      // css={css`
+      //   color: #707070;
+      // `}
       >
         {desc}
       </h3>
       <div style={{ display: 'flex' }}>
         {categories.map((category: string) => (
-          <Chip
-            primary
+          <Link
             key={category}
-            onClick={() => {
-              console.log('HI')
+            href={{
+              pathname: `/result`,
+              query: { category: getCategory(category) },
             }}
+            passHref
           >
-            #{getCategory(category)}
-          </Chip>
+            <Chip primary key={category}>
+              #{getCategory(category)}
+            </Chip>
+          </Link>
         ))}
       </div>
       <div style={{ display: 'flex', margin: '3rem 0 ' }}>

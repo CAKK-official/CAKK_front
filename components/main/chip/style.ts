@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const Chip = styled.div<{ primary: boolean; onDelete?: boolean }>`
+export const Chip = styled.div<{ primary: boolean; handleDelete?: boolean }>`
   cursor: pointer;
   user-select: none; /* standard syntax */
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -15,11 +15,12 @@ export const Chip = styled.div<{ primary: boolean; onDelete?: boolean }>`
   border-radius: 19.5px;
   color: ${(props) => (props.primary ? '#e72d3f' : '#7d756d')};
   display: flex;
-  justify-content: ${(props) => (props.onDelete ? 'space-between' : 'center')};
+  justify-content: ${(props) =>
+    props.handleDelete ? 'space-between' : 'center'};
   align-items: center;
 
   span {
-    margin-left: ${(props) => (props.onDelete ? '0.4rem' : '0')};
+    margin-left: ${(props) => (props.handleDelete ? '0.4rem' : '0')};
   }
   .icon-wrapper {
     display: flex;
