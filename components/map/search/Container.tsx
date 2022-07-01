@@ -3,18 +3,15 @@ import {
   useCategoryDispatch,
   useCategoryState,
   useMapLocationDispatch,
-  useMapLocationState,
   useNaverMapDispatch,
 } from '../../../context'
 import { categoryList } from '../../../context/CategoryContext'
 import { LocationProps } from '../../../context/MapLocationContext'
-import Chip from '../../main/chip'
 import Select from '../../main/select'
 
 import * as S from './style'
 
 export const LocationContainer: React.FC = () => {
-  const state = useMapLocationState()
   const dispatch = useMapLocationDispatch()
   const naverMapDispatch = useNaverMapDispatch()
 
@@ -72,7 +69,7 @@ export const CategoryContainer: React.FC = () => {
             primary={category.name === state.category}
             onClick={() => handleChange(category.name)}
           >
-            {/* <span>{category.title}</span> */}
+            {/* TODO: ICON GOES HERE */}
           </S.Button>
         </li>
       ))}

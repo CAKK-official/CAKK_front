@@ -1,15 +1,8 @@
-import styled from '@emotion/styled'
 import React, { useEffect, useMemo } from 'react'
-import {
-  NaverMapProvider,
-  useNaverMapDispatch,
-  useNaverMapState,
-} from '../../context'
+import { useNaverMapState } from '../../context'
 
+import reactElementToJSXString from 'react-element-to-jsx-string'
 
-if (typeof window !== 'undefined') {
-  const { naver } = window
-}
 interface MarkerProps {
   marker: naver.maps.Marker
 
@@ -18,10 +11,6 @@ interface MarkerProps {
   lng?: number
   children?: React.ReactNode
 }
-
-const hello = styled.div`
-  background-color: black;
-`
 
 const InfoWindow: React.FC<MarkerProps> = ({
   marker,
@@ -32,23 +21,15 @@ const InfoWindow: React.FC<MarkerProps> = ({
 }) => {
   const { NaverMap } = useNaverMapState()
 
-  const contentString = [
-    '<hello class="iw_inner">',
-    '   <h3>서울특별시청</h3>',
-    '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br />',
-    '       02-120 | 공공,사회기관 &gt; 특별,광역시청<br />',
-    '       <a href="http://www.seoul.go.kr" target="_blank">www.seoul.go.kr/</a>',
-    '   </p>',
-    '</hello>',
-  ].join('')
+  console.log('children', reactElementToJSXString(children))
 
   const infoWindow = useMemo(() => {
     return new window.naver.maps.InfoWindow({
-      content: contentString,
-      backgroundColor: '#f00',
+      content: reactElementToJSXString(children),
+      backgroundColor: '#fff',
       borderWidth: 0,
       anchorSize: new window.naver.maps.Size(8, 4),
-      anchorColor: '#f00',
+      anchorColor: '#fff',
     })
   }, [])
 

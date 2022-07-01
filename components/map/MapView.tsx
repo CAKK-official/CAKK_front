@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {
   useCategoryState,
-  useNaverMapDispatch,
   useMapLocationState,
   useMapLocationDispatch,
-  useNaverMapState,
 } from '../../context'
 import { CategoryContainer, LocationContainer } from './search/Container'
 
@@ -15,12 +13,7 @@ import Marker from './Marker'
 import * as S from './style'
 
 import { fetchMapSearch, MapResponse } from '../../src/api/api'
-
-interface MapViewInterface {
-  isLoading: boolean
-  lat: number
-  lng: number
-}
+import MarketContainer from './search/MarketContainer'
 
 const MapView: React.FC = () => {
   const categoryState = useCategoryState()
@@ -84,7 +77,7 @@ const MapView: React.FC = () => {
         )
         setMarkerData(data)
       }
-
+      setMarkerData([])
       fetchData()
     }
   }, [locationState, categoryState])
@@ -94,17 +87,27 @@ const MapView: React.FC = () => {
       {!isLoading && (
         <S.MapView>
           <MapSearchMenu>
-            <LocationContainer />
-            <CategoryContainer />
+            <div className="search-options-container">
+              <LocationContainer />
+              <CategoryContainer />
+            </div>
+
+            <MarketContainer data={markerData} />
           </MapSearchMenu>
           <Map lat={lat} lng={lng}>
             {markerData.map((marker: MapResponse) => (
               <Marker
+                id={marker.id}
                 key={marker.id}
                 lat={marker.latlng[0]}
                 lng={marker.latlng[1]}
               >
-                hello
+                <div id="info-window-container">
+                  <h3>{marker.name}</h3>
+                  <span>{marker.address}</span>
+                  <br />
+                  <span>Tel. {marker.tel}</span>
+                </div>
               </Marker>
             ))}
           </Map>
