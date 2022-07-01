@@ -1,11 +1,7 @@
 import Link from 'next/link'
 import { Router, useRouter } from 'next/router'
 import React, { useEffect, useMemo, useState } from 'react'
-import {
-  NaverMapProvider,
-  useNaverMapDispatch,
-  useNaverMapState,
-} from '../../context'
+import { useNaverMapDispatch, useNaverMapState } from '../../context'
 import InfoWindow from './InfoWindow'
 
 interface MarkerProps {
@@ -17,7 +13,7 @@ interface MarkerProps {
 
 const Marker: React.FC<MarkerProps> = ({ id, lat, lng, children }) => {
   const [infoWindowOpen, setInfoWindowOpen] = useState<boolean>(false)
-  const { NaverMap, NaverMarkers } = useNaverMapState()
+  const { NaverMap } = useNaverMapState()
   const dispatch = useNaverMapDispatch()
   const router = useRouter()
 
@@ -51,10 +47,14 @@ const Marker: React.FC<MarkerProps> = ({ id, lat, lng, children }) => {
       router.push(`/detail/${id}`)
     )
 
-    // return () => {
-    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(true))
-    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(false))
-    // }
+    return () => {
+      // naver.maps.Event.removeListener({eventName: 'mouseover',  listener(event) {
+      //     setInfoWindowOpen(true);
+      // },})
+      // naver.maps.Event.removeListener(() => {
+      //   setInfoWindowOpen(false)
+      // })
+    }
   }, [])
 
   return (

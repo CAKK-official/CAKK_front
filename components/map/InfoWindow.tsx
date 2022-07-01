@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo } from 'react'
 import { useNaverMapState } from '../../context'
-
 import reactElementToJSXString from 'react-element-to-jsx-string'
 
 interface MarkerProps {
@@ -42,17 +41,7 @@ const InfoWindow: React.FC<MarkerProps> = ({
     return () => {
       infoWindow.close()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [NaverMap, marker, opened])
-
-  // useEffect(() => {
-  //   console.log('Naver Map ==> ', NaverMap)
-  //   const infowindow = new window.naver.maps.InfoWindow({
-  //     content: contentString,
-  //   })
-
-  //   console.log('asdf', infowindow)
-  // }, [NaverMap])
 
   return <></>
 }

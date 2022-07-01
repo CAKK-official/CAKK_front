@@ -3,6 +3,7 @@ import {
   useCategoryState,
   useMapLocationState,
   useMapLocationDispatch,
+  useNaverMapDispatch,
 } from '../../context'
 import { CategoryContainer, LocationContainer } from './search/Container'
 
@@ -19,9 +20,12 @@ const MapView: React.FC = () => {
   const categoryState = useCategoryState()
   const locationState = useMapLocationState()
 
+  const naverMapDispatch = useNaverMapDispatch()
   const dispatch = useMapLocationDispatch()
 
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isMapLoading, setIsMapLoading] = useState<boolean>(true)
+  const [isDataLoading, setIsDataLoading] = useState<boolean>(false)
+
   const [lat, setLat] = useState<number>(37.4954178)
   const [lng, setLng] = useState<number>(127.0388462)
 
@@ -44,7 +48,7 @@ const MapView: React.FC = () => {
           },
         })
 
-        setIsLoading(false)
+        setIsMapLoading(false)
       },
       (error) => {
         console.warn('Fail to fetch current location', error)
@@ -57,7 +61,7 @@ const MapView: React.FC = () => {
             lng: 127.0388462,
           },
         })
-        setIsLoading(false)
+        setIsMapLoading(false)
       },
       {
         enableHighAccuracy: false,
@@ -67,8 +71,16 @@ const MapView: React.FC = () => {
     )
   }, [])
 
+  // Search Places based on Search Side menu
   useEffect(() => {
     if (locationState.lat !== 0 || locationState.lng !== 0) {
+      const resetMarkerData = () => {
+        setIsDataLoading(true)
+        setMarkerData([])
+
+        naverMapDispatch({ type: 'RESET_MARKERS' })
+      }
+
       const fetchData = async () => {
         const data = await fetchMapSearch(
           categoryState.category,
@@ -77,14 +89,17 @@ const MapView: React.FC = () => {
         )
         setMarkerData(data)
       }
-      setMarkerData([])
-      fetchData()
+
+      resetMarkerData()
+      fetchData().then(() => {
+        setIsDataLoading((loading) => !loading)
+      })
     }
   }, [locationState, categoryState])
 
   return (
     <>
-      {!isLoading && (
+      {!isMapLoading && (
         <S.MapView>
           <MapSearchMenu>
             <div className="search-options-container">
@@ -95,21 +110,25 @@ const MapView: React.FC = () => {
             <MarketContainer data={markerData} />
           </MapSearchMenu>
           <Map lat={lat} lng={lng}>
-            {markerData.map((marker: MapResponse) => (
-              <Marker
-                id={marker.id}
-                key={marker.id}
-                lat={marker.latlng[0]}
-                lng={marker.latlng[1]}
-              >
-                <div id="info-window-container">
-                  <h3>{marker.name}</h3>
-                  <span>{marker.address}</span>
-                  <br />
-                  <span>Tel. {marker.tel}</span>
-                </div>
-              </Marker>
-            ))}
+            {!isDataLoading && (
+              <>
+                {markerData.map((marker: MapResponse) => (
+                  <Marker
+                    id={marker.id}
+                    key={marker.id}
+                    lat={marker.latlng[0]}
+                    lng={marker.latlng[1]}
+                  >
+                    <div id="info-window-container">
+                      <h3>{marker.name}</h3>
+                      <span>{marker.address}</span>
+                      <br />
+                      <span>Tel. {marker.tel}</span>
+                    </div>
+                  </Marker>
+                ))}
+              </>
+            )}
           </Map>
         </S.MapView>
       )}
