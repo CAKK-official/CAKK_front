@@ -2,12 +2,26 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
 export const PlayBanner = styled(motion.div)`
-  border: 1px solid #000;
+  border: 1px solid #aaa;
+  .main-image-container {
+    position: sticky;
+    top: 80px;
+
+    .main-image-wrapper {
+      position: relative;
+
+      h1 {
+        position: absolute;
+        top: 0;
+        left: 20px;
+      }
+    }
+  }
 `
 
 export const DetailPlayItem = styled.div`
   padding: 1.2rem;
-  border: 1px solid #000;
+  border: 1px solid #aaa;
   margin: 0;
   display: grid;
   /* grid-template-rows: 1fr auto; */
@@ -26,7 +40,7 @@ export const DetailPlayItem = styled.div`
       }
 
       .description-wrapper {
-        background-color: aliceblue;
+        margin-left: 20px;
         * {
           margin: 0;
           padding: 0;
@@ -43,14 +57,14 @@ export const DetailPlayItem = styled.div`
 
 export const ImagePlayItem = styled.div`
   padding: 1.2rem;
-  border: 1px solid #000;
+  border: 1px solid #aaa;
   margin: 0;
 `
 
 export const AnimatePlayItem = styled.div`
   display: flex;
   justify-content: center;
-  border: 1px solid #000;
+  border: 1px solid #aaa;
   padding: 1.2rem;
   .animation-container {
     flex-direction: column;
@@ -98,7 +112,7 @@ export const AnimatePlayItem = styled.div`
 
 export const MainPlayItem = styled.div`
   justify-content: center;
-  border: 1px solid #000;
+  border: 1px solid #aaa;
   padding: 1.2rem;
 
   h1 {

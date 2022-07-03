@@ -6,7 +6,7 @@ import NaturalImage from '../NaturalImage'
 const variants = {
   hidden: {
     width: '100vw',
-    background: '#fffe99',
+    background: '#f9ccc9',
   },
   visible: {
     width: '40vw',
@@ -34,13 +34,8 @@ const titleVariants = {
 const PlayBanner = () => {
   return (
     <Styled.PlayBanner variants={variants} initial="hidden" animate="visible">
-      <div
-        style={{
-          position: 'sticky',
-          top: '80px',
-        }}
-      >
-        <div style={{ position: 'relative' }}>
+      <div className="main-image-container">
+        <div className="main-image-wrapper">
           <NaturalImage src="/img/banner.png" alt="banner" />
           <motion.h1
             variants={titleVariants}
@@ -48,11 +43,6 @@ const PlayBanner = () => {
             animate="visible"
             dangerouslySetInnerHTML={{
               __html: '솔직히<br/>케이크크가<br/>제일 편하잖아요~',
-            }}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
             }}
           />
         </div>
