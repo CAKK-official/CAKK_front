@@ -44,7 +44,7 @@ function reducer(state: NaverMapState, action: NaverMapAction): NaverMapState {
         NaverMarkers: [...state.NaverMarkers, action.NaverMarker],
       }
     case 'RESET_MARKERS':
-      // console.log('-', 'RESET_MARKER')
+      console.log('-', state.NaverMarkers)
       state.NaverMarkers.map((marker: naver.maps.Marker) => {
         marker.setMap(null)
       })

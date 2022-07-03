@@ -15,9 +15,10 @@ export const MapSearchMenu = styled.div<MapSearchMenu>`
   position: absolute;
   height: 100%;
   width: 460px;
-  background-color: #fff;
+  display: flex;
+  flex-direction: column;
   padding-right: 20px;
-  /* border-radius: 0 1rem 1rem 0; */
+  background-color: #f9f9f9;
   transition: left 0.3s ease-in-out;
   box-shadow: 0px 3px 22px rgba(0, 0, 0, 0.2);
 `
@@ -40,7 +41,7 @@ export const MenuButton = styled.button<MapSearchMenu>`
   border-radius: 15px;
 
   left: ${(props) => (props.menu ? '460px' : 0)};
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   border: none;
   box-shadow: 0px 3px 22px rgba(0, 0, 0, 0.2);
   background-color: #fff;
@@ -60,4 +61,16 @@ export const MenuButton = styled.button<MapSearchMenu>`
 export const Map = styled.div`
   width: 100vw;
   height: calc(100vh - var(--total-header-height));
+
+  /* Info Window */
+  #info-window-container {
+    padding: 1rem;
+    h1,
+    h2,
+    h3 {
+      padding: 0;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+  }
 `
