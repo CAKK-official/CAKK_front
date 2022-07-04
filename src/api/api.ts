@@ -70,10 +70,11 @@ export const fetchSearch = async (
   }
 ): Promise<SearchResponse> => {
   const data = {
-    addresses:
-      body.addresses.length > 0 ? JSON.stringify(body.addresses) : '["null"]',
+    addresses: body.addresses,
     category: body.category,
   }
+
+  console.log('fetchSearch', data)
 
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
   return fetch(`${API_ENDPOINT}/cakestore/search?page=${page}`, {

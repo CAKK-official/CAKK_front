@@ -65,18 +65,21 @@ const AreaContainer: React.FC = () => {
 
   // Fetch API
   useEffect(() => {
-    const categoryTitle = categoryList.find(
-      (category: CategoryInterface) => category.name === categoryState.category
-    )?.title
+    // const categoryTitle = categoryList.find(
+    //   (category: CategoryInterface) => category.name === categoryState.category
+    // )?.title
 
-    fetchSearch(page, {
-      addresses: locationState.location,
-      category: categoryTitle ? categoryTitle : 'null',
-    }).then((res) => {
-      // setPage(res.page)
-      setTotalPage(res.totalpage)
-      setItems(res.data)
-    })
+    if (categoryState.category !== '') {
+      fetchSearch(page, {
+        addresses: locationState.location,
+        category: categoryState.category,
+      }).then((res) => {
+        console.log('result', res)
+        setPage(res.page)
+        setTotalPage(res.totalpage)
+        setItems(res.data)
+      })
+    }
   }, [page, categoryState, locationState])
 
   return (
