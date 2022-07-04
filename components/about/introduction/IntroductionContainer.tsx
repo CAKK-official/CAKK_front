@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as Styled from './style'
 import introductionItems from './introduction.json'
 import Image from 'next/image'
+
+// Animation
+import { useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 interface IntroductionItemInterface {
   id: number
@@ -50,9 +54,36 @@ const IntroductionItem: React.FC<IntroductionItemInterface> = ({
   )
 }
 
+const boxVariant = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.75, ease: 'easeInOut' },
+  },
+  hidden: { opacity: 0, x: 100 },
+}
+
 const IntroductionContainer: React.FC = () => {
+  const control = useAnimation()
+  const [ref, inView] = useInView()
+
+  useEffect(() => {
+    if (inView) {
+      control.start('visible')
+      console.log('visible')
+    } else {
+      control.start('hidden')
+      console.log('hidden')
+    }
+  }, [control, inView])
+
   return (
-    <Styled.IntroductionContainer>
+    <Styled.IntroductionContainer
+      ref={ref}
+      variants={boxVariant}
+      initial="hidden"
+      animate={control}
+    >
       <div className="introduction-wrapper">
         <h2>케이크크를 소개합니다</h2>
         <span>주문제작 케이크를 찾기 어려우셨다면</span>

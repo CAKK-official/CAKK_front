@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 
-export const IntroductionContainer = styled.section`
+export const IntroductionContainer = styled(motion.section)`
   padding: 4rem 0;
   .introduction-wrapper {
     margin: auto;
