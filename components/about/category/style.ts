@@ -30,7 +30,7 @@ export const CategoryContainer = styled.section`
           align-items: center;
 
           .category-image {
-            background-color: ${({ theme }) => theme.colors.gray.A50};
+            background-color: ${({ theme }) => theme.colors.white};
             width: 6rem;
             height: 6rem;
             border-radius: 3rem;

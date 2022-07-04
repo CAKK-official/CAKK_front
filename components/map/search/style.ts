@@ -82,3 +82,66 @@ export const Button = styled.div<ChipProps>`
   border: 1px solid ${(props) => (props.primary ? '#e72d3f' : 'white')};
   background-color: ${(props) => (props.primary ? '#FEF6F4' : 'white')};
 `
+
+// ---------------------------------------------
+
+export const MarketContainer = styled.div`
+  overflow: scroll;
+
+  .empty-store {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    animation: color-change 1.4s infinite;
+  }
+
+  @keyframes color-change {
+    0% {
+      color: ${(props) => props.theme.colors.pink.A50};
+    }
+    25% {
+      color: ${(props) => props.theme.colors.pink.A80};
+    }
+    50% {
+      color: ${(props) => props.theme.colors.red};
+    }
+    75% {
+      color: ${(props) => props.theme.colors.pink.A80};
+    }
+    100% {
+      color: ${(props) => props.theme.colors.pink.A50};
+    }
+  }
+`
+
+export const MarketItem = styled.div`
+  padding: 2rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+
+  .image-container {
+    .image-list {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      display: flex;
+
+      .image-item {
+        width: 100%;
+        list-style-type: none;
+        /* height: 300px; */
+        padding: 2px;
+
+        img {
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  .info-container {
+    h2 {
+      margin: 12px 0 8px 0;
+    }
+  }
+`

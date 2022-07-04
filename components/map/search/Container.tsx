@@ -1,34 +1,30 @@
+import Image from 'next/image'
 import { useState } from 'react'
 import {
   useCategoryDispatch,
   useCategoryState,
   useMapLocationDispatch,
-  useMapLocationState,
   useNaverMapDispatch,
 } from '../../../context'
 import { categoryList } from '../../../context/CategoryContext'
 import { LocationProps } from '../../../context/MapLocationContext'
-import Chip from '../../main/chip'
 import Select from '../../main/select'
 
 import * as S from './style'
 
 export const LocationContainer: React.FC = () => {
-  const state = useMapLocationState()
   const dispatch = useMapLocationDispatch()
-  const naverMapDispatch = useNaverMapDispatch()
 
   const [loc, setLoc] = useState<string>('')
 
   const handleChange = (event: { target: { value: string } }) => {
     setLoc(event.target.value)
-    naverMapDispatch({
-      type: 'RESET_MARKERS',
-    })
     dispatch({
       type: 'SET_LAT_LNG_BY_LOCATION',
       location: event.target.value as LocationProps,
     })
+
+    console.log('hello world')
   }
 
   return (
@@ -55,12 +51,8 @@ export const CategoryContainer: React.FC = () => {
 
   const state = useCategoryState()
   const dispatch = useCategoryDispatch()
-  const naverMapDispatch = useNaverMapDispatch()
 
   const handleChange = (categoryName: string) => {
-    naverMapDispatch({
-      type: 'RESET_MARKERS',
-    })
     dispatch({ type: 'TOGGLE_CATEGORY', category: categoryName })
   }
 
@@ -72,7 +64,13 @@ export const CategoryContainer: React.FC = () => {
             primary={category.name === state.category}
             onClick={() => handleChange(category.name)}
           >
-            {/* <span>{category.title}</span> */}
+            {/* TODO: ICON GOES HERE */}
+            <Image
+              src={`/img/logo/${category.name}.png`}
+              alt={category.name}
+              width={500}
+              height={500}
+            />
           </S.Button>
         </li>
       ))}

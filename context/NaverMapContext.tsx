@@ -38,13 +38,13 @@ function reducer(state: NaverMapState, action: NaverMapAction): NaverMapState {
         menu: !state.menu,
       }
     case 'ADD_MARKER':
-      console.log('+', 'ADD MARKER', action.NaverMarker)
+      // console.log('+', 'ADD MARKER', action.NaverMarker)
       return {
         ...state,
         NaverMarkers: [...state.NaverMarkers, action.NaverMarker],
       }
     case 'RESET_MARKERS':
-      console.log('-', 'RESET_MARKER')
+      console.log('-', state.NaverMarkers)
       state.NaverMarkers.map((marker: naver.maps.Marker) => {
         marker.setMap(null)
       })

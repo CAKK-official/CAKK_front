@@ -1,26 +1,29 @@
+import Link from 'next/link'
+import { Router, useRouter } from 'next/router'
 import React, { useEffect, useMemo, useState } from 'react'
-import {
-  NaverMapProvider,
-  useNaverMapDispatch,
-  useNaverMapState,
-} from '../../context'
+import { useNaverMapDispatch, useNaverMapState } from '../../context'
 import InfoWindow from './InfoWindow'
 
 interface MarkerProps {
+  id: number
   lat: number
   lng: number
   children: React.ReactNode
 }
 
-const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
+const Marker: React.FC<MarkerProps> = ({ id, lat, lng, children }) => {
   const [infoWindowOpen, setInfoWindowOpen] = useState<boolean>(false)
-  const { NaverMap, NaverMarkers } = useNaverMapState()
+  const { NaverMap } = useNaverMapState()
   const dispatch = useNaverMapDispatch()
+  const router = useRouter()
+
+  console.log(router)
 
   const marker = useMemo(() => {
     return new naver.maps.Marker({
       position: new naver.maps.LatLng(lat, lng),
       map: NaverMap,
+      //TODO: change Marker Icon
       // icon: {
       //   content:
       //     '<div'+
@@ -32,8 +35,6 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
     })
   }, [])
 
-  // dispatch({type: 'ADD_MARKER', NaverMarker: marker})
-
   useEffect(() => {
     dispatch({ type: 'ADD_MARKER', NaverMarker: marker })
     naver.maps.Event.addListener(marker, 'mouseover', () =>
@@ -42,17 +43,26 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng, children }) => {
     naver.maps.Event.addListener(marker, 'mouseout', () =>
       setInfoWindowOpen(false)
     )
+    naver.maps.Event.addListener(marker, 'click', () =>
+      router.push(`/detail/${id}`)
+    )
 
-    // return () => {
-    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(true))
-    //   naver.maps.Event.removeListener(() => setInfoWindowOpen(false))
-    // }
+    return () => {
+      // naver.maps.Event.removeListener({eventName: 'mouseover',  listener(event) {
+      //     setInfoWindowOpen(true);
+      // },})
+      // naver.maps.Event.removeListener(() => {
+      //   setInfoWindowOpen(false)
+      // })
+    }
   }, [])
 
   return (
     <>
       {children && !!marker && (
-        <InfoWindow opened={infoWindowOpen} marker={marker} />
+        <InfoWindow opened={infoWindowOpen} marker={marker}>
+          {children}
+        </InfoWindow>
       )}
     </>
   )

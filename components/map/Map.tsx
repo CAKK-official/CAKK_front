@@ -29,16 +29,6 @@ const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
     dispatch({ type: 'SET_MAP', NaverMap: map })
   }, [mapRef])
 
-  // useEffect(() => {
-  //   console.log('??????')
-  //   if (state.NaverMap !== undefined) {
-  //     state.NaverMap.panTo(new naver.maps.LatLng(lat, lng), {
-  //       duration: 2,
-  //       easing: 'easeOutCubic',
-  //     })
-  //   }
-  // }, [lat, lng])
-
   return (
     <>
       <S.Map id="map" ref={mapRef}></S.Map>
