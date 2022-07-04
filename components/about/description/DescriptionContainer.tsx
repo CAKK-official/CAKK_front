@@ -1,9 +1,21 @@
+import { useAnimation, motion } from 'framer-motion'
+import { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 import * as Styled from './style'
 
 // interface DescriptionContentInterface {
 //   title: string
 //   description: { subtitle: string; paragraph: string[] }[]
 // }
+
+const boxVariant = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.75, ease: 'easeInOut' },
+  },
+  hidden: { opacity: 0, x: 100 },
+}
 
 const DescriptionContainer: React.FC = () => {
   // const text = [
@@ -49,9 +61,28 @@ const DescriptionContainer: React.FC = () => {
   //   },
   // ]
 
+  const control = useAnimation()
+  const [ref, inView] = useInView()
+
+  useEffect(() => {
+    if (inView) {
+      control.start('visible')
+      console.log('visible')
+    } else {
+      control.start('hidden')
+      console.log('hidden')
+    }
+  }, [control, inView])
+
   return (
     <Styled.DescriptionContainer>
-      <div className="description-wrapper">
+      <motion.div
+        className="description-wrapper"
+        ref={ref}
+        variants={boxVariant}
+        initial="hidden"
+        animate={control}
+      >
         <div className="data-wrapper">
           <div className="detail-wrapper">
             <h2>
@@ -90,7 +121,7 @@ const DescriptionContainer: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Styled.DescriptionContainer>
   )
 }
