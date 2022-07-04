@@ -87,6 +87,31 @@ export const Button = styled.div<ChipProps>`
 
 export const MarketContainer = styled.div`
   overflow: scroll;
+
+  .empty-store {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    animation: color-change 1.4s infinite;
+  }
+
+  @keyframes color-change {
+    0% {
+      color: ${(props) => props.theme.colors.pink.A50};
+    }
+    25% {
+      color: ${(props) => props.theme.colors.pink.A80};
+    }
+    50% {
+      color: ${(props) => props.theme.colors.red};
+    }
+    75% {
+      color: ${(props) => props.theme.colors.pink.A80};
+    }
+    100% {
+      color: ${(props) => props.theme.colors.pink.A50};
+    }
+  }
 `
 
 export const MarketItem = styled.div`

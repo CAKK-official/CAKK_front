@@ -36,7 +36,7 @@ const PlayBanner = () => {
     <Styled.PlayBanner variants={variants} initial="hidden" animate="visible">
       <div className="main-image-container">
         <div className="main-image-wrapper">
-          <NaturalImage src="/img/banner.png" alt="banner" />
+          <NaturalImage src="/img/banner3.png" alt="banner" />
           <motion.h1
             variants={titleVariants}
             initial="hidden"
