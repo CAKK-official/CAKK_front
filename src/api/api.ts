@@ -1,6 +1,6 @@
 const OUT_API_ENDPOINT = process.env.NEXT_PUBLIC_APP_URL
 const API_ENDPOINT =
-  process.env.NODE_ENV !== 'development'
+  process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/api'
     : process.env.NEXT_PUBLIC_APP_URL
 
