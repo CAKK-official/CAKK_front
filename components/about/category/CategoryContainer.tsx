@@ -1,9 +1,11 @@
 // import Image from 'next/image'
 import * as Styled from './style'
 import categories from '../../../assets/category.json'
+
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
+import Image from 'next/image'
 
 const boxVariant = {
   visible: {
@@ -49,7 +51,14 @@ const CategoryContainer = () => {
             (category: { id: number; name: string; title: string }) => (
               <div key={category.id} className="category-item">
                 <div className="category-item-wrapper">
-                  <div className="category-image"></div>
+                  <div className="category-image">
+                    <Image
+                      src={`/img/logo/${category.name}.png`}
+                      alt={category.name}
+                      width={500}
+                      height={500}
+                    />
+                  </div>
                   <span className="category-title">{category.title}</span>
                 </div>
               </div>

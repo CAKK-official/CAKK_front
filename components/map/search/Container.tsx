@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useState } from 'react'
 import {
   useCategoryDispatch,
@@ -64,6 +65,12 @@ export const CategoryContainer: React.FC = () => {
             onClick={() => handleChange(category.name)}
           >
             {/* TODO: ICON GOES HERE */}
+            <Image
+              src={`/img/logo/${category.name}.png`}
+              alt={category.name}
+              width={500}
+              height={500}
+            />
           </S.Button>
         </li>
       ))}

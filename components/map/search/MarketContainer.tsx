@@ -60,9 +60,15 @@ const MarketContainer: React.FC<MarketContainerInterface> = ({ data }) => {
   return (
     <S.MarketContainer>
       <div>
-        {data.map((market: MapResponse) => (
-          <MarketItem key={market.id} market={market} />
-        ))}
+        {data.length > 0 ? (
+          <>
+            {data.map((market: MapResponse) => (
+              <MarketItem key={market.id} market={market} />
+            ))}
+          </>
+        ) : (
+          <div className="empty-store">어느 케이크집을 찾고 계시나요?</div>
+        )}
       </div>
     </S.MarketContainer>
   )
