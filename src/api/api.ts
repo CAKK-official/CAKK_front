@@ -1,10 +1,11 @@
-const OUT_API_ENDPOINT = process.env.NEXT_PUBLIC_APP_URL
-const API_ENDPOINT =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000/api'
-    : process.env.NEXT_PUBLIC_APP_URL
+// const OUT_API_ENDPOINT = process.env.NEXT_PUBLIC_APP_URL
+// const API_ENDPOINT =
+//   process.env.NODE_ENV === 'development'
+//     ? 'http://localhost:3000/api'
+//     : process.env.NEXT_PUBLIC_APP_URL
 
-console.log(API_ENDPOINT)
+const OUT_API_ENDPOINT = '/api'
+const API_ENDPOINT = '/api'
 
 export type ItemResponseProps = {
   id: number
@@ -78,10 +79,8 @@ export const fetchSearch = async (
     category: body.category,
   }
 
-  console.log('fetchSearch', data)
-
   // {"addresses":"[\"송파구\",\"광진구\"]","category":"레터링케이크"}`
-  return fetch(`${API_ENDPOINT}/cakestore/search?page=${page}`, {
+  return fetch(`/api/cakestore/search?page=${page}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
