@@ -12,7 +12,6 @@ const Detail: NextPage = () => {
   const { query } = useRouter()
   const [data, setData] = useState<DetailResponse[]>([])
 
-  // console.log(route);
   useEffect(() => {
     const fetchDetailData = async () => {
       try {

@@ -3,10 +3,6 @@ import Footer from './Footer'
 import Header from './Header'
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  React.useEffect(() => {
-    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
-  }, [])
-
   return (
     <div>
       <Header />
