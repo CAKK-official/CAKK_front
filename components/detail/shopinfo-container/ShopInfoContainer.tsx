@@ -134,7 +134,9 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           <h2>{title}</h2>
         </div>
         <IconDiv>
-          <Icon name="icon_insta_fill" width={24} height={24} />
+          <a target="_blank" href={url} rel="noopener noreferrer">
+            <Icon name="icon_insta_fill" width={24} height={24} />
+          </a>
           <div onClick={kakaoShare}>
             <Icon name="icon_share_fill" width={24} height={24} />
           </div>

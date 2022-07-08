@@ -21,7 +21,7 @@ const InfoBox: React.FC<InfoBoxInterface> = ({
       <div>
         <Icon name={iconName} width={24} height={24} color="#E72E40" />
       </div>
-      <div style={{ fontWeight: '600', fontSize: '14px' }}>{title}</div>
+      <div style={{ fontWeight: '700', fontSize: '14px' }}>{title}</div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>{sub ? sub : '정보가 없습니다'}</div>
         {canCopy ? <ClipBoard content={sub} /> : ''}
