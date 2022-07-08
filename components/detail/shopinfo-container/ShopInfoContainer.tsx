@@ -15,6 +15,7 @@ import Link from 'next/link'
 interface ShopInfoInterface {
   title: string
   desc: string
+  address: string
   categories: Array<string>
   tel: string
   opened: string
@@ -32,6 +33,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   closed,
   url,
   latlng,
+  address,
   id,
 }) => {
   const router = useRouter()
@@ -132,19 +134,15 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           <h2>{title}</h2>
         </div>
         <IconDiv>
-          <Icon name="icon_fork_fill" width={24} height={24} />
+          <a target="_blank" href={url} rel="noopener noreferrer">
+            <Icon name="icon_insta_fill" width={24} height={24} />
+          </a>
           <div onClick={kakaoShare}>
             <Icon name="icon_share_fill" width={24} height={24} />
           </div>
         </IconDiv>
       </TitleDiv>
-      <h3
-      // css={css`
-      //   color: #707070;
-      // `}
-      >
-        {desc}
-      </h3>
+      <h3>{desc}</h3>
       <div style={{ display: 'flex' }}>
         {categories.map((category: string) => (
           <Link
@@ -165,7 +163,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         <InfoBox
           iconName="icon_location_fill"
           title="주소"
-          sub={'임시주소'}
+          sub={address}
           canCopy={true}
         />
         <MapContainer lat={latlng[0]} lng={latlng[1]} />
@@ -179,7 +177,6 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
         />
         <InfoBox iconName="icon_clock_fill" title="영업시간" sub={opened} />
         <InfoBox iconName="icon_holiday_fill" title="휴무일" sub={closed} />
-        <InfoBox iconName="icon_insta_fill" title="인스타" sub={url} />
       </InfoBoxContainer>
       <h2>가게 상세정보</h2>
       <MoreInfoContainer source={DUMMYTEXT} />
@@ -205,6 +202,7 @@ const InfoBoxContainer = styled.div`
   display: flex;
   margin-top: 32px;
   margin-bottom: 123px;
+  gap: 10px;
 `
 
 export default ShopInfoContainer

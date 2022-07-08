@@ -17,13 +17,10 @@ const MapContainer: React.FC<MapInterface> = ({ lat, lng }) => {
       window.kakao.maps.load(() => {
         const container = document.getElementById('map')
         const options = {
-          center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+          center: new window.kakao.maps.LatLng(lat, lng),
         }
         const map = new window.kakao.maps.Map(container, options)
-        const markerPosition = new window.kakao.maps.LatLng(
-          33.450701,
-          126.570667
-        )
+        const markerPosition = new window.kakao.maps.LatLng(lat, lng)
         const marker = new window.kakao.maps.Marker({
           position: markerPosition,
         })
@@ -40,9 +37,11 @@ const MapContainer: React.FC<MapInterface> = ({ lat, lng }) => {
       id="map"
       style={{
         aspectRatio: '320/220',
-        border: '1px solid black',
-        width: '806px',
-        height: '187px',
+        width: '760px',
+        height: '180px',
+        boxShadow: '0px 3px 22px rgba(112, 0, 0, 0.08)',
+        borderRadius: '10px',
+        marginLeft: '15px',
       }}
     ></div>
   )

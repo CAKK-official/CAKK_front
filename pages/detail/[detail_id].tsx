@@ -20,6 +20,7 @@ const Detail: NextPage = () => {
           parseInt(query.detail_id as string)
         )
         setData(fetchedData)
+        console.log(data)
       } catch (err) {
         console.error('Failed to fetch data in /detail/<detail id>', err)
       }
@@ -34,7 +35,7 @@ const Detail: NextPage = () => {
     <Layout>
       <Head>
         {/* <title>케이크크 | {data ? `🎂${data[0].name}` : 'Loading...'}</title> */}
-        <title>케이크크 | Loading...</title>
+        <title>케이크크</title>
         <link rel="icon" href="/favicon.ico" />
         <script
           defer
@@ -46,12 +47,13 @@ const Detail: NextPage = () => {
         <Styled.Home>
           <ItemSwiperContainer count={3} items={data[0].pictArray} />
           <ShopInfoContainer
+            address={data[0].address}
             id={data[0].id}
             title={data[0].name}
             desc={data[0].notice}
             categories={data[0].storeCategory}
             tel={data[0].tel}
-            opened={data[0].opened}
+            opened={data[0].opend}
             closed={data[0].closed}
             url={data[0].url}
             latlng={data[0].latlng}
