@@ -7,6 +7,7 @@ import { ShopInfoContainer } from '../../components/detail/shopinfo-container'
 import { ItemSwiperContainer } from '../../components/item-container'
 import { DetailResponse, fetchDetail } from '../../src/api/api'
 import { useRouter } from 'next/router'
+import HelpIcon from '../../components/detail/helpicon/helpicon'
 
 const Detail: NextPage = () => {
   const { query } = useRouter()
@@ -41,9 +42,9 @@ const Detail: NextPage = () => {
           src="https://developers.kakao.com/sdk/js/kakao.min.js"
         ></script>
       </Head>
-      <div></div>
       {data.length !== 0 ? (
         <Styled.Home>
+          <HelpIcon />
           <ItemSwiperContainer count={3} items={data[0].pictArray} />
           <ShopInfoContainer
             address={data[0].address}
