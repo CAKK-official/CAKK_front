@@ -30,7 +30,7 @@ export type DetailResponse = {
   menu: string
   name: string
   notice: string
-  opened: string
+  opend: string
   pictArray: string[]
   storeCategory: string[]
   tel: string
