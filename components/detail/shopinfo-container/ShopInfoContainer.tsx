@@ -43,7 +43,6 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
   `
 
   const getCategory = (category: string) => {
-    console.log(categoryList.filter((it) => it.name === category)[0].title)
     return categoryList.filter((it) => it.name === category)[0].title
   }
 
@@ -63,8 +62,8 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
         {
           title: '케이크크에서 확인하기',
           link: {
-            mobileWebUrl: 'https://cakk.site',
-            webUrl: 'https://cakk.site',
+            mobileWebUrl: `https://cakk.site/detail/${id}`,
+            webUrl: `https://cakk.site/detail/${id}`,
           },
         },
       ],

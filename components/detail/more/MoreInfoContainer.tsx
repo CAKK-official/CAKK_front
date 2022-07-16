@@ -19,13 +19,13 @@ const MoreInfoContainer: React.FC<MarkdownInterface> = ({ source }) => {
           p: ({ children }) => (
             <div className="content-wrapper">
               <div className="timeline"></div>
-              <p className="content">{children}</p>
+              <div className="content">{children}</div>
             </div>
           ),
           ul: ({ children }) => (
             <div className="content-wrapper">
               <div className="timeline"></div>
-              <ul className="content">{children}</ul>
+              <div className="content">{children}</div>
             </div>
           ),
         }}
