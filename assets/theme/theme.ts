@@ -16,6 +16,7 @@ const colors = {
   },
 
   black: '#383838',
+  deepblack: '#000000',
   gray: {
     A80: '#707070',
     A50: '#EAEAEA',

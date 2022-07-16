@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 
 export const global = css`
   // Font Face
-  @font-face {
+  /* @font-face {
     font-family: 'Inter-Bold';
     src: url('/fonts/Inter-Bold.ttf');
   }
@@ -25,7 +25,38 @@ export const global = css`
   @font-face {
     font-family: 'Sofia Pro Semi Bold';
     src: url('/fonts/Sofia Pro Semi Bold Az.otf');
+  } */
+
+  @font-face {
+    font-family: 'Inter-Bold';
+    src: url('/fonts/Inter-Bold.ttf');
   }
+
+  @font-face {
+    font-family: 'NotoSansKR-Black';
+    src: url('/fonts/NotoSansKR-Black.otf');
+  }
+  @font-face {
+    font-family: 'NotoSansKR-Bold';
+    src: url('/fonts/NotoSansKR-Bold.otf');
+  }
+  @font-face {
+    font-family: 'NotoSansKR-Light';
+    src: url('/fonts/NotoSansKR-Light.otf');
+  }
+  @font-face {
+    font-family: 'NotoSansKR-Medium';
+    src: url('/fonts/NotoSansKR-Medium.otf');
+  }
+  @font-face {
+    font-family: 'NotoSansKR-Regular';
+    src: url('/fonts/NotoSansKR-Regular.otf');
+  }
+  @font-face {
+    font-family: 'NotoSansKR-Thin';
+    src: url('/fonts/NotoSansKR-Thin.otf');
+  }
+
   /* @font-face {
     font-family: 'Calfine demo';
     src: url('/fonts/Calfine demo.otf');
@@ -51,9 +82,9 @@ export const global = css`
   body {
     padding: 0;
     margin: 0;
-    font-family: 'Inter-Regular', -apple-system, BlinkMacSystemFont, Segoe UI,
-      Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-      sans-serif;
+    font-family: 'NotoSansKR-Regular', -apple-system, BlinkMacSystemFont,
+      Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+      Helvetica Neue, sans-serif;
 
     color: var(--gray80);
   }
@@ -69,19 +100,19 @@ export const global = css`
 
   h1,
   h3 {
-    font-family: 'Inter-Bold', 'Sofia Pro Bold', sans-serif;
+    font-family: 'NotoSansKR-Bold', 'Inter-Bold', sans-serif;
   }
 
   h2 {
-    font-family: 'Sofia Pro Bold', sans-serif;
+    font-family: 'NotoSansKR-Bold', sans-serif;
   }
 
   h4,
   h6 {
-    font-family: 'Inter-SemiBold', 'Sofia Pro Semi Bold', sans-serif;
+    font-family: 'NotoSansKR-Medium', 'Inter-SemiBold', sans-serif;
   }
 
   h5 {
-    font-family: 'Sofia Pro Semi Bold', sans-serif;
+    font-family: 'NotoSansKR-Medium', sans-serif;
   }
 `

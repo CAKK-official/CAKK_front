@@ -11,7 +11,7 @@ const Header: React.FC = () => {
         <div className="logo">
           <Link href="/" passHref>
             <div>
-              <Icon name="logo" width={100} height={41} />
+              <Icon color="#000000" name="logo" width={120} height={50} />
             </div>
           </Link>
         </div>

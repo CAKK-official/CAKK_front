@@ -10,19 +10,21 @@ export const Header = styled.header`
   justify-content: center;
   padding-top: 1rem;
   background-color: white;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.pink.A20};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.black};
 
   section {
     display: flex;
-    width: ${({ theme }) => theme.screen.main};
+    width: 90%;
+    /* width: ${({ theme }) => theme.screen.main}; */
     justify-content: space-between;
 
     a {
-      color: ${({ theme }) => theme.colors.pink.A80};
+      color: ${({ theme }) => theme.colors.black};
       text-decoration: none;
     }
 
     svg {
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.3));
     }
   }
 

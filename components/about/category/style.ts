@@ -14,6 +14,13 @@ export const CategoryContainer = styled.section`
     padding: 4rem 1rem;
     width: 60.25rem;
 
+    .category-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     .category-button-wrapper {
       margin: 1rem;
       display: flex;
