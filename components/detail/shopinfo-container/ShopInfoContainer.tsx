@@ -55,16 +55,16 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
         description: `${name}에 관련된 내용이 더 궁금하다면 아래 버튼을 눌러주세요!`,
         imageUrl: 'https://avatars.githubusercontent.com/u/102408030?s=200&v=4',
         link: {
-          mobileWebUrl: 'cakk.site',
-          webUrl: 'cakk.site',
+          mobileWebUrl: 'https://cakk.site',
+          webUrl: 'https://cakk.site',
         },
       },
       buttons: [
         {
           title: '케이크크에서 확인하기',
           link: {
-            mobileWebUrl: 'cakk.site',
-            webUrl: 'cakk.site',
+            mobileWebUrl: 'https://cakk.site',
+            webUrl: 'https://cakk.site',
           },
         },
       ],
