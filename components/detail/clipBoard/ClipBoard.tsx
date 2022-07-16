@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
-import { colors } from '@mui/material'
-import { color } from '@mui/system'
+import theme from '../../../assets/theme/theme'
 import Icon from '../../icon'
 interface ClipBoardInterface {
   content: string
@@ -41,7 +40,12 @@ const ClipBoard: React.FC<ClipBoardInterface> = ({ content }) => {
         handleCopy(content)
       }}
     >
-      <Icon name="icon_copy_fill" width={24} height={24} color="#707070" />
+      <Icon
+        name="icon_copy_fill"
+        width={24}
+        height={24}
+        color={theme.colors.gray.A80}
+      />
       복사
     </ClipBoardBox>
   )

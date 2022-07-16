@@ -3,6 +3,7 @@ import ClipBoard from '../clipBoard/ClipBoard'
 import styled from '@emotion/styled'
 import Icon from '../../icon'
 import { SVGIconType } from '../../icon/Icon'
+import theme from '../../../assets/theme/theme'
 
 interface InfoBoxInterface {
   title: string
@@ -19,7 +20,12 @@ const InfoBox: React.FC<InfoBoxInterface> = ({
   return (
     <InfoBoxDiv>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <Icon name={iconName} width={24} height={24} color="#707070" />
+        <Icon
+          name={iconName}
+          width={24}
+          height={24}
+          color={theme.colors.gray.A80}
+        />
         <div style={{ fontWeight: '800', fontSize: '14px' }}>{title}</div>
       </div>
       <div
