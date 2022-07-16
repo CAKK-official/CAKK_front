@@ -12,18 +12,6 @@ import ItemGridContainerStories from '../../item-container/ItemGridContainer.sto
 import { DetailResponse, fetchKakaoShareCount } from '../../../src/api/api'
 import Link from 'next/link'
 
-// interface ShopInfoInterface {
-//   title: string
-//   desc: string
-//   address: string
-//   categories: Array<string>
-//   tel: string
-//   opened: string
-//   closed: string
-//   url: string
-//   latlng: Array<number>
-//   id: number
-// }
 const ShopInfoContainer: React.FC<DetailResponse> = ({
   name,
   notice,

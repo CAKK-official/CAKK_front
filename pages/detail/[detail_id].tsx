@@ -57,7 +57,7 @@ const Detail: NextPage = () => {
       {data.length !== 0 ? (
         <Styled.Home>
           <HelpIcon />
-          <ItemSwiperContainer count={3} items={data[0].pictArray} />
+          <ItemSwiperContainer count={3} items={data[0].pictArray!} />
           <ShopInfoContainer
             address={data[0].address}
             id={data[0].id}
