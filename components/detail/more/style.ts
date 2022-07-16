@@ -39,6 +39,7 @@ export const MoreInfoContainer = styled.div`
   .content-wrapper {
     display: flex;
     position: relative;
+    flex-direction: column;
     padding: 0.6rem 1rem;
 
     .timeline {
@@ -52,6 +53,8 @@ export const MoreInfoContainer = styled.div`
     }
     .content {
       margin-left: 2.4rem;
+      line-height: 35px;
+      white-space: pre;
     }
     p {
       margin: 0;
