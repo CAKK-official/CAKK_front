@@ -36,6 +36,9 @@ export type DetailResponse = {
   tel: string
   url: string
   whenbuy: string
+  title?: string
+  desc?: string
+  categories?: string[]
 }
 
 export type MapResponse = {

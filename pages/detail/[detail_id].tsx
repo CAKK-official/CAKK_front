@@ -13,6 +13,7 @@ const Detail: NextPage = () => {
   const { query } = useRouter()
   const [data, setData] = useState<DetailResponse[]>([])
 
+  console.log(data[0])
   useEffect(() => {
     const fetchDetailData = async () => {
       try {
@@ -60,14 +61,18 @@ const Detail: NextPage = () => {
           <ShopInfoContainer
             address={data[0].address}
             id={data[0].id}
-            title={data[0].name}
-            desc={data[0].notice}
+            name={data[0].name}
+            notice={data[0].notice}
             categories={data[0].storeCategory}
             tel={data[0].tel}
-            opened={data[0].opend}
+            opend={data[0].opend}
             closed={data[0].closed}
             url={data[0].url}
             latlng={data[0].latlng}
+            beforebuy={data[0].beforebuy}
+            afterbuy={data[0].afterbuy}
+            menu={data[0].menu}
+            whenbuy={data[0].whenbuy}
           />
         </Styled.Home>
       ) : (

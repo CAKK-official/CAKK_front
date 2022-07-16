@@ -10,8 +10,8 @@ export const MoreInfoContainer = styled.div`
 
     .bulletpoint {
       position: relative;
-      background-color: ${({ theme }) => theme.colors.pink.A20};
-      color: ${({ theme }) => theme.colors.red};
+      background-color: ${({ theme }) => theme.colors.black};
+      color: ${({ theme }) => theme.colors.white};
 
       width: 40px;
       height: 40px;
@@ -32,7 +32,7 @@ export const MoreInfoContainer = styled.div`
     h3 {
       margin: 0;
       margin-left: 1rem;
-      color: ${({ theme }) => theme.colors.red};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 
