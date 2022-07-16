@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/react'
 import Icon from '../../icon'
 import Chip from '../../main/chip'
 import InfoBox from '../infoBox/InfoBox'
-import MapContainer from '../map/MapContainer'
+import theme from '../../../assets/theme/theme'
 import MoreInfoContainer from '../more/MoreInfoContainer'
 import { categoryList } from '../../../context/CategoryContext'
 import ItemGridContainerStories from '../../item-container/ItemGridContainer.stories'
@@ -92,6 +92,7 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   질감은 복슬복슬 디자인과 터치감 있는 디자인 두가지 선택가능하세요!`
 
   const getCategory = (category: string) => {
+    console.log(categoryList.filter((it) => it.name === category)[0].title)
     return categoryList.filter((it) => it.name === category)[0].title
   }
 
@@ -128,25 +129,43 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
   return (
     <div>
       <TitleDiv>
-        <div style={{ color: '#707070' }}>
+        <div style={{ color: theme.colors.gray.A80 }}>
           <h2>{title}</h2>
         </div>
         <IconDiv>
           <a target="_blank" href={url} rel="noopener noreferrer">
-            <Icon name="icon_insta_fill" width={24} height={24} />
+            <Icon
+              name="icon_insta_fill"
+              width={24}
+              height={24}
+              color={theme.colors.gray.A80}
+            />
           </a>
           <div onClick={kakaoShare}>
-            <Icon name="icon_share_fill" width={24} height={24} />
+            <Icon
+              name="icon_share_fill"
+              width={24}
+              height={24}
+              color={theme.colors.gray.A80}
+            />
           </div>
         </IconDiv>
       </TitleDiv>
       <h3>{desc}</h3>
       <div style={{ display: 'flex' }}>
+        {/* TODO: 왜 Link 안 먹을까 */}
+        <Link
+          key={'a'}
+          href={{ pathname: '/result', query: { category: '티아라케이크' } }}
+          passHref
+        >
+          HI
+        </Link>
         {categories.map((category: string) => (
           <Link
             key={category}
             href={{
-              pathname: `/result`,
+              pathname: '/result',
               query: { category: getCategory(category) },
             }}
             passHref
