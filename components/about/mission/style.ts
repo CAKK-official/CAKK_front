@@ -17,7 +17,7 @@ export const MissionContainer = styled.div`
     padding: 1rem;
     border-radius: 8px;
     position: absolute;
-    left: 10%;
+    left: 17%;
     z-index: 2;
     margin: auto;
 
