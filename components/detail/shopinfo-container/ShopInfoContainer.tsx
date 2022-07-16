@@ -95,26 +95,24 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
     return categoryList.filter((it) => it.name === category)[0].title
   }
 
-  //TODO : imgUrl 어떻게 넘길지 고민
   const kakaoShare = async () => {
     window.Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
         title: `케이크크에서 ${title}정보를 알아보세요!`,
         description: `${title}에 관련된 내용이 더 궁금하다면 아래 버튼을 눌러주세요!`,
-        imageUrl:
-          'https%3A%2F%2Fuser-images.githubusercontent.com%2F78674565%2F164955456-0f7d5187-403b-4dda-9854-49e40d90cbef.jpeg&w=3840&q=75',
+        imageUrl: 'https://avatars.githubusercontent.com/u/102408030?s=200&v=4',
         link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com',
+          mobileWebUrl: 'cakk.site',
+          webUrl: 'cakk.site',
         },
       },
       buttons: [
         {
           title: '케이크크에서 확인하기',
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
+            mobileWebUrl: 'cakk.site',
+            webUrl: 'cakk.site',
           },
         },
       ],
@@ -159,24 +157,31 @@ const ShopInfoContainer: React.FC<ShopInfoInterface> = ({
           </Link>
         ))}
       </div>
-      <div style={{ display: 'flex', margin: '3rem 0 ' }}>
+      <InfoBoxContainer>
         <InfoBox
           iconName="icon_location_fill"
           title="주소"
           sub={address}
           canCopy={true}
         />
-        <MapContainer lat={latlng[0]} lng={latlng[1]} />
-      </div>
-      <InfoBoxContainer>
         <InfoBox
           iconName="icon_phone_fill"
           title="전화번호"
           sub={tel}
           canCopy={true}
         />
-        <InfoBox iconName="icon_clock_fill" title="영업시간" sub={opened} />
-        <InfoBox iconName="icon_holiday_fill" title="휴무일" sub={closed} />
+        <InfoBox
+          iconName="icon_clock_fill"
+          title="영업시간"
+          sub={opened}
+          canCopy={true}
+        />
+        <InfoBox
+          iconName="icon_holiday_fill"
+          title="휴무일"
+          sub={closed}
+          canCopy={true}
+        />
       </InfoBoxContainer>
       <h2>가게 상세정보</h2>
       <MoreInfoContainer source={DUMMYTEXT} />
