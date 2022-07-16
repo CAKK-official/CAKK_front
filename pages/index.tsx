@@ -8,6 +8,7 @@ import MainPlayItem from '../components/play/item/MainPlayItem'
 import ImagePlayItem from '../components/play/item/ImagePlayItem'
 import DetailPlayItem from '../components/play/item/DetailPlayItem'
 import AnimatePlayItem from '../components/play/item/AnimatePlayItem'
+import Head from 'next/head'
 
 const columnVariants1 = {
   hidden: {
@@ -50,6 +51,20 @@ const columnVariants2 = {
 }
 
 const Home = ({ data }: { data: ItemResponseProps[] }) => {
+  ;<Head>
+    <meta property="og:title" content="케이크크" />
+    <meta property="og:url" content="cakk.site" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://avatars.githubusercontent.com/u/102408030?s=200&v=4"
+    />
+    <meta property="og:site_name" content="케이크크" />
+    <meta
+      property="og:description"
+      content="흩어져 있는 주문제작 케이크 가게의 정보를 모아서 보여주는 케이크크! 🍰 원하는 케이크 가게의 정보를 쉽고 빠르게 찾게 하기 위해 카테고리, 지역, 위치 기반으로 검색이 가능하며, 가게 상세 정보들을 보기 쉽게 정리 해 제공하고 있습니다"
+    />
+  </Head>
   return (
     <Layout>
       <div style={{ display: 'flex' }}>
