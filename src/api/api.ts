@@ -31,11 +31,14 @@ export type DetailResponse = {
   name: string
   notice: string
   opend: string
-  pictArray: string[]
-  storeCategory: string[]
+  pictArray?: string[]
+  storeCategory?: string[]
   tel: string
   url: string
   whenbuy: string
+  title?: string
+  desc?: string
+  categories?: string[]
 }
 
 export type MapResponse = {

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import theme from '../../../assets/theme/theme'
 
 export const Chip = styled.div<{ primary: boolean; handleDelete?: boolean }>`
   cursor: pointer;
@@ -7,13 +8,14 @@ export const Chip = styled.div<{ primary: boolean; handleDelete?: boolean }>`
   -moz-user-select: none; /* mozilla browsers */
   -khtml-user-select: none; /* webkit (konqueror) browsers */
   -ms-user-select: none; /* IE10+ */
-  margin: 8px 12px;
-  padding: 4px;
+  margin: 10px 12px;
+  padding: 10px 15px;
   box-shadow: 0px 3px 30px rgba(164, 164, 164, 0.15);
-  border: 1px solid ${(props) => (props.primary ? '#e72d3f' : 'white')};
-  background-color: ${(props) => (props.primary ? '#FEF6F4' : 'white')};
-  border-radius: 19.5px;
-  color: ${(props) => (props.primary ? '#e72d3f' : '#7d756d')};
+  // border: 1px solid ${(props) => (props.primary ? '#e72d3f' : 'white')};
+  background-color: ${(props) =>
+    props.primary ? theme.colors.black : 'white'};
+  border-radius: 10px;
+  color: ${(props) => (props.primary ? theme.colors.white : '#7d756d')};
   display: flex;
   justify-content: ${(props) =>
     props.handleDelete ? 'space-between' : 'center'};
