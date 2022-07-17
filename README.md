@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#
 
-## Getting Started
+![cakk_lnew](https://user-images.githubusercontent.com/72402747/179386534-47982539-ac03-495c-93a1-429207db7d11.png)
 
-First, run the development server:
+## 👩🏻‍💻👨🏻‍💻 팀원 소개
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<table>
+ <tr align="center">
+    <td><a href="https://github.com/donghakang">donghakang</a></td>
+    <td><a href="https://github.com/Hyevvy">Hyevvy</a></td>
+  </tr>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/50029346?v=4" width="150px"/></td>
+  <td><img src="https://avatars.githubusercontent.com/u/72402747?v=4"  width="150px"/></td>
+  </tr>
+</table>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<br/>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 🍰 프로젝트 기획 의도
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+케이크크는 원하는 `주문제작 케이크 가게`를 쉽게 찾고, 가게정보를 한눈에 확인할 수 있는 서비스입니다.
 
-## Learn More
+### 🍰 프로젝트 소개
 
-To learn more about Next.js, take a look at the following resources:
+<img width="462" alt="스크린샷 2022-07-17 오후 3 09 24" src="https://user-images.githubusercontent.com/72402747/179386308-9d027314-59a0-47c8-b1ef-2d78eef009a3.png">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🍰 핵심 기능
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- 지도기반 검색 기능
+- 카테고리 / 지역 기반 검색 기능
+- 카카오톡 공유 기능
+- 인기있는 케이크 추천 기능
 
-## Deploy on Vercel
+### 🍰 기술 스택
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![KakaoTalk_Photo_2022-07-17-15-14-00](https://user-images.githubusercontent.com/72402747/179386441-30da1d4a-d542-4310-b54f-6d266508ad5d.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br/>
+
+### 협업
+
+- [노션](https://fan-feels-39a.notion.site/7d547b38ff1f4cd19eeacd18900b981b)
+- [피그마](https://www.figma.com/file/hkOGWrKySk51e6NQU0miI8/%EC%BC%80%EC%9D%B4%ED%81%AC%ED%81%AC_inprogress?node-id=0%3A1)
