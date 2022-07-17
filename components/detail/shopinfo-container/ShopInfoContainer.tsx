@@ -12,6 +12,12 @@ import ItemGridContainerStories from '../../item-container/ItemGridContainer.sto
 import { DetailResponse, fetchKakaoShareCount } from '../../../src/api/api'
 import Link from 'next/link'
 
+const getPureHTML = (text: string) => {
+  const reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#\=\(\'\"]/gi
+  text = text.replace(reg, '')
+  return text
+}
+
 const ShopInfoContainer: React.FC<DetailResponse> = ({
   name,
   notice,
@@ -29,17 +35,14 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
 }) => {
   const router = useRouter()
 
-  console.log(beforebuy)
-  console.log(whenbuy)
-  console.log(afterbuy)
   const DUMMYTEXT = `### 주문 전 주의사항
-  ${beforebuy}
+  ${getPureHTML(beforebuy)}
 
   ### 주문 시 주의사항 
-  ${whenbuy}
+  ${getPureHTML(whenbuy)}
 
   ### 주문 후 주의사항
-  ${afterbuy}
+  ${getPureHTML(afterbuy)}
   `
 
   const getCategory = (category: string) => {
