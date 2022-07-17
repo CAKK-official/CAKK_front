@@ -10,7 +10,7 @@ const Footer = () => {
       </Styled.FooterInnerBox>
       <div>© 2022 CAKK all rights reserved</div>
       <Styled.Icon>
-        <Link href="https://www.instagram.com/cakk_03/" target="_blank">
+        <Link href="https://www.instagram.com/cakk_site/" target="_blank">
           <InstagramIcon />
         </Link>
       </Styled.Icon>
