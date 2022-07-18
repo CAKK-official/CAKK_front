@@ -59,7 +59,30 @@ export const Header = styled.header`
 
 export const Footer = styled.footer`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
   bottom: 0;
-  background-color: #eaeaea;
-  height: 200px;
+  background-color: #000000;
+  height: 180px;
+  gap: 15px;
+`
+export const FooterInnerBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #656565;
+  }
+`
+
+export const Icon = styled.div`
+  position: absolute;
+  top: 70px;
+  right: 160px;
+  cursor: pointer;
 `
