@@ -18,6 +18,12 @@ import MapLocationProvider, {
   useMapLocationState,
 } from './MapLocationContext'
 
+import {
+  KakaoMapProvider,
+  useKakaoMapDispatch,
+  useKakaoMapState,
+} from './KakaoMapContext'
+
 export {
   CategoryProvider,
   LocationProvider,
@@ -31,4 +37,7 @@ export {
   MapLocationProvider,
   useMapLocationDispatch,
   useMapLocationState,
+  KakaoMapProvider,
+  useKakaoMapDispatch,
+  useKakaoMapState,
 }

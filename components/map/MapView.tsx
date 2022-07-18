@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   useCategoryState,
   useMapLocationState,
   useMapLocationDispatch,
   useNaverMapDispatch,
+  useKakaoMapDispatch,
 } from '../../context'
 import { CategoryContainer, LocationContainer } from './search/Container'
 
@@ -21,6 +22,7 @@ const MapView: React.FC = () => {
   const locationState = useMapLocationState()
 
   const naverMapDispatch = useNaverMapDispatch()
+  const kakaoMapDispatch = useKakaoMapDispatch()
   const dispatch = useMapLocationDispatch()
 
   const [isMapLoading, setIsMapLoading] = useState<boolean>(true)
@@ -110,7 +112,7 @@ const MapView: React.FC = () => {
             <MarketContainer data={markerData} />
           </MapSearchMenu>
           <Map lat={lat} lng={lng}>
-            {!isDataLoading && (
+            {/* {!isDataLoading && (
               <>
                 {markerData.map((marker: MapResponse) => (
                   <Marker
@@ -128,7 +130,7 @@ const MapView: React.FC = () => {
                   </Marker>
                 ))}
               </>
-            )}
+            )} */}
           </Map>
         </S.MapView>
       )}
