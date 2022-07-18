@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const CategoryContainer = styled.section`
-  background-color: ${({ theme }) => theme.colors.pink.A20};
+  /* background-color: ${({ theme }) => theme.colors.pink.A20}; */
   position: relative;
   width: 100%;
   min-height: 30rem;
@@ -37,7 +37,7 @@ export const CategoryContainer = styled.section`
           align-items: center;
 
           .category-image {
-            background-color: ${({ theme }) => theme.colors.white};
+            /* background-color: ${({ theme }) => theme.colors.white}; */
             width: 6rem;
             height: 6rem;
             border-radius: 3rem;

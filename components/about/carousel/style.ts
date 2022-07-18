@@ -10,7 +10,7 @@ export const CarouselContainer = styled.section`
   .slider {
     display: flex;
     width: calc(300px * 10);
-    animation: scroll 18s linear infinite;
+    animation: scroll 2s linear infinite;
 
     .image-container {
       background-color: ${({ theme }) => theme.colors.deepblack};
@@ -25,7 +25,7 @@ export const CarouselContainer = styled.section`
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-300px * 5));
+      transform: translateX(calc(-300px));
     }
   }
 `
