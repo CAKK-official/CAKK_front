@@ -76,11 +76,11 @@ const Marker: React.FC<MarkerProps> = ({ id, lat, lng, children }) => {
 
   return (
     <>
-      {/* {children && !!marker && (
+      {children && !!marker && (
         <InfoWindow opened={infoWindowOpen} marker={marker}>
           {children}
         </InfoWindow>
-      )} */}
+      )}
     </>
   )
 }

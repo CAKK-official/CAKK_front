@@ -131,7 +131,7 @@ const MapView: React.FC = () => {
                       <h3>{marker.name}</h3>
                       <span>{marker.address}</span>
                       <br />
-                      <span>Tel. {marker.tel}</span>
+                      {marker.tel && <span>Tel. {marker.tel}</span>}
                     </div>
                   </Marker>
                 ))}

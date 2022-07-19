@@ -64,13 +64,18 @@ export const Map = styled.div`
 
   /* Info Window */
   #info-window-container {
-    padding: 1rem;
+    /* padding: 1rem; */
+    padding: 8px;
     h1,
     h2,
     h3 {
       padding: 0;
       margin: 0;
-      margin-bottom: 8px;
+      /* margin-bottom: 8px; */
+    }
+    span {
+      margin: 8px 0;
+      white-space: nowrap;
     }
   }
 `
