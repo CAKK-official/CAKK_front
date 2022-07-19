@@ -13,7 +13,7 @@ interface MapProps {
   children: React.ReactNode
 }
 
-const Map: React.FC<MapProps> = ({ lat, lng }) => {
+const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
   // const state = useNaverMapState()
   // const dispatch = useNaverMapDispatch()
 
@@ -57,7 +57,7 @@ const Map: React.FC<MapProps> = ({ lat, lng }) => {
   return (
     <>
       <S.Map id="map" ref={mapRef}></S.Map>
-      {/* {state.KakaoMap && <>{children}</>} */}
+      {state.KakaoMap && <>{children}</>}
     </>
   )
 }
