@@ -7,11 +7,6 @@ import {
   useCategoryDispatch,
   useCategoryState,
 } from './CategoryContext'
-import {
-  NaverMapProvider,
-  useNaverMapDispatch,
-  useNaverMapState,
-} from './NaverMapContext'
 
 import MapLocationProvider, {
   useMapLocationDispatch,
@@ -31,9 +26,6 @@ export {
   useCategoryDispatch,
   useLocationState,
   useCategoryState,
-  NaverMapProvider,
-  useNaverMapDispatch,
-  useNaverMapState,
   MapLocationProvider,
   useMapLocationDispatch,
   useMapLocationState,

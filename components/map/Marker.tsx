@@ -1,12 +1,7 @@
 import Link from 'next/link'
 import { Router, useRouter } from 'next/router'
 import React, { useEffect, useMemo, useState } from 'react'
-import {
-  useKakaoMapDispatch,
-  useKakaoMapState,
-  useNaverMapDispatch,
-  useNaverMapState,
-} from '../../context'
+import { useKakaoMapDispatch, useKakaoMapState } from '../../context'
 import InfoWindow from './InfoWindow'
 
 interface MarkerProps {
@@ -18,8 +13,6 @@ interface MarkerProps {
 
 const Marker: React.FC<MarkerProps> = ({ id, lat, lng, children }) => {
   const [infoWindowOpen, setInfoWindowOpen] = useState<boolean>(false)
-  // const { NaverMap } = useNaverMapState()
-  // const dispatch = useNaverMapDispatch()
   const { KakaoMap } = useKakaoMapState()
   const dispatch = useKakaoMapDispatch()
   const router = useRouter()
@@ -39,15 +32,6 @@ const Marker: React.FC<MarkerProps> = ({ id, lat, lng, children }) => {
       position: new window.kakao.maps.LatLng(lat, lng),
       map: KakaoMap,
       image: markerImage,
-      //TODO: change Marker Icon
-      // icon: {
-      //   content:
-      //     '<div'+
-      //     'style="background-color: pink; margin: 0px; padding: 0px; border: 0px solid transparent; display: block; max-width: none; max-height: none; ' +
-      //     '-webkit-user-select: none; position: absolute; width: 22px; height: 35px; left: 0px; top: 0px;">?</div>',
-      //   size: new naver.maps.Size(22, 35),
-      //   anchor: new naver.maps.Point(11, 35),
-      // },
     })
   }, [])
 
@@ -65,12 +49,15 @@ const Marker: React.FC<MarkerProps> = ({ id, lat, lng, children }) => {
     )
 
     return () => {
-      // naver.maps.Event.removeListener({eventName: 'mouseover',  listener(event) {
-      //     setInfoWindowOpen(true);
-      // },})
-      // naver.maps.Event.removeListener(() => {
-      //   setInfoWindowOpen(false)
-      // })
+      window.kakao.maps.event.removeListener({
+        eventName: 'mouseover',
+        listener() {
+          setInfoWindowOpen(true)
+        },
+      })
+      window.kakao.maps.event.removeListener(() => {
+        setInfoWindowOpen(false)
+      })
     }
   }, [])
 

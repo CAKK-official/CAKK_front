@@ -3,7 +3,6 @@ import {
   useCategoryState,
   useMapLocationState,
   useMapLocationDispatch,
-  useNaverMapDispatch,
   useKakaoMapDispatch,
 } from '../../context'
 import { CategoryContainer, LocationContainer } from './search/Container'
@@ -21,7 +20,6 @@ const MapView: React.FC = () => {
   const categoryState = useCategoryState()
   const locationState = useMapLocationState()
 
-  // const naverMapDispatch = useNaverMapDispatch()
   const kakaoMapDispatch = useKakaoMapDispatch()
   const dispatch = useMapLocationDispatch()
 
@@ -84,17 +82,11 @@ const MapView: React.FC = () => {
       }
 
       const fetchData = async () => {
-        console.log(
-          categoryState.category,
-          locationState.lat,
-          locationState.lng
-        )
         const data = await fetchMapSearch(
           categoryState.category,
           locationState.lat,
           locationState.lng
         )
-        console.log('data', data)
         setMarkerData(data)
       }
 

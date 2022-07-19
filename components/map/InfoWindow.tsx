@@ -3,7 +3,7 @@ import { useKakaoMapState } from '../../context'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 
 interface MarkerProps {
-  marker: naver.maps.Marker
+  marker: any
 
   opened: boolean
   lat?: number

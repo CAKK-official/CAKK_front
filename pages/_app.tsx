@@ -10,14 +10,13 @@ import Script from 'next/script'
 declare global {
   interface Window {
     kakao: any
-    Kakao: any
   }
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
-  React.useEffect(() => {
-    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
-  }, [])
+  // React.useEffect(() => {
+  //   window.kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
+  // }, [])
   return (
     <>
       <Script

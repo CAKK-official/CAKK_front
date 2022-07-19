@@ -40,8 +40,6 @@ const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
     return () => mapScript.removeEventListener('load', onLoadKakaoMap)
   }, [mapRef])
 
-  console.log(state.KakaoMap)
-
   return (
     <>
       <S.Map id="map" ref={mapRef}></S.Map>
