@@ -14,7 +14,7 @@ const MarketItem: React.FC<{ market: MapResponse }> = ({ market }) => {
   function handleMarketItemClick(latlng: [number, number]) {
     KakaoMap.setLevel(3, { animate: true })
     const location = new window.kakao.maps.LatLng(latlng[0], latlng[1] - 0.0025)
-    KakaoMap.panTo(location, {})
+    KakaoMap.panTo(location)
   }
 
   return (
