@@ -15,6 +15,7 @@ import * as S from './style'
 
 import { fetchMapSearch, MapResponse } from '../../src/api/api'
 import MarketContainer from './search/MarketContainer'
+import { LoadingView } from '../loading'
 
 const MapView: React.FC = () => {
   const categoryState = useCategoryState()
@@ -99,7 +100,7 @@ const MapView: React.FC = () => {
 
   return (
     <>
-      {!isMapLoading && (
+      {!isMapLoading ? (
         <S.MapView>
           <MapSearchMenu>
             <div className="search-options-container">
@@ -131,7 +132,10 @@ const MapView: React.FC = () => {
             )}
           </Map>
         </S.MapView>
+      ) : (
+        <LoadingView />
       )}
+      {/* <LoadingView/> */}
     </>
   )
 }
