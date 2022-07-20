@@ -37,12 +37,16 @@ export const DetailPlayItem = styled.div<{ link?: boolean }>`
     .content-wrapper {
       display: flex;
       align-items: center;
+      margin: 20px 0;
+      font-size: 0.875rem;
 
       .image-wrapper {
         background-color: greenyellow;
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
         position: relative;
+        border-radius: ;
       }
 
       .description-wrapper {
@@ -54,7 +58,7 @@ export const DetailPlayItem = styled.div<{ link?: boolean }>`
 
         .tags {
           margin: 0;
-          margin-top: 1rem;
+          margin-top: 0.5rem;
         }
       }
     }

@@ -40,7 +40,7 @@ const DetailPlayItem: React.FC<DetailPlayItem> = ({
                       src={item.image}
                       alt="img"
                       layout="fill"
-                      objectFit="cover"
+                      objectFit="contain"
                     />
                   </div>
                   <div className="description-wrapper">
