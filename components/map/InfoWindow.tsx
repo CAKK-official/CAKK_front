@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo } from 'react'
-import { useNaverMapState } from '../../context'
+import { useKakaoMapState } from '../../context'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 
 interface MarkerProps {
-  marker: naver.maps.Marker
+  marker: any
 
   opened: boolean
   lat?: number
@@ -18,30 +18,28 @@ const InfoWindow: React.FC<MarkerProps> = ({
   lng,
   children,
 }) => {
-  const { NaverMap } = useNaverMapState()
-
-  console.log('children', reactElementToJSXString(children))
+  const { KakaoMap } = useKakaoMapState()
 
   const infoWindow = useMemo(() => {
-    return new window.naver.maps.InfoWindow({
+    return new window.kakao.maps.InfoWindow({
       content: reactElementToJSXString(children),
       backgroundColor: '#fff',
       borderWidth: 0,
-      anchorSize: new window.naver.maps.Size(8, 4),
+      anchorSize: new window.kakao.maps.Size(8, 4),
       anchorColor: '#fff',
     })
   }, [])
 
   useEffect(() => {
     if (opened) {
-      infoWindow.open(NaverMap, marker)
+      infoWindow.open(KakaoMap, marker)
     } else {
       infoWindow.close()
     }
     return () => {
       infoWindow.close()
     }
-  }, [NaverMap, marker, opened])
+  }, [KakaoMap, marker, opened])
 
   return <></>
 }

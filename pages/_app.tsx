@@ -11,13 +11,12 @@ declare global {
   interface Window {
     kakao: any
     Kakao: any
-    naver: any
   }
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
-    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
+    window.kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
   }, [])
   return (
     <>

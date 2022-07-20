@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useNaverMapDispatch, useNaverMapState } from '../../context'
+import { useKakaoMapDispatch, useKakaoMapState } from '../../context'
 import * as S from './style'
 
 interface MapProps {
@@ -9,30 +9,41 @@ interface MapProps {
 }
 
 const Map: React.FC<MapProps> = ({ lat, lng, children }) => {
+  const state = useKakaoMapState()
+  const dispatch = useKakaoMapDispatch()
+
   const mapRef = useRef<HTMLDivElement>(null)
-
-  const state = useNaverMapState()
-  const dispatch = useNaverMapDispatch()
-
+  // ADD APIKEY
   useEffect(() => {
-    const MapContainer = mapRef.current
+    const mapScript = document.createElement('script')
 
-    if (!MapContainer) {
-      return
-    }
-    const mapOptions = {
-      center: new window.naver.maps.LatLng(lat, lng),
-      zoom: 18,
-    }
-    const map = new window.naver.maps.Map('map', mapOptions)
+    mapScript.async = true
+    mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&autoload=false`
 
-    dispatch({ type: 'SET_MAP', NaverMap: map })
+    document.head.appendChild(mapScript)
+
+    const onLoadKakaoMap = () => {
+      window.kakao.maps.load(() => {
+        if (mapRef) {
+          const container = mapRef.current
+          const options = {
+            center: new window.kakao.maps.LatLng(lat, lng),
+          }
+          const map = new window.kakao.maps.Map(container, options)
+
+          dispatch({ type: 'SET_MAP', KakaoMap: map })
+        }
+      })
+    }
+    mapScript.addEventListener('load', onLoadKakaoMap)
+
+    return () => mapScript.removeEventListener('load', onLoadKakaoMap)
   }, [mapRef])
 
   return (
     <>
       <S.Map id="map" ref={mapRef}></S.Map>
-      {state.NaverMap && <>{children}</>}
+      {state.KakaoMap && <>{children}</>}
     </>
   )
 }
