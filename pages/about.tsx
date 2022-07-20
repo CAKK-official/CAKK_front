@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import CarouselContainer from '../components/about/carousel'
 import CategoryContainer from '../components/about/category'
 import DescriptionContainer from '../components/about/description'
 import IntroductionContainer from '../components/about/introduction'
@@ -16,6 +17,7 @@ const about = () => {
       </Head>
       <Styled.About>
         <MissionContainer />
+        <CarouselContainer />
         <IntroductionContainer />
         <CategoryContainer />
         <DescriptionContainer />

@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
 export const PlayBanner = styled(motion.div)`
+  width: 40vw;
   border: 1px solid #aaa;
   .main-image-container {
     position: sticky;

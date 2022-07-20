@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const CategoryContainer = styled.section`
-  background-color: ${({ theme }) => theme.colors.pink.A20};
+  /* background-color: ${({ theme }) => theme.colors.pink.A20}; */
   position: relative;
   width: 100%;
   min-height: 30rem;
@@ -13,6 +13,13 @@ export const CategoryContainer = styled.section`
   .category-wrapper {
     padding: 4rem 1rem;
     width: 60.25rem;
+
+    .category-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
     .category-button-wrapper {
       margin: 1rem;
@@ -30,7 +37,7 @@ export const CategoryContainer = styled.section`
           align-items: center;
 
           .category-image {
-            background-color: ${({ theme }) => theme.colors.white};
+            /* background-color: ${({ theme }) => theme.colors.white}; */
             width: 6rem;
             height: 6rem;
             border-radius: 3rem;

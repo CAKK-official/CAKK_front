@@ -19,7 +19,6 @@ const columnVariants1 = {
     width: '30vw',
     y: '0%',
     transition: {
-      delay: 3,
       width: {
         duration: 0,
       },
@@ -39,7 +38,6 @@ const columnVariants2 = {
     width: '30vw',
     y: '0%',
     transition: {
-      delay: 3,
       width: {
         duration: 0,
       },
@@ -69,6 +67,7 @@ const Home = ({ data }: { data: ItemResponseProps[] }) => {
     <Layout>
       <div style={{ display: 'flex' }}>
         <PlayBanner />
+
         <motion.div
           variants={columnVariants1}
           initial="hidden"
@@ -76,7 +75,7 @@ const Home = ({ data }: { data: ItemResponseProps[] }) => {
         >
           <MainPlayItem />
           <ImagePlayItem
-            mainImage="/img/Rectangle 617.png"
+            mainImage="/img/main page image1.png"
             heading="No 밀가루 Only 국산 쌀가루<br/>베이커리 숲에서 건강한 케이크를 맛보세요"
           />
           <ImagePlayItem

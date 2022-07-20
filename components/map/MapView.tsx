@@ -112,7 +112,7 @@ const MapView: React.FC = () => {
           <Map lat={lat} lng={lng}>
             {!isDataLoading && (
               <>
-                {markerData.map((marker: MapResponse) => (
+                {/* {markerData.map((marker: MapResponse) => (
                   <Marker
                     id={marker.id}
                     key={marker.id}
@@ -126,7 +126,7 @@ const MapView: React.FC = () => {
                       <span>Tel. {marker.tel}</span>
                     </div>
                   </Marker>
-                ))}
+                ))} */}
               </>
             )}
           </Map>
