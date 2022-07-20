@@ -55,7 +55,6 @@ export const SeacrhContainer = styled.div`
 `
 
 export const ChipContainer = styled.div`
-  /* background-color: green; */
   margin-top: 1rem;
   width: 100%;
   display: flex;

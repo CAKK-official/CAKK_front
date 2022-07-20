@@ -55,7 +55,6 @@ export const SearchContainer = styled.div`
 `
 
 export const ChipContainer = styled.div`
-  /* background-color: green; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;

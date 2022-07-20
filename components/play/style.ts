@@ -41,7 +41,6 @@ export const DetailPlayItem = styled.div<{ link?: boolean }>`
       font-size: 0.875rem;
 
       .image-wrapper {
-        background-color: greenyellow;
         width: 100px;
         min-width: 100px;
         height: 100px;
@@ -140,7 +139,6 @@ export const MainPlayItem = styled.div`
 `
 
 export const PlayGrid = styled.div`
-  /* background-color: dodgerblue; */
   width: 60%;
   height: 100%;
   position: relative;
@@ -163,14 +161,12 @@ export const PlayGrid = styled.div`
           align-items: center;
 
           .image-wrapper {
-            background-color: greenyellow;
             width: 120px;
             height: 120px;
             position: relative;
           }
 
           .description-wrapper {
-            background-color: aliceblue;
             * {
               margin: 0;
               padding: 0;
