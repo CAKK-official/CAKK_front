@@ -16,7 +16,7 @@ declare global {
 
 function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
-    window.kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
+    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
   }, [])
   return (
     <>
