@@ -19,7 +19,6 @@ export const ItemSwiperContainer = styled.div`
     height: 200px; */
 
     .slide {
-      background-color: greenyellow;
       border-radius: 1rem;
       height: 100%;
     }

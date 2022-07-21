@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const CategoryContainer = styled.section`
-  /* background-color: ${({ theme }) => theme.colors.pink.A20}; */
   position: relative;
   width: 100%;
   min-height: 30rem;

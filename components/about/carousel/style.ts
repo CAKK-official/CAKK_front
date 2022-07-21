@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 export const CarouselContainer = styled.section`
   position: relative;
   display: flex;
-  background-color: green;
   height: 40px;
   overflow: hidden;
 
