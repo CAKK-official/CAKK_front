@@ -16,7 +16,7 @@ export const BootstrapInput = MuiStyled(InputBase)(({ theme }) => ({
     marginLeft: '1rem',
     padding: '10px 26px 10px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    boxShadow: '0px 3px 22px rgba(112, 0, 0, 0.08)',
+    boxShadow: '0px 3px 22px rgba(180, 0, 0, 0.08)',
 
     '&:focus': {
       borderRadius: 4,

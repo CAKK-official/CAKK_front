@@ -1,7 +1,7 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import * as Styled from '../../styles/home'
+import * as Styled from '../../styles/detail'
 import React, { useEffect, useState } from 'react'
 import { ShopInfoContainer } from '../../components/detail/shopinfo-container'
 import { ItemSwiperContainer } from '../../components/item-container'
@@ -55,7 +55,7 @@ const Detail: NextPage = () => {
         ></script>
       </Head>
       {data.length !== 0 ? (
-        <Styled.Home>
+        <Styled.Detail>
           <HelpIcon />
           <ItemSwiperContainer count={3} items={data[0].pictArray!} />
           <ShopInfoContainer
@@ -74,7 +74,7 @@ const Detail: NextPage = () => {
             menu={data[0].menu}
             whenbuy={data[0].whenbuy}
           />
-        </Styled.Home>
+        </Styled.Detail>
       ) : (
         <div>Loading</div>
       )}

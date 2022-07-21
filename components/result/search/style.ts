@@ -1,19 +1,26 @@
 import styled from '@emotion/styled'
 
 export const SeacrhContainer = styled.div`
-  margin: 2rem 0;
+  /* margin: 2rem 0; */
+  margin: auto;
   width: ${({ theme }) => theme.screen.main};
+
   /* height: 3.25rem; */
 
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
+  h2 {
+    width: ${({ theme }) => theme.screen.main};
+    padding: 2rem 0 1rem 0;
+  }
 
   .select-wrapper {
     background-color: #f6f6f6;
-    border-radius: 10px;
-    margin: 3rem 0;
-    padding: 2rem 2rem;
+    /* margin: 3rem 0; */
+    padding: 0rem 1rem;
     width: 100%;
 
     .select-items {
@@ -22,10 +29,14 @@ export const SeacrhContainer = styled.div`
       margin: 1rem 0;
 
       .item-title {
-        min-width: 200px;
+        min-width: 140px;
 
         h3 {
-          margin: 8px 12px;
+          margin: 8px 0;
+
+          &.category-title {
+            margin: 1rem 0;
+          }
         }
       }
 
@@ -55,7 +66,7 @@ export const SeacrhContainer = styled.div`
 `
 
 export const ChipContainer = styled.div`
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;

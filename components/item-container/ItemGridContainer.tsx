@@ -39,15 +39,6 @@ const ItemGridContainer: React.FC<ItemGridInterface> = ({
                   <h4>{item.name}</h4>
                   <div className="info-address">{item.address}</div>
                 </div>
-                <div className="button-container">
-                  <button
-                    onClick={() => {
-                      console.log('fork clicked')
-                    }}
-                  >
-                    <Icon name="icon_fork_fill" width={24} height={24} />
-                  </button>
-                </div>
               </div>
               {ranking && <div className="ranking">{index + 1}</div>}
             </div>
