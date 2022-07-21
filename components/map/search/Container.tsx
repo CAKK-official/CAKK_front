@@ -7,7 +7,7 @@ import {
 } from '../../../context'
 import { categoryList } from '../../../context/CategoryContext'
 import { LocationProps } from '../../../context/MapLocationContext'
-import Select from '../../main/select'
+import Select from '../../result/select'
 
 import * as S from './style'
 

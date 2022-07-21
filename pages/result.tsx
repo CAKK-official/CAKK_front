@@ -4,9 +4,11 @@ import Layout from '../components/layout'
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { fetchSearch } from '../src/api/api'
-import AreaContaier from '../components/main/area-section'
+import AreaContaier from '../components/result/area-section'
 import { CategoryProvider, LocationProvider } from '../context'
-import { CategoryContainer } from '../components/main/search/SeacrhContainer'
+import SearchContainer, {
+  CategoryContainer,
+} from '../components/result/search/SearchContainer'
 import * as Styled from '../styles/home'
 
 const Result: NextPage = () => {
@@ -37,10 +39,13 @@ const Result: NextPage = () => {
       <Styled.Home>
         <LocationProvider>
           <CategoryProvider>
-            <CategoryContainer />
-            <h2>검색 결과</h2>
-            <div>{category}</div>
-            <AreaContaier />
+            <div className="search-container">
+              <SearchContainer />
+            </div>
+
+            <div className="result-container">
+              <AreaContaier />
+            </div>
           </CategoryProvider>
         </LocationProvider>
       </Styled.Home>
