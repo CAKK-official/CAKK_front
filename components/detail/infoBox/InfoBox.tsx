@@ -19,44 +19,48 @@ const InfoBox: React.FC<InfoBoxInterface> = ({
 }) => {
   return (
     <InfoBoxDiv>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <Icon
-          name={iconName}
-          width={24}
-          height={24}
-          color={theme.colors.gray.A80}
-        />
-        <div style={{ fontWeight: '800', fontSize: '14px' }}>{title}</div>
+      <div>
+        <div className="title-wrapper">
+          <Icon
+            name={iconName}
+            width={24}
+            height={24}
+            color={theme.colors.black}
+          />
+          <div className="title">{title}</div>
+        </div>
+        <div className="subtitle-wrapper">
+          <div>{sub ? sub : '정보가 없습니다'}</div>
+        </div>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          fontSize: '12px',
-        }}
-      >
-        <div>{sub ? sub : '정보가 없습니다'}</div>
-      </div>
-      {canCopy ? <ClipBoard content={sub} /> : ''}
+      <div>{canCopy ? <ClipBoard content={sub} /> : ''}</div>
     </InfoBoxDiv>
   )
 }
 const InfoBoxDiv = styled.div`
   position: relative;
-  background: #ffffff;
-  padding-top: 20px;
-  padding-left: 24px;
-  padding-right: 24px;
-  width: 287px;
-  height: 200px;
-  border-radius: 15px;
-  margin: 0px 10px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  color: #707070;
+  justify-content: space-between;
+  width: 25%;
+  padding: 1rem;
   &:hover {
-    border: 1px solid #000000;
+    background-color: ${({ theme }) => theme.colors.gray.A20};
+  }
+
+  .title-wrapper {
+    display: flex;
+    color: ${({ theme }) => theme.colors.black};
+    font-weight: bold;
+    font-size: 16px;
+    .title {
+      margin-left: 0.75rem;
+    }
+  }
+
+  .subtitle-wrapper {
+    margin-top: 1rem;
+    word-break: keep-all;
   }
 `
 export default InfoBox

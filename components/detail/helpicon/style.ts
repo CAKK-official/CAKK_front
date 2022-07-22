@@ -3,11 +3,11 @@ import theme from '../../../assets/theme/theme'
 
 export const helpIconBox = styled.div`
   position: fixed;
-  left: 1200px;
-  right: 500px;
-  bottom: 100px;
-  width: 180px;
-  height: 180px;
+
+  right: 4rem;
+  top: 50%;
+  width: 140px;
+  height: 140px;
   background-color: ${theme.colors.pink.A20};
   border-radius: 50%;
   z-index: 1;

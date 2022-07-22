@@ -13,7 +13,6 @@ const Detail: NextPage = () => {
   const { query } = useRouter()
   const [data, setData] = useState<DetailResponse[]>([])
 
-  console.log(data[0])
   useEffect(() => {
     const fetchDetailData = async () => {
       try {
@@ -21,12 +20,10 @@ const Detail: NextPage = () => {
           parseInt(query.detail_id as string)
         )
         setData(fetchedData)
-        console.log(data)
       } catch (err) {
         console.error('Failed to fetch data in /detail/<detail id>', err)
       }
     }
-    // console.log(query.detail_id)
     if (query.detail_id !== undefined) {
       fetchDetailData()
     }

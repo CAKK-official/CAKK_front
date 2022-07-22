@@ -183,7 +183,6 @@ export const fetchMapSearch = async (
       if (!res.ok) {
         throw new Error('Res.ok Error')
       }
-      // console.log('😰', res.json());
       return res.json()
     })
     .catch((err) => {

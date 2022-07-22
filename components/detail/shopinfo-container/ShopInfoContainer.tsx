@@ -80,38 +80,35 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
   return (
     <div>
       <TitleDiv>
-        <div style={{ color: theme.colors.gray.A80 }}>
-          <h2>{name}</h2>
+        <div>
+          <h1 className="title">{name}</h1>
         </div>
         <IconDiv>
-          <a target="_blank" href={url} rel="noopener noreferrer">
+          <a
+            className="link-button"
+            target="_blank"
+            href={url}
+            rel="noopener noreferrer"
+          >
             <Icon
               name="icon_insta_fill"
-              width={24}
-              height={24}
-              color={theme.colors.gray.A80}
+              width={20}
+              height={20}
+              color={theme.colors.black}
             />
           </a>
-          <div onClick={kakaoShare}>
+          <div className="link-button" onClick={kakaoShare}>
             <Icon
               name="icon_share_fill"
-              width={24}
-              height={24}
-              color={theme.colors.gray.A80}
+              width={20}
+              height={20}
+              color={theme.colors.black}
             />
           </div>
         </IconDiv>
       </TitleDiv>
-      <h3>{notice}</h3>
-      <div style={{ display: 'flex' }}>
-        {/* TODO: 왜 Link 안 먹을까 */}
-        <Link
-          key={'a'}
-          href={{ pathname: '/result', query: { category: '티아라케이크' } }}
-          passHref
-        >
-          HI
-        </Link>
+      <SubtitleDiv>{notice}</SubtitleDiv>
+      <CategoryDiv>
         {categories!.map((category: string) => (
           <Link
             key={category}
@@ -121,12 +118,14 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
             }}
             passHref
           >
-            <Chip primary key={category}>
-              #{getCategory(category)}
-            </Chip>
+            <div>
+              <Chip primary key={category}>
+                #{getCategory(category)}
+              </Chip>
+            </div>
           </Link>
         ))}
-      </div>
+      </CategoryDiv>
       <InfoBoxContainer>
         <InfoBox
           iconName="icon_location_fill"
@@ -153,8 +152,12 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
           canCopy={true}
         />
       </InfoBoxContainer>
+      <br />
       <h2>가게 상세정보</h2>
       <MoreInfoContainer source={DUMMYTEXT} />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }
@@ -162,22 +165,54 @@ const ShopInfoContainer: React.FC<DetailResponse> = ({
 const TitleDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem 0;
   align-items: center;
-  font-color: #707070;
+
+  .title {
+    margin: 0;
+  }
+`
+
+const SubtitleDiv = styled.div`
+  width: 70%;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.black};
+  word-break: keep-all;
 `
 
 const IconDiv = styled.div`
   display: flex;
   gap: 1rem;
   cursor: pointer;
+
+  .link-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.black};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.gray.A20};
+    }
+  }
+`
+
+const CategoryDiv = styled.div`
+  display: flex;
+  margin: 1rem 0;
 `
 
 const InfoBoxContainer = styled.div`
   display: flex;
-  margin-top: 32px;
-  margin-bottom: 123px;
+  width: 100%;
+  min-height: 180px;
+  margin: 2rem 0;
   gap: 10px;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray.A20};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray.A20};
 `
 
 export default ShopInfoContainer
