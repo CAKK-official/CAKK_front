@@ -191,7 +191,7 @@ const IconDiv = styled.div`
     align-items: center;
     width: 38px;
     height: 38px;
-    border-radius: 8px;
+    border-radius: 14px;
     border: 1px solid ${({ theme }) => theme.colors.black};
 
     &:hover {
@@ -203,6 +203,10 @@ const IconDiv = styled.div`
 const CategoryDiv = styled.div`
   display: flex;
   margin: 1rem 0;
+
+  div:first-of-type {
+    margin-left: 0;
+  }
 `
 
 const InfoBoxContainer = styled.div`

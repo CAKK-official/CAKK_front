@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 export const MoreInfoContainer = styled.div`
   //TODO: More Info styling goes here.
   .title-wrapper {
+    margin-top: 2.5rem;
     counter-increment: title;
 
     display: flex;
@@ -12,7 +13,6 @@ export const MoreInfoContainer = styled.div`
       position: relative;
       background-color: ${({ theme }) => theme.colors.black};
       color: ${({ theme }) => theme.colors.white};
-
       width: 96px;
       height: 30px;
       border-radius: 15px;
@@ -33,6 +33,7 @@ export const MoreInfoContainer = styled.div`
       margin: 0;
       margin-left: 1rem;
       color: ${({ theme }) => theme.colors.black};
+      font-size: 1.2rem;
     }
   }
 

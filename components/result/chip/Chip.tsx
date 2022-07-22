@@ -23,7 +23,7 @@ const Chip: React.FC<ChipInterface> = (props) => {
             name="cross"
             width={10}
             height={11}
-            color={theme.colors.pink.A80}
+            color={theme.colors.white}
           />
         </div>
       )}

@@ -8,6 +8,7 @@ import { ItemSwiperContainer } from '../../components/item-container'
 import { DetailResponse, fetchDetail } from '../../src/api/api'
 import { useRouter } from 'next/router'
 import HelpIcon from '../../components/detail/helpicon/helpicon'
+import { LoadingView } from '../../components/loading'
 
 const Detail: NextPage = () => {
   const { query } = useRouter()
@@ -53,7 +54,7 @@ const Detail: NextPage = () => {
       </Head>
       {data.length !== 0 ? (
         <Styled.Detail>
-          <HelpIcon />
+          {/* <HelpIcon /> */}
           <ItemSwiperContainer count={3} items={data[0].pictArray!} />
           <ShopInfoContainer
             address={data[0].address}
@@ -73,7 +74,7 @@ const Detail: NextPage = () => {
           />
         </Styled.Detail>
       ) : (
-        <div>Loading</div>
+        <LoadingView text={'가게 정보를 불러오고 있습니다...'} />
       )}
     </Layout>
   )

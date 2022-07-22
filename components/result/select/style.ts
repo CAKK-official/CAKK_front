@@ -11,12 +11,12 @@ export const BootstrapInput = MuiStyled(InputBase)(({ theme }) => ({
     borderRadius: 8,
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
-    border: '1px solid #ced4da',
+    border: '1px solid #707070',
     fontSize: 16,
-    marginLeft: '1rem',
+    marginLeft: '12px',
     padding: '10px 26px 10px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    boxShadow: '0px 3px 22px rgba(180, 0, 0, 0.08)',
+    // boxShadow: '0px 3px 22px rgba(180, 0, 0, 0.08)',
 
     '&:focus': {
       borderRadius: 4,

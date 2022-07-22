@@ -126,6 +126,7 @@ export const MainPlayItem = styled.div`
   justify-content: center;
   border: 1px solid ${({ theme }) => theme.colors.black};
   padding: 1.2rem;
+  cursor: pointer;
 
   h1 {
     margin-bottom: 4rem;

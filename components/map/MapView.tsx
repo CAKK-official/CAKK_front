@@ -107,7 +107,6 @@ const MapView: React.FC = () => {
               <LocationContainer />
               <CategoryContainer />
             </div>
-
             <MarketContainer data={markerData} />
           </MapSearchMenu>
           <Map lat={lat} lng={lng}>
@@ -133,7 +132,7 @@ const MapView: React.FC = () => {
           </Map>
         </S.MapView>
       ) : (
-        <LoadingView />
+        <LoadingView text={'지도를 불러오고 있습니다...'} />
       )}
       {/* <LoadingView/> */}
     </>

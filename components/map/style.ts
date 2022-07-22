@@ -18,7 +18,7 @@ export const MapSearchMenu = styled.div<MapSearchMenu>`
   display: flex;
   flex-direction: column;
   padding-right: 20px;
-  background-color: #f9f9f9;
+  background-color: ${({ theme }) => theme.colors.white};
   transition: left 0.3s ease-in-out;
   box-shadow: 0px 3px 22px rgba(0, 0, 0, 0.2);
 `

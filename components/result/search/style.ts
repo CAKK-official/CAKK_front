@@ -19,13 +19,13 @@ export const SeacrhContainer = styled.div`
 
   .select-wrapper {
     background-color: #f6f6f6;
-    /* margin: 3rem 0; */
+    margin-bottom: 3rem;
     padding: 0rem 1rem;
     width: 100%;
 
     .select-items {
       display: flex;
-      min-height: 100px;
+      /* min-height: 100px; */
       margin: 1rem 0;
 
       .item-title {
@@ -43,6 +43,7 @@ export const SeacrhContainer = styled.div`
       // Location service
       .select-container {
         width: 100%;
+        /* height: 80px; */
 
         select {
           border: none;
