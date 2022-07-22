@@ -14,8 +14,8 @@ const HelpIcon: React.FC = () => {
         <Styled.redSpan>도와주세요!</Styled.redSpan>
         <Icon
           name="icon_cake_fill"
-          width={62}
-          height={62}
+          width={52}
+          height={52}
           color={theme.colors.red}
         />
       </Styled.helpIconBox>

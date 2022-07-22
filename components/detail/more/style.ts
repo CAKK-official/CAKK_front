@@ -13,14 +13,14 @@ export const MoreInfoContainer = styled.div`
       background-color: ${({ theme }) => theme.colors.black};
       color: ${({ theme }) => theme.colors.white};
 
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+      width: 96px;
+      height: 30px;
+      border-radius: 15px;
 
       &:before {
-        content: '0' counter(title);
+        content: 'step 0' counter(title);
         position: absolute;
-        font-weight: 700;
+        font-weight: 800;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -42,19 +42,11 @@ export const MoreInfoContainer = styled.div`
     flex-direction: column;
     padding: 0.6rem 1rem;
 
-    .timeline {
-      position: absolute;
-      transform: translateX(-50%);
-      top: 0;
-      left: 20px;
-      height: 100%;
-      background-color: ${({ theme }) => theme.colors.pink.A20};
-      width: 4px;
-    }
     .content {
-      margin-left: 2.4rem;
-      line-height: 35px;
-      white-space: pre;
+      margin-left: 96px;
+      white-space: pre-line;
+      line-height: 1.25rem;
+      word-break: keep-all;
     }
     p {
       margin: 0;
