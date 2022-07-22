@@ -53,7 +53,7 @@ const Detail: NextPage = () => {
       </Head>
       {data.length !== 0 ? (
         <Styled.Detail>
-          <HelpIcon />
+          {/* <HelpIcon /> */}
           <ItemSwiperContainer count={3} items={data[0].pictArray!} />
           <ShopInfoContainer
             address={data[0].address}

@@ -36,8 +36,8 @@ const ClipBoard: React.FC<ClipBoardInterface> = ({ content }) => {
     >
       <Icon
         name="icon_copy_fill"
-        width={18}
-        height={18}
+        width={12}
+        height={12}
         color={theme.colors.gray.A80}
       />
       복사
@@ -50,5 +50,5 @@ const ClipBoardBox = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 `
