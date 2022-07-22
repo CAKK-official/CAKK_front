@@ -20,8 +20,8 @@ const ItemSwiperContainer: React.FC<ItemInterface> = ({ count, items }) => {
       <Swiper
         spaceBetween={50}
         slidesPerView={count}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         {items.map((item: string, index: number) => (
           <SwiperSlide key={index}>

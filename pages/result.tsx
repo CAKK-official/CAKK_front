@@ -4,25 +4,14 @@ import Layout from '../components/layout'
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { fetchSearch } from '../src/api/api'
-import AreaContaier from '../components/main/area-section'
+import AreaContaier from '../components/result/area-section'
 import { CategoryProvider, LocationProvider } from '../context'
-import { CategoryContainer } from '../components/main/search/SeacrhContainer'
+import SearchContainer from '../components/result/search/SearchContainer'
 import * as Styled from '../styles/home'
 
 const Result: NextPage = () => {
   const router = useRouter()
   const category = router.query.category as string
-
-  useEffect(() => {
-    //빈배열일 때 에러 해결되었는지 오빠에게 물어보고 코드 수정하기
-    //NOTE: 빈배열일때 아직도 ["null"]을 넣어야하고 (internal server error 500)
-
-    if (category !== undefined) {
-      fetchSearch(0, { addresses: ['null'], category: category }).then((res) =>
-        console.log(res)
-      )
-    }
-  }, [category])
 
   return (
     <Layout>
@@ -37,10 +26,13 @@ const Result: NextPage = () => {
       <Styled.Home>
         <LocationProvider>
           <CategoryProvider>
-            <CategoryContainer />
-            <h2>검색 결과</h2>
-            <div>{category}</div>
-            <AreaContaier />
+            <div className="search-container">
+              <SearchContainer />
+            </div>
+
+            <div className="result-container">
+              <AreaContaier />
+            </div>
           </CategoryProvider>
         </LocationProvider>
       </Styled.Home>

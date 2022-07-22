@@ -12,7 +12,7 @@ const ErrorPage = () => {
       </Head>
       <Link href={`/`}>
         <Image
-          src="/img/404_img.png"
+          src="/img/405.png"
           alt="about banner"
           layout="fill"
           objectFit="cover"

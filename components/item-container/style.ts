@@ -19,7 +19,6 @@ export const ItemSwiperContainer = styled.div`
     height: 200px; */
 
     .slide {
-      background-color: greenyellow;
       border-radius: 1rem;
       height: 100%;
     }
@@ -49,12 +48,8 @@ export const ItemGridContainer = styled.div<{ rows: number }>`
       position: relative;
       margin: 1rem;
 
-      box-shadow: 0px 3px 30px rgba(164, 164, 164, 0.15);
       cursor: pointer;
 
-      /* &:first-of-type {
-        margin: 1rem;
-      } */
       .image-container {
         width: 100%;
         height: 14rem;
@@ -68,25 +63,22 @@ export const ItemGridContainer = styled.div<{ rows: number }>`
       }
 
       .information-container {
-        padding: 1rem 2rem;
+        padding: 1rem 0;
         display: flex;
         justify-content: space-between;
 
         .info-text-container {
           h4 {
             margin: 0;
-            margin-bottom: 1rem;
+            margin-bottom: 8px;
           }
 
           .info-address {
             height: 3rem;
-            width: 10rem;
+            width: 100%;
             font-size: 0.9rem;
+            word-break: keep-all;
           }
-          /* span {
-            height: 2rem;
-            font-size: 0.9rem;
-          } */
         }
 
         .button-container {

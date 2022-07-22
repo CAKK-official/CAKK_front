@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import React from 'react'
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 import { ThemeProvider, Global } from '@emotion/react'
 import { global } from '../assets/theme/Global'
@@ -10,11 +11,13 @@ declare global {
   interface Window {
     kakao: any
     Kakao: any
-    naver: any
   }
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+  React.useEffect(() => {
+    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY)
+  }, [])
   return (
     <>
       <Script

@@ -67,10 +67,8 @@ const DescriptionContainer: React.FC = () => {
   useEffect(() => {
     if (inView) {
       control.start('visible')
-      console.log('visible')
     } else {
       control.start('hidden')
-      console.log('hidden')
     }
   }, [control, inView])
 

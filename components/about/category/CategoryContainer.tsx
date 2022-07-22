@@ -23,10 +23,8 @@ const CategoryContainer = () => {
   useEffect(() => {
     if (inView) {
       control.start('visible')
-      console.log('visible')
     } else {
       control.start('hidden')
-      console.log('hidden')
     }
   }, [control, inView])
 
@@ -39,13 +37,15 @@ const CategoryContainer = () => {
         initial="hidden"
         animate={control}
       >
-        <h2>케이크크 카테고리</h2>
-        <span>주문제작 케이크를 찾기 어려우셨다면</span>
-        <br />
-        <span>
-          이제는 케이크크를 통해 쉽게 가게를 찾고 케이크 주문을 예약해보세요!
-        </span>
-
+        <div className="category-section">
+          <h2>케이크크 카테고리</h2>
+          <span>
+            케이크크는 주문제작 케이크의 디자인을 쉽고 빠르게 찾을 수 있도록{' '}
+          </span>
+          <span>
+            케이크의 디자인을 10개의 카테고리로 구분해 정보를 제공해요!
+          </span>
+        </div>
         <div className="category-button-wrapper">
           {categories.map(
             (category: { id: number; name: string; title: string }) => (

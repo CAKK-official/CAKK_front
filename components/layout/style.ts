@@ -10,19 +10,21 @@ export const Header = styled.header`
   justify-content: center;
   padding-top: 1rem;
   background-color: white;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.pink.A20};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.black};
 
   section {
     display: flex;
-    width: ${({ theme }) => theme.screen.main};
+    width: 90%;
+    /* width: ${({ theme }) => theme.screen.main}; */
     justify-content: space-between;
 
     a {
-      color: ${({ theme }) => theme.colors.pink.A80};
+      color: ${({ theme }) => theme.colors.black};
       text-decoration: none;
     }
 
     svg {
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.3));
     }
   }
 
@@ -59,7 +61,30 @@ export const Header = styled.header`
 
 export const Footer = styled.footer`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
   bottom: 0;
-  background-color: #eaeaea;
-  height: 200px;
+  background-color: #000000;
+  height: 180px;
+  gap: 15px;
+`
+export const FooterInnerBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #656565;
+  }
+`
+
+export const Icon = styled.div`
+  position: absolute;
+  top: 70px;
+  right: 160px;
+  cursor: pointer;
 `

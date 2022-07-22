@@ -30,12 +30,15 @@ export type DetailResponse = {
   menu: string
   name: string
   notice: string
-  opened: string
-  pictArray: string[]
-  storeCategory: string[]
+  opend: string
+  pictArray?: string[]
+  storeCategory?: string[]
   tel: string
   url: string
   whenbuy: string
+  title?: string
+  desc?: string
+  categories?: string[]
 }
 
 export type MapResponse = {
@@ -180,7 +183,6 @@ export const fetchMapSearch = async (
       if (!res.ok) {
         throw new Error('Res.ok Error')
       }
-      // console.log('😰', res.json());
       return res.json()
     })
     .catch((err) => {

@@ -11,13 +11,27 @@ const MissionContainer = () => {
         objectFit="cover"
       />
       <div className="text-section">
-        <h1>
-          내가 보려고 만든
+        <div className="about-logo">
+          <Image
+            src="/img/about_logo.png"
+            alt="about banner"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+        <span>
+          케이크크는 원하는 주문제작 케이크 가게를 쉽게 찾고,
           <br />
-          케이크 가게 정보 <br />
-          케이크크
-        </h1>
+          가게정보를 한눈에 확인할 수 있는 서비스입니다.
+        </span>
       </div>
+      {/*       
+      <Image
+        src="/img/about_carosel.png"
+        alt="about banner"
+        layout="fill"
+        objectFit="cover"
+      /> */}
     </Styled.MissionContainer>
   )
 }

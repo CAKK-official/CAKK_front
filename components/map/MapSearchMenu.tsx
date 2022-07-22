@@ -1,13 +1,13 @@
 import React from 'react'
-import { useNaverMapState, useNaverMapDispatch } from '../../context'
+import { useKakaoMapState, useKakaoMapDispatch } from '../../context'
 import Icon from '../icon'
 import * as S from './style'
 
 const MapSearchMenu: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const { menu } = useNaverMapState()
-  const dispatch = useNaverMapDispatch()
+  const { menu } = useKakaoMapState()
+  const dispatch = useKakaoMapDispatch()
   return (
     <>
       <S.MenuButton

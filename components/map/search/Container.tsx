@@ -4,11 +4,10 @@ import {
   useCategoryDispatch,
   useCategoryState,
   useMapLocationDispatch,
-  useNaverMapDispatch,
 } from '../../../context'
 import { categoryList } from '../../../context/CategoryContext'
 import { LocationProps } from '../../../context/MapLocationContext'
-import Select from '../../main/select'
+import Select from '../../result/select'
 
 import * as S from './style'
 
@@ -23,8 +22,6 @@ export const LocationContainer: React.FC = () => {
       type: 'SET_LAT_LNG_BY_LOCATION',
       location: event.target.value as LocationProps,
     })
-
-    console.log('hello world')
   }
 
   return (

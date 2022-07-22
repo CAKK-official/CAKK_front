@@ -3,9 +3,17 @@ import { motion } from 'framer-motion'
 
 export const IntroductionContainer = styled(motion.section)`
   padding: 4rem 0;
+
   .introduction-wrapper {
     margin: auto;
     width: ${({ theme }) => theme.screen.main};
+
+    .introduction-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 `
 

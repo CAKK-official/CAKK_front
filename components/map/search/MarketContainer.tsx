@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import { useNaverMapState } from '../../../context'
+import { useKakaoMapState } from '../../../context'
 import { MapResponse } from '../../../src/api/api'
 import * as S from './style'
 
@@ -9,12 +9,12 @@ interface MarketContainerInterface {
 }
 
 const MarketItem: React.FC<{ market: MapResponse }> = ({ market }) => {
-  const { NaverMap } = useNaverMapState()
+  const { KakaoMap } = useKakaoMapState()
 
   function handleMarketItemClick(latlng: [number, number]) {
-    NaverMap.setZoom(14)
-    const location = new naver.maps.LatLng(latlng[0], latlng[1] - 0.01)
-    NaverMap.panTo(location, {})
+    KakaoMap.setLevel(3, { animate: true })
+    const location = new window.kakao.maps.LatLng(latlng[0], latlng[1] - 0.0025)
+    KakaoMap.panTo(location)
   }
 
   return (

@@ -1,3 +1,5 @@
+import styled from '@emotion/styled'
+import theme from '../../../assets/theme/theme'
 import Icon from '../../icon'
 interface ClipBoardInterface {
   content: string
@@ -27,14 +29,26 @@ const ClipBoard: React.FC<ClipBoardInterface> = ({ content }) => {
   }
 
   return (
-    <div
-      style={{ cursor: 'pointer' }}
+    <ClipBoardBox
       onClick={() => {
         handleCopy(content)
       }}
     >
-      <Icon name="icon_copy_fill" width={24} height={24} color="#E72E40" />
-    </div>
+      <Icon
+        name="icon_copy_fill"
+        width={18}
+        height={18}
+        color={theme.colors.gray.A80}
+      />
+      복사
+    </ClipBoardBox>
   )
 }
 export default ClipBoard
+
+const ClipBoardBox = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`
