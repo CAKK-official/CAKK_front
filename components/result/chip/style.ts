@@ -10,8 +10,9 @@ export const Chip = styled.div<{ primary: boolean; handleDelete?: boolean }>`
   -ms-user-select: none; /* IE10+ */
   margin: 10px 12px;
   padding: 10px 15px;
-  box-shadow: 0px 3px 30px rgba(164, 164, 164, 0.15);
-  // border: 1px solid ${(props) => (props.primary ? '#e72d3f' : 'white')};
+  /* border: 1px solid ${(props) =>
+    props.primary ? theme.colors.black : 'white'}; */
+  border: 1px solid ${({ theme }) => theme.colors.gray.A80};
   background-color: ${(props) =>
     props.primary ? theme.colors.black : 'white'};
   border-radius: 10px;

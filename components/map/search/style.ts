@@ -8,7 +8,7 @@ export const SearchContainer = styled.div`
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
 
   span {
     margin-right: 3rem;

@@ -8,6 +8,7 @@ import { ItemSwiperContainer } from '../../components/item-container'
 import { DetailResponse, fetchDetail } from '../../src/api/api'
 import { useRouter } from 'next/router'
 import HelpIcon from '../../components/detail/helpicon/helpicon'
+import { LoadingView } from '../../components/loading'
 
 const Detail: NextPage = () => {
   const { query } = useRouter()
@@ -73,7 +74,7 @@ const Detail: NextPage = () => {
           />
         </Styled.Detail>
       ) : (
-        <div>Loading</div>
+        <LoadingView text={'가게 정보를 불러오고 있습니다...'} />
       )}
     </Layout>
   )
