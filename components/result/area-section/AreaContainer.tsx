@@ -32,8 +32,6 @@ const AreaContainer: React.FC = () => {
 
   // Fetch API
   useEffect(() => {
-    console.log(categoryState, locationState)
-
     if (categoryState.category !== '' || locationState.location.length !== 0) {
       setIsPopular(false)
       fetchSearch(page, {

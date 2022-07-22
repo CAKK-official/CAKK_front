@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   useCategoryDispatch,
   useCategoryState,
@@ -9,6 +9,7 @@ import Chip from '../chip'
 import * as Styled from './style'
 import Select from '../select'
 import { categoryList } from '../../../context/CategoryContext'
+import { useRouter } from 'next/router'
 
 export const LocationContainer: React.FC = () => {
   const state = useLocationState()
@@ -53,8 +54,22 @@ export const LocationContainer: React.FC = () => {
 }
 
 export const CategoryContainer: React.FC = () => {
+  const router = useRouter()
   const state = useCategoryState()
   const dispatch = useCategoryDispatch()
+
+  useEffect(() => {
+    const routerCategory = router.query.category
+    if (routerCategory !== undefined) {
+      const currentCategory = categoryList.find(
+        (category) => category.title === routerCategory
+      ) as {
+        name: string
+        title: string
+      }
+      dispatch({ type: 'SET_CATEGORY', category: currentCategory.name })
+    }
+  }, [router])
 
   return (
     <div className="category-group select-items">

@@ -55,7 +55,7 @@ function reducer(state: KakaoMapState, action: KakaoMapAction): KakaoMapState {
         KakaoMarkers: [...state.KakaoMarkers, action.KakaoMarker],
       }
     case 'RESET_MARKERS':
-      console.log('-', state.KakaoMarkers)
+      // console.log('-', state.KakaoMarkers)
       state.KakaoMarkers.map((marker: kakao.maps.Marker) => {
         marker.setMap(null)
       })
